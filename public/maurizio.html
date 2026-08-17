@@ -219,11 +219,13 @@ body {
 .ch-03-grid {
     position: relative; z-index: 1;
     display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 4rem; align-items: start;
+    max-width: 1800px; margin: 0 auto;
 }
 .ch-03 .img-frame { height: 88vh; margin-top: -3.5rem; }
+.ch-03 .plx-img { inset: 0; }
 .img-conference-03 {
-    background-image: url('/assets/mobility-data.jpg');
-    background-position: 50% 50%;
+    background-image: url('/assets/mobility-data.png');
+    background-position: 50% 34%;
     filter: saturate(0.85) contrast(1.03);
 }
 .ch-03 .story-text { padding-top: 4rem; }
@@ -506,7 +508,7 @@ body {
     .ch-03-grid { grid-template-columns: 1fr; }
     .ch-03 .img-frame { height: auto; aspect-ratio: 4 / 5; margin-top: 0; }
     .img-conference-03 {
-        background-image: url('/assets/mobility-data.jpg');
+        background-image: url('/assets/mobility-data.png');
         background-position: 50% 50%;
     }
     .ch-03 .story-text { padding-top: 0; }
@@ -699,7 +701,7 @@ body {
         </div>
     </div>
 
-    <div class="ch-03">
+    <div class="ch-03" id="mobility-data">
         <div class="ch-03-grid">
             <div class="story-text">
                 <p class="story-chapter-label reveal">03 — Mobility &amp; Data</p>
@@ -717,7 +719,7 @@ body {
                 <p class="story-evidence reveal reveal-delay-4">CAKE – ridecake.com · Liberty Rider · REVO Insurance</p>
             </div>
             <div class="img-frame reveal">
-                <div class="plx-img img-conference-03" data-parallax role="img" aria-label="Maurizio Di Russo"></div>
+                <div class="plx-img img-conference-03" role="img" aria-label="Maurizio Di Russo"></div>
             </div>
         </div>
     </div>
