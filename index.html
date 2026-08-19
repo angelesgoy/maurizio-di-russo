@@ -9,547 +9,540 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
+/* ============ COLOR PALETTE: 100% FLAT & SOLID ============ */
 :root {
-    --midnight: #0f1a2e;
-    --petroleum: #2a3f5f;
-    --petroleum-light: #3a5278;
-    --warm-white: #f5f2eb;
-    --warm-white-dim: #ebe8e0;
-    --graphite: #3d3d3d;
-    --charcoal: #2a2a2a;
-    --muted-blue: #4a6180;
-    --text-dark: #1a1a2e;
-    --text-light: #d4d2cb;
-    --accent: #5b7ea8;
-    --photo-white: #f4f4f5;
+    --midnight: #0b1320;
+    --midnight-surface: #131f33;
+    --midnight-card: #182842;
+    --petroleum: #233652;
+    --petroleum-light: #324c73;
+    --petroleum-hover: #3d5d8c;
+    --warm-white: #f6f4ee;
+    --warm-white-dim: #ede9df;
+    --card-white: #ffffff;
+    --graphite: #383838;
+    --charcoal: #1c1c24;
+    --muted-slate: #6b829e;
+    --text-dark: #0f172a;
+    --text-light: #e2e8f0;
+    --text-dim: #94a3b8;
+    --accent: #4a72a6;
+    --border-dark: #233652;
+    --border-light: #e2ded4;
+    --photo-bg: #e8e6df;
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-pill: 999px;
 }
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; overflow-x: hidden; }
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     background-color: var(--warm-white);
     color: var(--text-dark);
     line-height: 1.6;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
-    padding-bottom: 6rem;
+    padding-bottom: 7rem;
 }
 
-/* ============ HEADER & TOP NAVIGATION ============ */
-.top-header {
+/* ============ HEADER COMPACTO: 1 SOLA LÍNEA EN MOBILE ============ */
+.site-top-bar {
     position: sticky; top: 0; z-index: 1000;
-    background: rgba(15, 26, 46, 0.98);
-    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    padding: 0.9rem 2.5rem 0.6rem;
+    background-color: var(--midnight);
+    border-bottom: 1px solid var(--border-dark);
+    padding: 0.85rem 2.5rem 0.65rem;
 }
-.header-brand-row {
+.brand-single-line {
     display: flex; justify-content: space-between; align-items: center;
-    margin-bottom: 0.65rem;
+    gap: 1rem; margin-bottom: 0.65rem;
 }
-.nav-logo {
-    font-size: 0.75rem; font-weight: 600; letter-spacing: 0.22em;
-    text-transform: uppercase; color: var(--warm-white); text-decoration: none;
+.brand-title {
+    font-size: 0.8rem; font-weight: 700; letter-spacing: 0.18em;
+    text-transform: uppercase; color: #ffffff; text-decoration: none;
+    white-space: nowrap;
 }
-.nav-tagline {
-    font-size: 0.6rem; font-weight: 500; letter-spacing: 0.14em;
-    text-transform: uppercase; color: var(--muted-blue);
+.brand-divider {
+    color: var(--muted-slate); font-weight: 300; margin: 0 0.35rem; display: none;
+}
+.brand-sub {
+    font-size: 0.65rem; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--muted-slate); white-space: nowrap;
 }
 
-/* ============ HORIZONTAL TAB STRIP ============ */
-.tab-strip-wrapper {
+/* ============ BOTONERA SUPERIOR (ICONOS MODERNOS) ============ */
+.tabs-scroll-container {
     overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none;
 }
-.tab-strip-wrapper::-webkit-scrollbar { display: none; }
-.tab-strip {
-    display: flex; gap: 0.5rem; justify-content: center; min-width: max-content;
+.tabs-scroll-container::-webkit-scrollbar { display: none; }
+.tabs-pill-row {
+    display: flex; gap: 0.5rem; justify-content: center; min-width: max-content; padding: 0.1rem 0;
 }
-.tab-item-btn {
-    display: inline-flex; align-items: center; gap: 0.45rem;
-    padding: 0.5rem 1rem; font-size: 0.68rem; font-weight: 500;
-    letter-spacing: 0.14em; text-transform: uppercase;
-    color: var(--text-light); background: transparent;
-    border: 1px solid transparent; border-radius: 999px;
-    cursor: pointer; transition: all 0.25s ease;
+.nav-tab-pill {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    padding: 0.5rem 1rem; font-size: 0.68rem; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--text-dim); background-color: var(--midnight-surface);
+    border: 1px solid var(--border-dark); border-radius: var(--radius-pill);
+    cursor: pointer; transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
 }
-.tab-item-btn svg { width: 14px; height: 14px; stroke: currentColor; opacity: 0.8; }
-.tab-item-btn:hover {
-    color: var(--warm-white); background: rgba(255, 255, 255, 0.06);
-    border-color: rgba(255, 255, 255, 0.12);
+.nav-tab-pill svg { width: 15px; height: 15px; stroke-width: 1.8; stroke: currentColor; fill: none; }
+.nav-tab-pill:hover {
+    color: #ffffff; background-color: var(--petroleum); border-color: var(--petroleum-light);
 }
-.tab-item-btn.active {
-    color: var(--warm-white); background: var(--petroleum);
-    border-color: var(--petroleum-light);
+.nav-tab-pill:active { transform: scale(0.96); }
+.nav-tab-pill.active {
+    color: var(--midnight); background-color: #ffffff;
+    border-color: #ffffff; font-weight: 700;
 }
-.tab-item-btn.active svg { opacity: 1; }
+.nav-tab-pill.active svg { stroke: var(--midnight); }
 
-/* ============ TAB VIEW PANELS ============ */
-.tab-panel {
-    display: none; animation: tabFade 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+.tab-label-text { display: inline-block; }
+
+/* ============ TAB VIEW SYSTEM ============ */
+.tab-content-panel {
+    display: none; animation: tabAppear 0.35s ease forwards;
 }
-.tab-panel.active { display: block; }
-@keyframes tabFade {
-    from { opacity: 0; transform: translateY(16px); }
+.tab-content-panel.active { display: block; }
+@keyframes tabAppear {
+    from { opacity: 0; transform: translateY(12px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* ============ HERO SECTION (ORIGINAL IDENTITY) ============ */
-.hero {
-    min-height: calc(100vh - 100px);
-    display: grid;
-    grid-template-columns: 45% 55%;
-    background: var(--midnight);
-    position: relative;
+/* ============ ENCABEZADO DE SECCIÓN SOBRE FONDO BLANCO ============ */
+.section-banner-light {
+    padding: 3.5rem 2.5rem 1rem; max-width: 1150px; margin: 0 auto;
 }
-.hero-content {
+.section-kicker {
+    display: inline-block; font-size: 0.68rem; font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase; color: var(--petroleum);
+    margin-bottom: 0.6rem;
+}
+.section-main-heading {
+    font-size: clamp(1.8rem, 3.2vw, 2.75rem); font-weight: 600; line-height: 1.2;
+    color: var(--text-dark); letter-spacing: -0.015em; margin-bottom: 1rem;
+}
+.section-intro-text {
+    font-size: 0.95rem; font-weight: 300; line-height: 1.75;
+    color: var(--graphite); max-width: 700px;
+}
+/* ============ HERO SECTION ============ */
+.hero-flat {
+    min-height: calc(100vh - 110px); display: grid; grid-template-columns: 46% 54%;
+    background-color: var(--midnight); position: relative;
+}
+.hero-flat-left {
     display: flex; flex-direction: column; justify-content: center;
     padding: 5rem 4rem 5rem 5rem; position: relative; z-index: 2;
 }
-.hero-name {
-    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.22em;
-    text-transform: uppercase; color: var(--muted-blue); margin-bottom: 2.5rem;
+.hero-flat-tag {
+    font-size: 0.68rem; font-weight: 700; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--muted-slate); margin-bottom: 2.5rem;
 }
-.hero-statement {
+.hero-flat-h1 {
     font-size: clamp(1.9rem, 3.4vw, 3.1rem); font-weight: 500; line-height: 1.25;
-    color: var(--warm-white); max-width: 520px; letter-spacing: -0.01em;
+    color: #ffffff; max-width: 520px; letter-spacing: -0.01em; margin-bottom: 3rem;
 }
-.hero-statement em { font-style: normal; font-weight: 500; color: var(--accent); }
-.hero-cta { margin-top: 3.5rem; display: flex; gap: 1.5rem; align-items: center; }
-.cta-link {
-    display: inline-flex; align-items: center; gap: 1rem;
-    font-size: 0.72rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase;
-    color: var(--warm-white); text-decoration: none;
-    padding: 0.85rem 0; border-bottom: 1px solid var(--petroleum-light);
-    cursor: pointer; background: transparent; border-top: none; border-left: none; border-right: none;
-    transition: all 0.3s ease;
+.hero-flat-h1 em { font-style: normal; font-weight: 600; color: var(--accent); }
+.hero-flat-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+.hero-flat-btn {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    padding: 0.8rem 1.6rem; font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase; border-radius: var(--radius-pill);
+    cursor: pointer; transition: all 0.2s ease; text-decoration: none;
 }
-.cta-link:hover { border-color: var(--accent); gap: 1.5rem; color: var(--warm-white); }
-.cta-link svg { width: 15px; height: 15px; transition: transform 0.3s ease; }
-.cta-link:hover svg { transform: translateX(4px); }
+.hero-flat-btn-light {
+    background-color: #ffffff; color: var(--midnight); border: 1px solid #ffffff;
+}
+.hero-flat-btn-light:hover {
+    background-color: var(--warm-white-dim); transform: translateY(-1px);
+}
+.hero-flat-btn-dark {
+    background-color: var(--midnight-surface); color: #ffffff; border: 1px solid var(--border-dark);
+}
+.hero-flat-btn-dark:hover {
+    background-color: var(--petroleum); transform: translateY(-1px);
+}
 
-.hero-image-wrap {
-    overflow: hidden; position: relative; background: var(--photo-white); min-height: 500px;
+.hero-flat-right {
+    position: relative; background-color: var(--photo-bg); overflow: hidden; min-height: 480px;
 }
-.hero-image {
+.hero-flat-portrait {
     position: absolute; inset: 0;
     background-image: url('https://i.postimg.cc/0N1qWhKT/portrait-bw-jpg.png');
-    background-size: cover; background-position: 50% 46%; background-repeat: no-repeat;
-    background-color: var(--photo-white); transform: scale(1.02);
+    background-size: cover; background-position: 50% 42%; background-repeat: no-repeat;
 }
 
-/* ============ PROPOSITION SECTION ============ */
-.proposition { padding: 8rem 5rem 7rem; background: var(--warm-white); }
-.proposition-header {
-    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em;
-    text-transform: uppercase; color: var(--muted-blue);
-    margin-bottom: 4rem; max-width: 800px;
-}
-.proposition-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem 4rem; max-width: 1100px; }
-.proposition-number {
-    font-size: 0.65rem; font-weight: 600; letter-spacing: 0.15em;
-    color: var(--petroleum-light); margin-bottom: 1.25rem; text-transform: uppercase;
-}
-.proposition-title {
-    font-size: clamp(1.4rem, 2.2vw, 1.9rem); font-weight: 500; line-height: 1.25;
-    color: var(--text-dark); margin-bottom: 1.25rem; max-width: 420px; letter-spacing: -0.005em;
-}
-.proposition-text { font-size: 0.92rem; font-weight: 300; line-height: 1.75; color: var(--graphite); max-width: 360px; }
+/* ============ PROPOSITION (4 PILARES) ============ */
+.proposition-flat { padding: 7rem 4rem 6rem; background-color: var(--warm-white); max-width: 1200px; margin: 0 auto; }
+.prop-kicker { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted-slate); margin-bottom: 3.5rem; }
+.prop-grid-2x2 { display: grid; grid-template-columns: 1fr 1fr; gap: 4.5rem 3.5rem; }
+.prop-card-num { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--petroleum-light); margin-bottom: 1rem; }
+.prop-card-title { font-size: clamp(1.35rem, 2vw, 1.8rem); font-weight: 600; line-height: 1.25; color: var(--text-dark); margin-bottom: 1rem; }
+.prop-card-body { font-size: 0.92rem; font-weight: 300; line-height: 1.75; color: var(--graphite); }
 
-/* ============ SCALE SECTION ============ */
-.scale {
-    padding: 7rem 3rem; background: var(--midnight); text-align: center;
-}
-.scale-content { max-width: 900px; margin: 0 auto; }
-.scale-label {
-    font-size: 0.72rem; font-weight: 500; letter-spacing: 0.16em;
-    text-transform: uppercase; color: var(--muted-blue); margin-bottom: 1.5rem;
-}
-.scale-number {
-    font-size: clamp(4rem, 11vw, 8.5rem); font-weight: 800; line-height: 1;
-    color: var(--warm-white); letter-spacing: -0.03em; margin-bottom: 2rem;
-}
-.scale-context {
-    font-size: 1.05rem; font-weight: 400; line-height: 1.8;
-    color: var(--text-light); max-width: 520px; margin: 0 auto;
-}
-.scale-secondary {
-    display: flex; justify-content: center; gap: 5rem;
-    margin-top: 4.5rem; padding-top: 3rem; border-top: 1px solid var(--petroleum);
-}
-.scale-stat-number {
-    font-size: clamp(1.6rem, 2.8vw, 2.2rem); font-weight: 600;
-    color: var(--warm-white); letter-spacing: -0.02em; margin-bottom: 0.4rem;
-}
-.scale-stat-label {
-    font-size: 0.68rem; font-weight: 400; letter-spacing: 0.12em;
-    text-transform: uppercase; color: var(--muted-blue);
-}
-/* ============ CHAPTER / CASE STUDY STYLES ============ */
-.story-chapter-label {
-    font-size: 0.65rem; font-weight: 600; letter-spacing: 0.22em;
-    text-transform: uppercase; color: var(--muted-blue); margin-bottom: 1.5rem;
-}
-.story-chapter-title {
-    font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 500; line-height: 1.25;
-    color: var(--text-dark); margin-bottom: 1.75rem; max-width: 520px; letter-spacing: -0.01em;
-}
-.story-chapter-body {
-    font-size: 0.95rem; font-weight: 300; line-height: 1.8;
-    color: var(--graphite); max-width: 460px; margin-bottom: 1.25rem;
-}
-.story-evidence {
-    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em;
-    color: var(--petroleum-light); border-left: 2px solid var(--petroleum-light);
-    padding-left: 1rem; margin-top: 1.25rem;
-}
+/* ============ SCALE (€900M+) ============ */
+.scale-flat { padding: 6.5rem 3rem; background-color: var(--midnight); text-align: center; }
+.scale-flat-tag { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-slate); margin-bottom: 1.5rem; }
+.scale-flat-number { font-size: clamp(4rem, 10vw, 8rem); font-weight: 800; line-height: 1; color: #ffffff; letter-spacing: -0.03em; margin-bottom: 1.5rem; }
+.scale-flat-sub { font-size: 1.05rem; font-weight: 400; color: var(--text-light); max-width: 520px; margin: 0 auto; line-height: 1.7; }
+.scale-flat-cols { display: flex; justify-content: center; gap: 5rem; margin-top: 4rem; padding-top: 3rem; border-top: 1px solid var(--border-dark); }
+.scale-col-val { font-size: clamp(1.6rem, 2.8vw, 2.2rem); font-weight: 700; color: #ffffff; margin-bottom: 0.3rem; }
+.scale-col-lbl { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted-slate); }
 
-.case-chapter-light {
-    display: grid; grid-template-columns: 1fr 1fr; align-items: center;
-    padding: 7rem 5rem; gap: 4rem; background: var(--warm-white);
-}
-.case-chapter-dark {
-    display: grid; grid-template-columns: 1fr 1fr; align-items: center;
-    padding: 7rem 5rem; gap: 4rem; background: var(--midnight);
-}
-.case-chapter-dark .story-chapter-label { color: var(--accent); }
-.case-chapter-dark .story-chapter-title { color: var(--warm-white); }
-.case-chapter-dark .story-chapter-body { color: var(--text-light); }
-.case-chapter-dark .story-evidence { color: var(--text-light); border-color: var(--accent); }
-
-.ch-num {
-    font-size: clamp(4rem, 8vw, 7rem); font-weight: 800; line-height: 1;
-    letter-spacing: -0.04em; color: rgba(42, 63, 95, 0.12); margin-bottom: 0.5rem;
-}
-.case-chapter-dark .ch-num { color: rgba(255, 255, 255, 0.08); }
-
-.editorial-img-frame {
-    position: relative; height: 75vh; min-height: 480px; overflow: hidden; background: var(--photo-white);
-}
-.editorial-img {
-    position: absolute; inset: 0; background-size: cover; background-position: 50% 30%;
-}
-
-.methodology-bar {
+/* ============ CASOS DE ESTUDIO (CHAPTERS) ============ */
+.method-strip-flat {
     display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem;
-    padding: 4rem 5rem; background: var(--warm-white-dim);
-    border-bottom: 1px solid rgba(42, 63, 95, 0.15);
+    padding: 3.5rem 4rem; background-color: var(--warm-white-dim);
+    border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light);
+    max-width: 1200px; margin: 0 auto 4rem;
 }
-.method-col-num { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--petroleum-light); margin-bottom: 0.3rem; }
-.method-col-title { font-size: 1rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.3rem; }
-.method-col-desc { font-size: 0.82rem; font-weight: 300; line-height: 1.6; color: var(--graphite); }
+.method-step-idx { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--petroleum); margin-bottom: 0.25rem; }
+.method-step-name { font-size: 0.95rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.25rem; }
+.method-step-desc { font-size: 0.8rem; font-weight: 300; line-height: 1.55; color: var(--graphite); }
 
-/* ============ VALUE SECTION ============ */
-.value-section { padding: 8rem 5rem 7rem; background: var(--warm-white-dim); }
-.value-header-label { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted-blue); margin-bottom: 1.5rem; }
-.value-header-title { font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 500; line-height: 1.25; color: var(--text-dark); margin-bottom: 4rem; max-width: 720px; }
-.value-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--petroleum-light); }
-.value-item {
-    padding: 2.5rem 2rem; border-bottom: 1px solid rgba(42, 63, 95, 0.2);
-    border-right: 1px solid rgba(42, 63, 95, 0.2); transition: background-color 0.3s ease;
+.case-chapter-box-light {
+    display: grid; grid-template-columns: 1fr 1fr; align-items: center;
+    padding: 5.5rem 4rem; gap: 4rem; background-color: var(--warm-white); max-width: 1200px; margin: 0 auto;
 }
-.value-item:nth-child(3n) { border-right: none; }
-.value-item:hover { background-color: rgba(42, 63, 95, 0.04); }
-.value-item-title { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--petroleum); margin-bottom: 1rem; }
-.value-item-body { font-size: 0.88rem; font-weight: 300; line-height: 1.7; color: var(--graphite); }
+.case-chapter-box-dark {
+    display: grid; grid-template-columns: 1fr 1fr; align-items: center;
+    padding: 5.5rem 4rem; gap: 4rem; background-color: var(--midnight); color: #ffffff;
+}
+.case-chapter-box-dark .ch-card-title { color: #ffffff; }
+.case-chapter-box-dark .ch-card-body { color: var(--text-light); }
+.case-chapter-box-dark .ch-card-badge { background-color: var(--midnight-surface); color: var(--accent); border-color: var(--border-dark); }
+.case-chapter-box-dark .ch-card-evidence { color: var(--text-light); border-color: var(--accent); }
 
-/* ============ TIMELINE STYLES ============ */
-.timeline-wrap { padding: 8rem 5rem; background: var(--warm-white); }
-.timeline-filter-strip { display: flex; gap: 0.75rem; margin-bottom: 4rem; flex-wrap: wrap; }
-.t-btn {
-    padding: 0.55rem 1.25rem; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.12em;
-    text-transform: uppercase; background: transparent; border: 1px solid rgba(42, 63, 95, 0.2);
-    color: var(--graphite); border-radius: 999px; cursor: pointer; transition: all 0.25s ease;
-}
-.t-btn.active, .t-btn:hover { background: var(--petroleum); color: var(--warm-white); border-color: var(--petroleum); }
-.timeline-stream { position: relative; max-width: 900px; }
-.timeline-stream::before {
-    content: ''; position: absolute; left: 160px; top: 12px; bottom: 12px;
-    width: 1px; background: rgba(42, 63, 95, 0.2);
-}
-.timeline-card-row { display: grid; grid-template-columns: 160px 1fr; gap: 3rem; position: relative; margin-bottom: 4rem; }
-.timeline-date-side { text-align: right; padding-top: 0.2rem; }
-.timeline-time { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; color: var(--petroleum); text-transform: uppercase; }
-.timeline-city { font-size: 0.68rem; color: var(--muted-blue); margin-top: 0.2rem; }
-.timeline-dot {
-    position: absolute; left: 156px; top: 0.5rem; width: 9px; height: 9px;
-    background: var(--warm-white); border: 2px solid var(--petroleum); border-radius: 50%;
-}
-.timeline-body-side {
-    background: var(--warm-white-dim); padding: 2.2rem; border-left: 2px solid var(--petroleum-light);
-}
-.t-role { font-size: 1.25rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.2rem; }
-.t-firm { font-size: 0.85rem; font-weight: 600; color: var(--petroleum); margin-bottom: 1rem; }
-.t-summary { font-size: 0.9rem; font-weight: 300; line-height: 1.7; color: var(--graphite); margin-bottom: 1rem; }
-.t-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
-.t-bullets li { font-size: 0.82rem; font-weight: 400; color: var(--charcoal); padding-left: 1.2rem; position: relative; }
-.t-bullets li::before { content: '→'; position: absolute; left: 0; color: var(--petroleum-light); font-weight: 600; }
+.ch-card-big-num { font-size: clamp(3.5rem, 7vw, 6rem); font-weight: 800; line-height: 1; color: rgba(42, 63, 95, 0.15); margin-bottom: 0.5rem; }
+.case-chapter-box-dark .ch-card-big-num { color: rgba(255, 255, 255, 0.08); }
+.ch-card-tag { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--petroleum-light); margin-bottom: 1.25rem; }
+.ch-card-title { font-size: clamp(1.6rem, 2.6vw, 2.3rem); font-weight: 600; line-height: 1.25; color: var(--text-dark); margin-bottom: 1.25rem; }
+.ch-card-body { font-size: 0.92rem; font-weight: 300; line-height: 1.75; color: var(--graphite); margin-bottom: 1rem; }
+.ch-card-evidence { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; color: var(--petroleum-light); border-left: 2px solid var(--petroleum-light); padding-left: 0.9rem; margin-top: 1.2rem; }
 
-/* ============ MEDIA & CONFERENCES ============ */
-.media-wrap { padding: 8rem 5rem; background: var(--midnight); color: var(--warm-white); }
-.media-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; margin-top: 3.5rem; }
-.media-card {
-    background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1);
-    display: flex; flex-direction: column; transition: transform 0.3s ease;
-}
-.media-card:hover { transform: translateY(-4px); }
-.media-card-photo {
-    height: 240px; background-size: cover; background-position: 50% 30%; position: relative; cursor: pointer;
-}
-.media-card-photo::after {
-    content: '🔎 Ver Imagen'; position: absolute; inset: 0; background: rgba(15, 26, 46, 0.7);
-    color: var(--warm-white); display: flex; align-items: center; justify-content: center;
-    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
-    opacity: 0; transition: opacity 0.25s ease;
-}
-.media-card-photo:hover::after { opacity: 1; }
-.media-card-text { padding: 2rem; display: flex; flex-direction: column; flex: 1; }
-.media-card-tag { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.6rem; }
-.media-card-title { font-size: 1.15rem; font-weight: 500; color: var(--warm-white); line-height: 1.35; margin-bottom: 0.8rem; }
-.media-card-desc { font-size: 0.84rem; font-weight: 300; line-height: 1.65; color: var(--text-light); margin-bottom: 1.5rem; flex: 1; }
-.media-card-link { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--warm-white); text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; }
+.ch-photo-wrap { position: relative; height: 60vh; min-height: 420px; background-color: var(--photo-bg); overflow: hidden; }
+.ch-photo { position: absolute; inset: 0; background-size: cover; background-position: 50% 30%; }
 
-/* ============ PERSPECTIVE QUOTE & HUMAN (CYCLING) ============ */
-.perspective-quote {
-    min-height: 70vh; display: flex; align-items: center; justify-content: center;
-    padding: 6rem 5rem; background: var(--midnight);
+/* ============ TIMELINE ============ */
+.timeline-section-flat { padding: 4rem 4rem 6rem; max-width: 1050px; margin: 0 auto; }
+.timeline-filters-flat { display: flex; gap: 0.6rem; margin-bottom: 3.5rem; flex-wrap: wrap; }
+.t-filter-pill {
+    padding: 0.5rem 1.2rem; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; background-color: var(--card-white); border: 1px solid var(--border-light);
+    color: var(--graphite); border-radius: var(--radius-pill); cursor: pointer; transition: all 0.2s ease;
 }
-.perspective-quote-inner { max-width: 900px; }
-.perspective-quote-mark { font-size: 7rem; font-weight: 200; line-height: 0.5; color: var(--petroleum); margin-bottom: 2.5rem; }
-.perspective-quote-text { font-size: clamp(1.7rem, 2.8vw, 2.6rem); font-weight: 500; line-height: 1.35; color: var(--warm-white); letter-spacing: -0.01em; }
-.perspective-quote-attr { margin-top: 2.5rem; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted-blue); }
+.t-filter-pill.active, .t-filter-pill:hover {
+    background-color: var(--midnight); color: #ffffff; border-color: var(--midnight);
+}
+.t-stream { position: relative; }
+.t-stream::before { content: ''; position: absolute; left: 160px; top: 12px; bottom: 12px; width: 1px; background-color: var(--border-light); }
+.t-row-item { display: grid; grid-template-columns: 160px 1fr; gap: 3rem; position: relative; margin-bottom: 3.5rem; }
+.t-left-date { text-align: right; padding-top: 0.2rem; }
+.t-date-str { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; color: var(--petroleum); text-transform: uppercase; }
+.t-city-str { font-size: 0.68rem; color: var(--muted-slate); margin-top: 0.2rem; }
+.t-node-dot { position: absolute; left: 156px; top: 0.5rem; width: 9px; height: 9px; background-color: #ffffff; border: 2px solid var(--petroleum); border-radius: 50%; }
+.t-card-box { background-color: var(--card-white); border: 1px solid var(--border-light); border-left: 3px solid var(--petroleum); padding: 2rem; border-radius: var(--radius-sm); }
+.t-job-title { font-size: 1.15rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.2rem; }
+.t-firm-name { font-size: 0.85rem; font-weight: 600; color: var(--petroleum-light); margin-bottom: 0.9rem; }
+.t-job-desc { font-size: 0.88rem; font-weight: 300; line-height: 1.65; color: var(--graphite); margin-bottom: 1rem; }
+.t-job-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
+.t-job-bullets li { font-size: 0.82rem; color: var(--charcoal); padding-left: 1.2rem; position: relative; }
+.t-job-bullets li::before { content: '•'; position: absolute; left: 0; color: var(--petroleum); font-weight: 700; }
 
-.human-cycling { position: relative; height: 85vh; min-height: 520px; overflow: hidden; }
-.human-cycling-img {
-    position: absolute; inset: 0; background-image: url('https://i.postimg.cc/cLTK04xZ/cycling-jpg.png');
-    background-size: cover; background-position: 50% 40%;
+/* ============ MEDIA & CONFERENCIAS ============ */
+.media-section-flat { padding: 5rem 4rem 6rem; background-color: var(--midnight); color: #ffffff; }
+.media-grid-flat { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; max-width: 1200px; margin: 3rem auto 0; }
+.media-card-flat { background-color: var(--midnight-surface); border: 1px solid var(--border-dark); display: flex; flex-direction: column; border-radius: var(--radius-sm); overflow: hidden; }
+.media-photo-thumb { height: 220px; background-size: cover; background-position: 50% 30%; position: relative; cursor: pointer; }
+.media-photo-thumb::after {
+    content: 'Ver Fotografía'; position: absolute; inset: 0; background-color: rgba(11, 19, 32, 0.8);
+    color: #ffffff; display: flex; align-items: center; justify-content: center;
+    font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+    opacity: 0; transition: opacity 0.2s ease;
 }
-.human-cycling::after {
-    content: ''; position: absolute; inset: 0; z-index: 1;
-    background: linear-gradient(180deg, transparent 40%, rgba(15, 26, 46, 0.78) 100%);
-}
-.human-cycling-content {
-    position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; padding: 5rem;
-}
-.human-label { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(245, 242, 235, 0.7); margin-bottom: 1.2rem; }
-.human-text { font-size: clamp(1.05rem, 1.5vw, 1.3rem); font-weight: 400; color: var(--warm-white); max-width: 520px; line-height: 1.7; }
+.media-photo-thumb:hover::after { opacity: 1; }
+.media-content-flat { padding: 1.75rem; display: flex; flex-direction: column; flex: 1; }
+.media-type-tag { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+.media-title-flat { font-size: 1.1rem; font-weight: 600; color: #ffffff; line-height: 1.35; margin-bottom: 0.6rem; }
+.media-desc-flat { font-size: 0.82rem; font-weight: 300; line-height: 1.65; color: var(--text-dim); margin-bottom: 1.25rem; flex: 1; }
+.media-link-flat { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #ffffff; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; background: none; border: none; cursor: pointer; padding: 0; }
 
-/* ============ EDUCATION SECTION ============ */
-.education-wrap { padding: 8rem 5rem; background: var(--warm-white); }
-.edu-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; margin-top: 3.5rem; }
-.edu-item-box { padding: 2.5rem 2rem; background: var(--warm-white-dim); border-top: 2px solid var(--petroleum-light); }
-.edu-item-type { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-blue); margin-bottom: 0.8rem; }
-.edu-item-title { font-size: 1.15rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.4rem; line-height: 1.35; }
-.edu-item-school { font-size: 0.84rem; font-weight: 500; color: var(--petroleum); margin-bottom: 1rem; }
-.edu-item-desc { font-size: 0.82rem; font-weight: 300; line-height: 1.65; color: var(--graphite); }
+/* ============ LIDERAZGO & CICLISMO ============ */
+.quote-section-flat { padding: 6rem 4rem; background-color: var(--midnight); color: #ffffff; text-align: center; }
+.quote-mark-flat { font-size: 6rem; font-weight: 200; line-height: 0.5; color: var(--petroleum); margin-bottom: 2rem; }
+.quote-text-flat { font-size: clamp(1.6rem, 2.7vw, 2.5rem); font-weight: 500; line-height: 1.35; color: #ffffff; max-width: 860px; margin: 0 auto; }
+.quote-author-flat { margin-top: 2.5rem; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted-slate); }
 
-/* ============ FLOATING ACTION PILL (DUAL ACTION) ============ */
-.bottom-floating-pill {
-    position: fixed; bottom: 1.75rem; left: 50%; transform: translateX(-50%); z-index: 2000;
-    background: rgba(15, 26, 46, 0.96); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.14); border-radius: 999px;
-    padding: 0.45rem 0.55rem; display: flex; align-items: center; gap: 0.5rem;
-    box-shadow: 0 16px 36px rgba(15, 26, 46, 0.35);
+.cycling-section-flat { position: relative; height: 80vh; min-height: 500px; overflow: hidden; background-color: var(--photo-bg); }
+.cycling-bg-img { position: absolute; inset: 0; background-image: url('https://i.postimg.cc/cLTK04xZ/cycling-jpg.png'); background-size: cover; background-position: 50% 35%; }
+.cycling-caption-flat {
+    position: absolute; bottom: 0; left: 0; right: 0; padding: 3rem 4rem 2.5rem;
+    background-color: var(--midnight); color: #ffffff;
 }
-.pill-action-btn {
-    display: inline-flex; align-items: center; gap: 0.55rem;
-    padding: 0.7rem 1.5rem; font-size: 0.72rem; font-weight: 600;
-    letter-spacing: 0.14em; text-transform: uppercase; border-radius: 999px;
-    border: none; cursor: pointer; text-decoration: none; transition: all 0.25s ease;
+.cycling-tag-flat { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted-slate); margin-bottom: 0.4rem; }
+.cycling-txt-flat { font-size: 1.1rem; font-weight: 400; color: #ffffff; max-width: 600px; line-height: 1.6; }
+
+/* ============ FORMACIÓN ============ */
+.edu-section-flat { padding: 4rem 4rem 6rem; max-width: 1200px; margin: 0 auto; }
+.edu-grid-flat { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 3rem; }
+.edu-card-flat { padding: 2.2rem 2rem; background-color: var(--card-white); border: 1px solid var(--border-light); border-top: 3px solid var(--petroleum); border-radius: var(--radius-sm); }
+.edu-tag-flat { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--petroleum); margin-bottom: 0.6rem; }
+.edu-title-flat { font-size: 1.1rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.3rem; }
+.edu-school-flat { font-size: 0.82rem; font-weight: 600; color: var(--petroleum-light); margin-bottom: 0.9rem; }
+.edu-desc-flat { font-size: 0.82rem; font-weight: 300; line-height: 1.65; color: var(--graphite); }
+
+/* ============ FLOATING DUAL ACTION BAR (100% FLAT & MODERN) ============ */
+.flat-floating-bar {
+    position: fixed; bottom: 1.5rem; left: 50%; transform: translateX(-50%); z-index: 2000;
+    background-color: var(--midnight); border: 1px solid var(--border-dark);
+    border-radius: var(--radius-pill); padding: 0.4rem 0.5rem;
+    display: flex; align-items: center; gap: 0.45rem;
+    box-shadow: 0 8px 24px rgba(11, 19, 32, 0.3);
 }
-.pill-btn-contact {
-    background: var(--warm-white); color: var(--midnight);
+.flat-pill-btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+    padding: 0.65rem 1.4rem; font-size: 0.7rem; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase; border-radius: var(--radius-pill);
+    border: none; cursor: pointer; text-decoration: none; transition: all 0.18s ease;
+    white-space: nowrap;
 }
-.pill-btn-contact:hover {
-    background: var(--accent); color: var(--warm-white);
+.flat-pill-btn svg { width: 14px; height: 14px; stroke-width: 2.2; }
+.flat-pill-btn:active { transform: scale(0.96); }
+
+.btn-flat-contact {
+    background-color: #ffffff; color: var(--midnight);
 }
-.pill-btn-cv {
-    background: var(--petroleum); color: var(--warm-white);
-    border: 1px solid var(--petroleum-light);
+.btn-flat-contact:hover {
+    background-color: var(--warm-white-dim);
 }
-.pill-btn-cv:hover {
-    background: var(--petroleum-light);
+.btn-flat-cv {
+    background-color: var(--petroleum); color: #ffffff; border: 1px solid var(--petroleum-light);
+}
+.btn-flat-cv:hover {
+    background-color: var(--petroleum-hover);
 }
 
-/* ============ MODAL WINDOWS ============ */
-.elite-modal-backdrop {
-    position: fixed; inset: 0; z-index: 3000; background: rgba(15, 26, 46, 0.85);
-    backdrop-filter: blur(10px); display: flex; align-items: center; justify-content: center;
-    padding: 1.5rem; opacity: 0; visibility: hidden; transition: all 0.25s ease;
+/* ============ MODALES / BOTTOM SHEET (COMPACT & MODERN FLAT) ============ */
+.flat-modal-backdrop {
+    position: fixed; inset: 0; z-index: 3000; background-color: rgba(11, 19, 32, 0.85);
+    display: flex; align-items: center; justify-content: center; padding: 1.5rem;
+    opacity: 0; visibility: hidden; transition: opacity 0.2s ease, visibility 0.2s ease;
 }
-.elite-modal-backdrop.active { opacity: 1; visibility: visible; }
-.elite-modal-card {
-    background: var(--midnight); border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: var(--radius-sm); max-width: 580px; width: 100%; color: var(--warm-white);
-    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5); overflow: hidden;
-}
-.modal-bar-top {
-    padding: 1.75rem 2rem 1.25rem; display: flex; justify-content: space-between; align-items: flex-start;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-.modal-headline { font-size: 1.25rem; font-weight: 500; color: var(--warm-white); }
-.modal-subline { font-size: 0.78rem; font-weight: 300; color: var(--muted-blue); margin-top: 0.2rem; }
-.modal-close-btn { background: transparent; border: none; color: var(--text-muted); font-size: 1.5rem; cursor: pointer; }
-.modal-close-btn:hover { color: var(--warm-white); }
+.flat-modal-backdrop.active { opacity: 1; visibility: visible; }
 
-.modal-inner-list { padding: 1.75rem 2rem; display: flex; flex-direction: column; gap: 0.9rem; }
-.modal-item-row {
-    display: grid; grid-template-columns: auto 1fr auto; gap: 1.25rem; align-items: center;
-    padding: 1rem 1.25rem; background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08);
-    text-decoration: none; color: var(--warm-white); cursor: pointer; transition: all 0.2s ease;
+.flat-modal-window {
+    background-color: var(--midnight); border: 1px solid var(--border-dark);
+    border-radius: var(--radius-md); max-width: 520px; width: 100%; color: #ffffff;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5); overflow: hidden;
 }
-.modal-item-row:hover { background: rgba(42, 63, 95, 0.5); border-color: var(--accent); }
-.modal-item-icon { width: 34px; height: 34px; background: var(--petroleum); display: flex; align-items: center; justify-content: center; }
-.modal-item-title { font-size: 0.85rem; font-weight: 600; color: var(--warm-white); margin-bottom: 0.15rem; }
-.modal-item-sub { font-size: 0.74rem; font-weight: 300; color: var(--text-light); }
-.modal-item-arrow { font-size: 0.72rem; color: var(--muted-blue); }
-
-.toast-tag {
-    position: fixed; bottom: 6rem; left: 50%; transform: translateX(-50%) translateY(30px); z-index: 3500;
-    background: var(--midnight); color: var(--warm-white); border: 1px solid var(--petroleum-light);
-    padding: 0.75rem 1.5rem; border-radius: 999px; font-size: 0.75rem; font-weight: 600;
-    letter-spacing: 0.08em; opacity: 0; transition: all 0.3s ease; pointer-events: none;
+.modal-header-flat {
+    padding: 1.4rem 1.75rem 1rem; display: flex; justify-content: space-between; align-items: center;
+    border-bottom: 1px solid var(--border-dark);
 }
-.toast-tag.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+.modal-title-flat { font-size: 1.15rem; font-weight: 600; color: #ffffff; }
+.modal-close-x {
+    background: none; border: none; color: var(--muted-slate); font-size: 1.4rem;
+    line-height: 1; cursor: pointer; padding: 0.2rem;
+}
+.modal-close-x:hover { color: #ffffff; }
 
-.lightbox-modal {
-    position: fixed; inset: 0; z-index: 4000; background: rgba(0, 0, 0, 0.94);
+.modal-list-flat { padding: 1.25rem 1.75rem; display: flex; flex-direction: column; gap: 0.75rem; }
+.modal-row-flat {
+    display: grid; grid-template-columns: auto 1fr auto; gap: 1rem; align-items: center;
+    padding: 0.9rem 1.1rem; background-color: var(--midnight-surface); border: 1px solid var(--border-dark);
+    border-radius: var(--radius-sm); text-decoration: none; color: #ffffff; cursor: pointer;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+.modal-row-flat:hover {
+    background-color: var(--midnight-card); border-color: var(--petroleum-light);
+}
+.modal-badge-icon {
+    width: 32px; height: 32px; background-color: var(--petroleum); border-radius: var(--radius-sm);
+    display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 700;
+}
+.modal-row-main { font-size: 0.82rem; font-weight: 600; color: #ffffff; margin-bottom: 0.1rem; }
+.modal-row-sub { font-size: 0.72rem; font-weight: 300; color: var(--text-dim); }
+.modal-row-arrow { font-size: 0.72rem; font-weight: 600; color: var(--accent); }
+
+/* TOAST */
+.flat-toast {
+    position: fixed; bottom: 5.5rem; left: 50%; transform: translateX(-50%) translateY(20px); z-index: 3500;
+    background-color: var(--midnight); color: #ffffff; border: 1px solid var(--petroleum-light);
+    padding: 0.7rem 1.4rem; border-radius: var(--radius-pill); font-size: 0.75rem; font-weight: 600;
+    letter-spacing: 0.08em; opacity: 0; transition: all 0.25s ease; pointer-events: none;
+}
+.flat-toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+
+.lightbox-flat {
+    position: fixed; inset: 0; z-index: 4000; background-color: rgba(0, 0, 0, 0.95);
     display: flex; align-items: center; justify-content: center; padding: 2rem;
-    opacity: 0; visibility: hidden; transition: all 0.25s ease;
+    opacity: 0; visibility: hidden; transition: all 0.2s ease;
 }
-.lightbox-modal.active { opacity: 1; visibility: visible; }
-.lightbox-target-img { max-width: 90vw; max-height: 85vh; object-fit: contain; }
+.lightbox-flat.active { opacity: 1; visibility: visible; }
+.lightbox-flat-img { max-width: 90vw; max-height: 85vh; object-fit: contain; }
 
-/* ============ RESPONSIVE ============ */
+/* ============ RESPONSIVE (MOBILE OPTIMIZATIONS) ============ */
 @media (max-width: 1024px) {
-    .top-header { padding: 0.9rem 1.5rem 0.5rem; }
-    .hero { grid-template-columns: 1fr; min-height: auto; }
-    .hero-content { padding: 4rem 2rem; }
-    .hero-image-wrap { height: 50vh; min-height: 360px; }
-    .proposition { padding: 5rem 2rem; }
-    .proposition-grid { grid-template-columns: 1fr; gap: 3.5rem; }
-    .case-chapter-light, .case-chapter-dark { grid-template-columns: 1fr; padding: 5rem 2rem; gap: 3rem; }
-    .editorial-img-frame { height: 50vh; min-height: 360px; }
-    .methodology-bar { grid-template-columns: repeat(2, 1fr); padding: 3rem 2rem; }
-    .value-section { padding: 5rem 2rem; }
-    .value-grid { grid-template-columns: 1fr; }
-    .value-item { border-right: none; }
-    .timeline-wrap { padding: 5rem 2rem; }
-    .timeline-stream::before { left: 14px; }
-    .timeline-card-row { grid-template-columns: 1fr; gap: 0.6rem; padding-left: 40px; }
-    .timeline-date-side { text-align: left; }
-    .timeline-dot { left: 10px; top: 0.3rem; }
-    .media-wrap { padding: 5rem 2rem; }
-    .media-grid { grid-template-columns: 1fr; }
-    .perspective-quote { padding: 4rem 2rem; min-height: auto; }
-    .human-cycling-content { padding: 3rem 2rem; }
-    .education-wrap { padding: 5rem 2rem; }
-    .edu-grid-3 { grid-template-columns: 1fr; }
-    .scale-secondary { flex-direction: column; gap: 2rem; }
-    .bottom-floating-pill { width: calc(100% - 2rem); justify-content: center; }
-    .pill-action-btn { flex: 1; justify-content: center; padding: 0.65rem 1rem; font-size: 0.68rem; }
+    .site-top-bar { padding: 0.75rem 1.25rem 0.5rem; }
+    .hero-flat { grid-template-columns: 1fr; min-height: auto; }
+    .hero-flat-left { padding: 3.5rem 1.5rem; }
+    .hero-flat-right { height: 45vh; min-height: 320px; }
+    .proposition-flat { padding: 4rem 1.5rem; }
+    .prop-grid-2x2 { grid-template-columns: 1fr; gap: 3rem; }
+    .case-chapter-box-light, .case-chapter-box-dark { grid-template-columns: 1fr; padding: 4rem 1.5rem; gap: 2.5rem; }
+    .ch-photo-wrap { height: 45vh; min-height: 300px; }
+    .method-strip-flat { grid-template-columns: 1fr; padding: 2.5rem 1.5rem; }
+    .timeline-section-flat { padding: 3rem 1.5rem; }
+    .t-stream::before { left: 14px; }
+    .t-row-item { grid-template-columns: 1fr; gap: 0.5rem; padding-left: 36px; }
+    .t-left-date { text-align: left; }
+    .t-node-dot { left: 10px; top: 0.3rem; }
+    .media-section-flat { padding: 4rem 1.5rem; }
+    .media-grid-flat { grid-template-columns: 1fr; }
+    .quote-section-flat { padding: 4rem 1.5rem; }
+    .cycling-caption-flat { padding: 2rem 1.5rem; }
+    .edu-section-flat { padding: 3rem 1.5rem; }
+    .edu-grid-flat { grid-template-columns: 1fr; }
+    .scale-flat-cols { flex-direction: column; gap: 2rem; }
+}
+
+@media (max-width: 768px) {
+    /* Header en 1 sola línea */
+    .brand-single-line { justify-content: center; gap: 0.4rem; }
+    .brand-title { font-size: 0.72rem; }
+    .brand-divider { display: inline-block; font-size: 0.7rem; }
+    .brand-sub { font-size: 0.6rem; }
+
+    /* Botonera de iconos exclusiva en mobile (sin texto) */
+    .tab-label-text { display: none; }
+    .nav-tab-pill { padding: 0.55rem 0.75rem; gap: 0; }
+    .tabs-pill-row { gap: 0.4rem; justify-content: space-between; width: 100%; }
+
+    /* Floating Action Bar */
+    .flat-floating-bar { width: calc(100% - 2rem); justify-content: center; padding: 0.35rem 0.45rem; }
+    .flat-pill-btn { flex: 1; padding: 0.65rem 0.8rem; font-size: 0.66rem; }
+
+    /* Modal como Bottom Sheet estilizado en mobile */
+    .flat-modal-backdrop { align-items: flex-end; padding: 0; }
+    .flat-modal-window { border-radius: 16px 16px 0 0; max-height: 85vh; border-bottom: none; }
+    .modal-header-flat { padding: 1.25rem 1.5rem 0.9rem; }
+    .modal-list-flat { padding: 1rem 1.5rem 2rem; gap: 0.65rem; }
+    .modal-row-flat { padding: 0.8rem 1rem; }
 }
 </style>
 </head>
 <body>
-<!-- TOP HEADER WITH LOGO & HORIZONTAL TAB NAVIGATION -->
-<header class="top-header">
-    <div class="header-brand-row">
-        <a href="javascript:void(0)" onclick="openTab('perspective')" class="nav-logo">Maurizio Di Russo</a>
-        <span class="nav-tagline">Mobility · Data · Insurance</span>
+<!-- ==========================================
+     HEADER SUPERIOR (1 SOLA LÍNEA EN MOBILE)
+     ========================================== -->
+<header class="site-top-bar">
+    <div class="brand-single-line">
+        <a href="javascript:void(0)" onclick="selectTab('perspective')" class="brand-title">Maurizio Di Russo</a>
+        <span class="brand-divider">·</span>
+        <span class="brand-sub">Mobility, Data &amp; Insurance</span>
     </div>
-    <div class="tab-strip-wrapper">
-        <nav class="tab-strip" role="tablist">
-            <!-- 1. Perspective -->
-            <button class="tab-item-btn active" id="tab-btn-perspective" onclick="openTab('perspective')" role="tab">
-                <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/></svg>
-                Perspectiva
+    <div class="tabs-scroll-container">
+        <nav class="tabs-pill-row" role="tablist">
+            <!-- 1. Perspectiva -->
+            <button class="nav-tab-pill active" id="tab-nav-perspective" onclick="selectTab('perspective')" role="tab" title="Perspectiva">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/></svg>
+                <span class="tab-label-text">Perspectiva</span>
             </button>
-            <!-- 2. Case Studies -->
-            <button class="tab-item-btn" id="tab-btn-cases" onclick="openTab('cases')" role="tab">
-                <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-                Casos de Estudio
+            <!-- 2. Casos de Estudio -->
+            <button class="nav-tab-pill" id="tab-nav-cases" onclick="selectTab('cases')" role="tab" title="Casos de Estudio">
+                <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                <span class="tab-label-text">Casos</span>
             </button>
-            <!-- 3. Timeline -->
-            <button class="tab-item-btn" id="tab-btn-timeline" onclick="openTab('timeline')" role="tab">
-                <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                Trayectoria
+            <!-- 3. Trayectoria -->
+            <button class="nav-tab-pill" id="tab-nav-timeline" onclick="selectTab('timeline')" role="tab" title="Trayectoria">
+                <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                <span class="tab-label-text">Trayectoria</span>
             </button>
-            <!-- 4. Media & Press -->
-            <button class="tab-item-btn" id="tab-btn-media" onclick="openTab('media')" role="tab">
-                <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/></svg>
-                Institucional &amp; Prensa
+            <!-- 4. Institucional & Prensa -->
+            <button class="nav-tab-pill" id="tab-nav-media" onclick="selectTab('media')" role="tab" title="Media & Prensa">
+                <svg viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/></svg>
+                <span class="tab-label-text">Media</span>
             </button>
-            <!-- 5. Leadership & Human -->
-            <button class="tab-item-btn" id="tab-btn-leadership" onclick="openTab('leadership')" role="tab">
-                <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                Liderazgo &amp; Valores
+            <!-- 5. Liderazgo & Humano -->
+            <button class="nav-tab-pill" id="tab-nav-leadership" onclick="selectTab('leadership')" role="tab" title="Liderazgo & Valores">
+                <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                <span class="tab-label-text">Liderazgo</span>
             </button>
-            <!-- 6. Education -->
-            <button class="tab-item-btn" id="tab-btn-education" onclick="openTab('education')" role="tab">
-                <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 6 3 6 3s6-1 6-3v-5"/></svg>
-                Formación
+            <!-- 6. Formación -->
+            <button class="nav-tab-pill" id="tab-nav-education" onclick="selectTab('education')" role="tab" title="Formación Directiva">
+                <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 6 3 6 3s6-1 6-3v-5"/></svg>
+                <span class="tab-label-text">Formación</span>
             </button>
         </nav>
     </div>
 </header>
 
 <!-- ==========================================
-     TAB 1: PERSPECTIVE & SCALE
+     PESTAÑA 1: PERSPECTIVA & SCALE
      ========================================== -->
-<div class="tab-panel active" id="panel-perspective" role="tabpanel">
-    <!-- Hero (Exact original identity) -->
-    <section class="hero">
-        <div class="hero-content">
-            <p class="hero-name">Maurizio Di Russo</p>
-            <h1 class="hero-statement">
+<div class="tab-content-panel active" id="pane-perspective" role="tabpanel">
+    <!-- Hero (Flat & Solid Identity) -->
+    <section class="hero-flat">
+        <div class="hero-flat-left">
+            <p class="hero-flat-tag">Maurizio Di Russo · Executive Dossier</p>
+            <h1 class="hero-flat-h1">
                 I build markets<br>
                 where <em>mobility, data</em><br>
                 and insurance intersect.
             </h1>
-            <div class="hero-cta">
-                <button class="cta-link" onclick="openContactModal()">
-                    Start a conversation
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
+            <div class="hero-flat-actions">
+                <button class="hero-flat-btn hero-flat-btn-light" onclick="openContactModal()">
+                    Start a conversation →
+                </button>
+                <button class="hero-flat-btn hero-flat-btn-dark" onclick="openDownloadModal()">
+                    Descargar CV
                 </button>
             </div>
         </div>
-        <div class="hero-image-wrap">
-            <div class="hero-image" role="img" aria-label="Maurizio Di Russo"></div>
+        <div class="hero-flat-right">
+            <div class="hero-flat-portrait" role="img" aria-label="Maurizio Di Russo"></div>
         </div>
     </section>
 
-    <!-- Proposition (What I understand) -->
-    <section class="proposition">
-        <p class="proposition-header">What I understand.</p>
-        <div class="proposition-grid">
-            <div class="proposition-item">
-                <p class="proposition-number">01</p>
-                <h2 class="proposition-title">I work well in markets that are slow to change.</h2>
-                <p class="proposition-text">
+    <!-- Encabezado sobre fondo blanco -->
+    <div class="section-banner-light">
+        <span class="section-kicker">Visión &amp; Estrategia</span>
+        <h2 class="section-main-heading">What I understand.</h2>
+        <p class="section-intro-text">
+            Más de dos décadas de liderazgo directivo uniendo tecnología, solvencia financiera y modelos de distribución comercial en Italia y Europa.
+        </p>
+    </div>
+
+    <!-- Proposition Grid -->
+    <section class="proposition-flat">
+        <div class="prop-grid-2x2">
+            <div>
+                <p class="prop-card-num">01</p>
+                <h3 class="prop-card-title">I work well in markets that are slow to change.</h3>
+                <p class="prop-card-body">
                     Italy's mobility and insurance sectors are complex, regulated and relationship-driven. I've spent two decades finding practical routes to adoption.
                 </p>
             </div>
-            <div class="proposition-item">
-                <p class="proposition-number">02</p>
-                <h2 class="proposition-title">I connect product with demand.</h2>
-                <p class="proposition-text">
+            <div>
+                <p class="prop-card-num">02</p>
+                <h3 class="prop-card-title">I connect product with demand.</h3>
+                <p class="prop-card-body">
                     I translate technology — from SaaS and telematics to electric mobility — into commercial models that fit the market.
                 </p>
             </div>
-            <div class="proposition-item">
-                <p class="proposition-number">03</p>
-                <h2 class="proposition-title">I build business through trust.</h2>
-                <p class="proposition-text">
+            <div>
+                <p class="prop-card-num">03</p>
+                <h3 class="prop-card-title">I build business through trust.</h3>
+                <p class="prop-card-body">
                     My relationships span financial services, automotive, insurance and mobility. I know how to take a conversation from introduction to agreement.
                 </p>
             </div>
-            <div class="proposition-item">
-                <p class="proposition-number">04</p>
-                <h2 class="proposition-title">I understand different kinds of companies.</h2>
-                <p class="proposition-text">
+            <div>
+                <p class="prop-card-num">04</p>
+                <h3 class="prop-card-title">I understand different kinds of companies.</h3>
+                <p class="prop-card-body">
                     I've worked inside multinational institutions and alongside European scale-ups. I know how each one makes decisions.
                 </p>
             </div>
@@ -557,170 +550,147 @@ body {
     </section>
 
     <!-- Scale (Cumulative revenue & financing) -->
-    <section class="scale">
-        <div class="scale-content">
-            <p class="scale-label">Cumulative financing &amp; revenue</p>
-            <p class="scale-number">€900M+</p>
-            <p class="scale-context">
-                Across financial services, mobility and insurance.
-            </p>
-            <div class="scale-secondary">
-                <div>
-                    <p class="scale-stat-number">20+</p>
-                    <p class="scale-stat-label">Across markets and business environments</p>
-                </div>
-                <div>
-                    <p class="scale-stat-number">Italy + EMEA</p>
-                    <p class="scale-stat-label">International commercial experience</p>
-                </div>
+    <section class="scale-flat">
+        <p class="scale-flat-tag">Cumulative financing &amp; revenue</p>
+        <p class="scale-flat-number">€900M+</p>
+        <p class="scale-flat-sub">
+            Across financial services, mobility and insurance.
+        </p>
+        <div class="scale-flat-cols">
+            <div>
+                <p class="scale-col-val">20+</p>
+                <p class="scale-col-lbl">Across markets and business environments</p>
+            </div>
+            <div>
+                <p class="scale-col-val">Italy + EMEA</p>
+                <p class="scale-col-lbl">International commercial experience</p>
             </div>
         </div>
     </section>
 </div>
 
 <!-- ==========================================
-     TAB 2: CASOS DE ESTUDIO (CHAPTERS / METHODOLOGY)
+     PESTAÑA 2: CASOS DE ESTUDIO & METODOLOGÍA
      ========================================== -->
-<div class="tab-panel" id="panel-cases" role="tabpanel">
-    <!-- Methodology bar -->
-    <div class="methodology-bar">
+<div class="tab-content-panel" id="pane-cases" role="tabpanel">
+    <!-- Encabezado sobre fondo blanco -->
+    <div class="section-banner-light">
+        <span class="section-kicker">Metodología &amp; Resultados Reales</span>
+        <h2 class="section-main-heading">Casos de Estudio</h2>
+        <p class="section-intro-text">
+            Cómo la experiencia directiva transforma la tecnología y los servicios financieros en modelos comerciales rentables y escalables.
+        </p>
+    </div>
+
+    <!-- Methodology Strip -->
+    <div class="method-strip-flat">
         <div>
-            <p class="method-col-num">01 — Diagnóstico</p>
-            <h3 class="method-col-title">Análisis de Riesgo &amp; Mercado</h3>
-            <p class="method-col-desc">Evaluación del marco regulatorio, entorno competitivo y factibilidad económica del modelo.</p>
+            <p class="method-step-idx">Fase 01</p>
+            <h4 class="method-step-name">Diagnóstico &amp; Riesgo</h4>
+            <p class="method-step-desc">Evaluación del marco regulatorio y factibilidad económica.</p>
         </div>
         <div>
-            <p class="method-col-num">02 — Arquitectura</p>
-            <h3 class="method-col-title">Estrategia Comercial &amp; Pricing</h3>
-            <p class="method-col-desc">Diseño de canales, modelos de precios (pricing) y proposición de valor diferencial.</p>
+            <p class="method-step-idx">Fase 02</p>
+            <h4 class="method-step-name">Arquitectura de Canales</h4>
+            <p class="method-step-desc">Diseño de pricing y propuesta de valor diferencial.</p>
         </div>
         <div>
-            <p class="method-col-num">03 — Despliegue</p>
-            <h3 class="method-col-title">Negociación C-Level</h3>
-            <p class="method-col-desc">Construcción de acuerdos de distribución institucional y activación operativa de redes.</p>
+            <p class="method-step-idx">Fase 03</p>
+            <h4 class="method-step-name">Negociación C-Level</h4>
+            <p class="method-step-desc">Acuerdos marco de distribución institucional.</p>
         </div>
         <div>
-            <p class="method-col-num">04 — Escala</p>
-            <h3 class="method-col-title">Rentabilidad &amp; Sostenibilidad</h3>
-            <p class="method-col-desc">Monitoreo de KPIs de retención, control de siniestralidad/mora y escalamiento de cuota.</p>
+            <p class="method-step-idx">Fase 04</p>
+            <h4 class="method-step-name">Escala &amp; Eficiencia</h4>
+            <p class="method-step-desc">Crecimiento de cuota y control riguroso de mora/siniestralidad.</p>
         </div>
     </div>
 
     <!-- Chapter 01: Scale (Financial Institutions) -->
-    <section class="case-chapter-light">
+    <section class="case-chapter-box-light">
         <div>
-            <p class="ch-num">01</p>
-            <p class="story-chapter-label">Scale &amp; Capital</p>
-            <h2 class="story-chapter-title">I learned what scale means inside financial institutions.</h2>
-            <p class="story-chapter-body">
+            <p class="ch-card-big-num">01</p>
+            <p class="ch-card-tag">Scale &amp; Capital</p>
+            <h3 class="ch-card-title">I learned what scale means inside financial institutions.</h3>
+            <p class="ch-card-body">
                 I began at CNH Industrial Financial Services and Agos Itafinco, part of the BancaIntesa group. I learned how large organisations move capital, assess risk and build distribution networks.
             </p>
-            <p class="story-chapter-body">
+            <p class="ch-card-body">
                 It taught me how capital, risk and distribution shape commercial decisions.
             </p>
-            <p class="story-evidence">CNH Industrial Financial Services · Agos Itafinco (BancaIntesa)</p>
+            <p class="ch-card-evidence">CNH Industrial Financial Services · Agos Itafinco (BancaIntesa)</p>
         </div>
-        <div class="editorial-img-frame">
-            <div class="editorial-img" style="background-image: url('https://i.postimg.cc/761c5cfg/conference-01-jpg.png');" role="img" aria-label="Maurizio Di Russo speaking"></div>
+        <div class="ch-photo-wrap">
+            <div class="ch-photo" style="background-image: url('https://i.postimg.cc/761c5cfg/conference-01-jpg.png');" role="img" aria-label="Maurizio Di Russo"></div>
         </div>
     </section>
 
     <!-- Chapter 02: New Markets -->
-    <section class="case-chapter-dark">
-        <div class="editorial-img-frame">
-            <div class="editorial-img" style="background-image: url('https://i.postimg.cc/T3QyfYd6/conference-02-jpg.png');" role="img" aria-label="Maurizio Di Russo"></div>
+    <section class="case-chapter-box-dark">
+        <div class="ch-photo-wrap">
+            <div class="ch-photo" style="background-image: url('https://i.postimg.cc/T3QyfYd6/conference-02-jpg.png');" role="img" aria-label="Maurizio Di Russo"></div>
         </div>
         <div>
-            <p class="ch-num">02</p>
-            <p class="story-chapter-label">02 — New Markets</p>
-            <h2 class="story-chapter-title">Then I moved into markets with no established presence.</h2>
-            <p class="story-chapter-body">
+            <p class="ch-card-big-num">02</p>
+            <p class="ch-card-tag">New Markets</p>
+            <h3 class="ch-card-title">Then I moved into markets with no established presence.</h3>
+            <p class="ch-card-body">
                 At Domestic &amp; General and later Caredent Italia, I built a commercial presence in Italy: positioning, channels and relationships with partners and institutions.
             </p>
-            <p class="story-evidence">Domestic &amp; General · Caredent Italia</p>
+            <p class="ch-card-evidence">Domestic &amp; General · Caredent Italia</p>
         </div>
     </section>
 
     <!-- Chapter 03: Mobility & Data -->
-    <section class="case-chapter-light">
+    <section class="case-chapter-box-light">
         <div>
-            <p class="ch-num">03</p>
-            <p class="story-chapter-label">03 — Mobility &amp; Data</p>
-            <h2 class="story-chapter-title">Now I work where mobility meets insurance and technology.</h2>
-            <p class="story-chapter-body">
+            <p class="ch-card-big-num">03</p>
+            <p class="ch-card-tag">Mobility &amp; Data</p>
+            <h3 class="ch-card-title">Now I work where mobility meets insurance and technology.</h3>
+            <p class="ch-card-body">
                 At CAKE — the Swedish electric motorcycle company — I led B2B development in Italy. Today, as Country Manager at Liberty Rider, I work across crash detection, telematics data, insurance partnerships and rider communities.
             </p>
-            <p class="story-evidence">CAKE – ridecake.com · Liberty Rider · REVO Insurance</p>
+            <p class="ch-card-evidence">CAKE – ridecake.com · Liberty Rider · REVO Insurance</p>
         </div>
-        <div class="editorial-img-frame">
-            <div class="editorial-img" style="background-image: url('assets/mobility-data.png');" role="img" aria-label="Maurizio Di Russo"></div>
-        </div>
-    </section>
-
-    <!-- Where experience becomes useful -->
-    <section class="value-section">
-        <p class="value-header-label">Where experience becomes useful</p>
-        <h2 class="value-header-title">These are the business situations where my experience tends to matter most.</h2>
-        <div class="value-grid">
-            <div class="value-item">
-                <p class="value-item-title">Market Entry</p>
-                <p class="value-item-body">When a company is entering Italy and needs context, trusted relationships and a realistic route to market.</p>
-            </div>
-            <div class="value-item">
-                <p class="value-item-title">Commercial Strategy</p>
-                <p class="value-item-body">When a strong product needs a commercial model that fits European markets — pricing, channels and sales priorities.</p>
-            </div>
-            <div class="value-item">
-                <p class="value-item-title">Partnerships</p>
-                <p class="value-item-body">When insurers, mobility companies, financial institutions or technology platforms need a structure for working together.</p>
-            </div>
-            <div class="value-item">
-                <p class="value-item-title">Mobility &amp; Insurtech</p>
-                <p class="value-item-body">When connected vehicles, telematics and insurance data open a new commercial opportunity.</p>
-            </div>
-            <div class="value-item">
-                <p class="value-item-title">Growth at Scale</p>
-                <p class="value-item-body">When early traction needs to become a repeatable commercial operation across markets or channels.</p>
-            </div>
-            <div class="value-item">
-                <p class="value-item-title">Building from Zero</p>
-                <p class="value-item-body">When there is no established presence, no inherited playbook and the first commercial decisions matter most.</p>
-            </div>
+        <div class="ch-photo-wrap">
+            <div class="ch-photo" style="background-image: url('assets/mobility-data.png');" role="img" aria-label="Maurizio Di Russo"></div>
         </div>
     </section>
 </div>
 <!-- ==========================================
-     TAB 3: TRAYECTORIA CRONOLÓGICA
+     PESTAÑA 3: TRAYECTORIA CRONOLÓGICA
      ========================================== -->
-<div class="tab-panel" id="panel-timeline" role="tabpanel">
-    <section class="timeline-wrap">
-        <p class="story-chapter-label">Executive Track Record</p>
-        <h2 class="section-title">Trayectoria Cronológica</h2>
-        <p class="section-subtitle">
-            Evolución profesional liderando empresas multinacionales, entidades financieras y compañías en fases de expansión europea.
+<div class="tab-content-panel" id="pane-timeline" role="tabpanel">
+    <div class="section-banner-light">
+        <span class="section-kicker">Trayectoria Directiva</span>
+        <h2 class="section-main-heading">Experiencia Laboral</h2>
+        <p class="section-intro-text">
+            Más de 20 años liderando entidades financieras, compañías multinacionales y scale-ups europeas en fases de expansión comercial.
         </p>
+    </div>
 
-        <div class="timeline-filter-strip">
-            <button class="t-btn active" onclick="filterTimeline('all', this)">Todos los Roles</button>
-            <button class="t-btn" onclick="filterTimeline('c-level', this)">Dirección General &amp; Country Lead</button>
-            <button class="t-btn" onclick="filterTimeline('bizdev', this)">Desarrollo de Negocio</button>
-            <button class="t-btn" onclick="filterTimeline('finance', this)">Finanzas &amp; Banca</button>
+    <section class="timeline-section-flat">
+        <div class="timeline-filters-flat">
+            <button class="t-filter-pill active" onclick="applyTimelineFilter('all', this)">Todos los Cargos</button>
+            <button class="t-filter-pill" onclick="applyTimelineFilter('c-level', this)">Dirección General &amp; Country Lead</button>
+            <button class="t-filter-pill" onclick="applyTimelineFilter('bizdev', this)">Desarrollo de Negocio</button>
+            <button class="t-filter-pill" onclick="applyTimelineFilter('finance', this)">Finanzas &amp; Banca</button>
         </div>
 
-        <div class="timeline-stream">
+        <div class="t-stream">
             <!-- 1. Liberty Rider -->
-            <div class="timeline-card-row" data-cat="c-level">
-                <div class="timeline-date-side">
-                    <div class="timeline-time">2022 — Presente</div>
-                    <div class="timeline-city">Milán / Italia</div>
+            <div class="t-row-item" data-cat="c-level">
+                <div class="t-left-date">
+                    <div class="t-date-str">2022 — Presente</div>
+                    <div class="t-city-str">Milán / Italia</div>
                 </div>
-                <div class="timeline-dot"></div>
-                <div class="timeline-body-side">
-                    <h3 class="t-role">Country Sales Manager / Country Lead</h3>
-                    <div class="t-firm">Liberty Rider (IoT &amp; Seguridad Telemática)</div>
-                    <p class="t-summary">Dirección estratégica, posicionamiento institucional y expansión comercial en Italia. Negociación de acuerdos marco con aseguradoras y operadores de movilidad.</p>
-                    <ul class="t-bullets">
-                        <li>Firma de acuerdos de distribución institucional con aseguradoras de primer nivel (ej. REVO Insurance).</li>
+                <div class="t-node-dot"></div>
+                <div class="t-card-box">
+                    <h3 class="t-job-title">Country Sales Manager / Country Lead</h3>
+                    <div class="t-firm-name">Liberty Rider (IoT &amp; Seguridad Telemática)</div>
+                    <p class="t-job-desc">Dirección estratégica, posicionamiento institucional y expansión comercial en Italia. Negociación de acuerdos marco con aseguradoras y operadores de movilidad.</p>
+                    <ul class="t-job-bullets">
+                        <li>Firma de acuerdos de distribución institucional con aseguradoras líderes (ej. REVO Insurance).</li>
                         <li>Monetización de datos telemáticos para mitigación activa de siniestralidad.</li>
                         <li>Representación institucional en los principales foros del sector asegurador italiano.</li>
                     </ul>
@@ -728,17 +698,17 @@ body {
             </div>
 
             <!-- 2. CAKE -->
-            <div class="timeline-card-row" data-cat="bizdev">
-                <div class="timeline-date-side">
-                    <div class="timeline-time">2021 — 2022</div>
-                    <div class="timeline-city">Milán &amp; Estocolmo</div>
+            <div class="t-row-item" data-cat="bizdev">
+                <div class="t-left-date">
+                    <div class="t-date-str">2021 — 2022</div>
+                    <div class="t-city-str">Milán &amp; Estocolmo</div>
                 </div>
-                <div class="timeline-dot"></div>
-                <div class="timeline-body-side">
-                    <h3 class="t-role">Head of Business Development Italy</h3>
-                    <div class="t-firm">CAKE 0 emission (ridecake.com)</div>
-                    <p class="t-summary">Liderazgo del lanzamiento comercial en Italia. Alianzas B2B para flotas corporativas, última milla y movilidad limpia.</p>
-                    <ul class="t-bullets">
+                <div class="t-node-dot"></div>
+                <div class="t-card-box">
+                    <h3 class="t-job-title">Head of Business Development Italy</h3>
+                    <div class="t-firm-name">CAKE 0 emission (ridecake.com)</div>
+                    <p class="t-job-desc">Liderazgo del lanzamiento comercial en Italia. Alianzas B2B para flotas corporativas, última milla y movilidad limpia.</p>
+                    <ul class="t-job-bullets">
                         <li>Estructuración de la red comercial corporativa y acuerdos con partners estratégicos.</li>
                         <li>Negociación de soluciones de leasing y financiación para flotas comerciales.</li>
                     </ul>
@@ -746,17 +716,17 @@ body {
             </div>
 
             <!-- 3. Caredent Italia -->
-            <div class="timeline-card-row" data-cat="c-level bizdev">
-                <div class="timeline-date-side">
-                    <div class="timeline-time">2016 — 2021</div>
-                    <div class="timeline-city">Italia</div>
+            <div class="t-row-item" data-cat="c-level bizdev">
+                <div class="t-left-date">
+                    <div class="t-date-str">2016 — 2021</div>
+                    <div class="t-city-str">Italia</div>
                 </div>
-                <div class="timeline-dot"></div>
-                <div class="timeline-body-side">
-                    <h3 class="t-role">Director Comercial &amp; Expansión</h3>
-                    <div class="t-firm">Caredent Italia</div>
+                <div class="t-node-dot"></div>
+                <div class="t-card-box">
+                    <h3 class="t-job-title">Director Comercial &amp; Expansión</h3>
+                    <div class="t-firm-name">Caredent Italia</div>
                     <p class="t-summary">Estrategia de crecimiento y expansión territorial de centros clínicos en Italia. Gestión de equipos comerciales y convenios financieros.</p>
-                    <ul class="t-bullets">
+                    <ul class="t-job-bullets">
                         <li>Supervisión de la rentabilidad y rendimiento de la red comercial en expansión.</li>
                         <li>Implementación de convenios de financiación al consumo de alto impacto.</li>
                     </ul>
@@ -764,17 +734,17 @@ body {
             </div>
 
             <!-- 4. Domestic & General -->
-            <div class="timeline-card-row" data-cat="bizdev finance">
-                <div class="timeline-date-side">
-                    <div class="timeline-time">2011 — 2016</div>
-                    <div class="timeline-city">Milán / Reino Unido</div>
+            <div class="t-row-item" data-cat="bizdev finance">
+                <div class="t-left-date">
+                    <div class="t-date-str">2011 — 2016</div>
+                    <div class="t-city-str">Milán / Reino Unido</div>
                 </div>
-                <div class="timeline-dot"></div>
-                <div class="timeline-body-side">
-                    <h3 class="t-role">Key Account &amp; Business Development Manager</h3>
-                    <div class="t-firm">Domestic &amp; General Group</div>
+                <div class="t-node-dot"></div>
+                <div class="t-card-box">
+                    <h3 class="t-job-title">Key Account &amp; Business Development Manager</h3>
+                    <div class="t-firm-name">Domestic &amp; General Group</div>
                     <p class="t-summary">Gestión de grandes cuentas multinacionales y diseño de programas de extensión de garantía y seguros de retail y tecnología.</p>
-                    <ul class="t-bullets">
+                    <ul class="t-job-bullets">
                         <li>Contratos marco con fabricantes y cadenas líderes de retail y electrónica de consumo.</li>
                         <li>Crecimiento de doble dígito en volumen de pólizas emitidas mediante canales integrados.</li>
                     </ul>
@@ -782,17 +752,17 @@ body {
             </div>
 
             <!-- 5. Agos Itafinco -->
-            <div class="timeline-card-row" data-cat="finance">
-                <div class="timeline-date-side">
-                    <div class="timeline-time">2004 — 2011</div>
-                    <div class="timeline-city">Milán / Italia</div>
+            <div class="t-row-item" data-cat="finance">
+                <div class="t-left-date">
+                    <div class="t-date-str">2004 — 2011</div>
+                    <div class="t-city-str">Milán / Italia</div>
                 </div>
-                <div class="timeline-dot"></div>
-                <div class="timeline-body-side">
-                    <h3 class="t-role">Senior Commercial &amp; Regional Manager</h3>
-                    <div class="t-firm">Agos Itafinco (Banca Intesa / Crédit Agricole)</div>
+                <div class="t-node-dot"></div>
+                <div class="t-card-box">
+                    <h3 class="t-job-title">Senior Commercial &amp; Regional Manager</h3>
+                    <div class="t-firm-name">Agos Itafinco (Banca Intesa / Crédit Agricole)</div>
                     <p class="t-summary">Liderazgo de redes regionales de financiación y distribución de crédito industrial y automotriz con estricto control de riesgo.</p>
-                    <ul class="t-bullets">
+                    <ul class="t-job-bullets">
                         <li>Superación continua de objetivos de colocación de carteras con control de mora.</li>
                         <li>Consolidación de alianzas con asociaciones empresariales y redes de distribución.</li>
                     </ul>
@@ -800,15 +770,15 @@ body {
             </div>
 
             <!-- 6. CNH Capital -->
-            <div class="timeline-card-row" data-cat="finance">
-                <div class="timeline-date-side">
-                    <div class="timeline-time">2000 — 2004</div>
-                    <div class="timeline-city">Turín / Italia</div>
+            <div class="t-row-item" data-cat="finance">
+                <div class="t-left-date">
+                    <div class="t-date-str">2000 — 2004</div>
+                    <div class="t-city-str">Turín / Italia</div>
                 </div>
-                <div class="timeline-dot"></div>
-                <div class="timeline-body-side">
-                    <h3 class="t-role">Commercial Finance Specialist</h3>
-                    <div class="t-firm">CNH Industrial Capital</div>
+                <div class="t-node-dot"></div>
+                <div class="t-card-box">
+                    <h3 class="t-job-title">Commercial Finance Specialist</h3>
+                    <div class="t-firm-name">CNH Industrial Capital</div>
                     <p class="t-summary">Estructuración de operaciones de financiación y leasing de maquinaria industrial y agrícola para concesionarios oficiales.</p>
                 </div>
             </div>
@@ -817,44 +787,46 @@ body {
 </div>
 
 <!-- ==========================================
-     TAB 4: INSTITUCIONAL & MEDIA
+     PESTAÑA 4: INSTITUCIONAL & MEDIA
      ========================================== -->
-<div class="tab-panel" id="panel-media" role="tabpanel">
-    <section class="media-wrap">
-        <p class="story-chapter-label" style="color: var(--accent);">Institutional &amp; Media Presence</p>
-        <h2 class="story-chapter-title" style="color: var(--warm-white);">Conferencias, Congresos &amp; Prensa</h2>
-        <p class="story-chapter-body" style="color: var(--text-light);">
-            Participación como ponente y referente de opinión en foros internacionales de insurtech, movilidad conectada y transformación de servicios financieros.
+<div class="tab-content-panel" id="pane-media" role="tabpanel">
+    <div class="section-banner-light">
+        <span class="section-kicker">Presencia Pública</span>
+        <h2 class="section-main-heading">Institucional &amp; Prensa</h2>
+        <p class="section-intro-text">
+            Participación como ponente, conferencista y referente en foros europeos de insurtech, movilidad conectada y transformación financiera.
         </p>
+    </div>
 
-        <div class="media-grid">
-            <article class="media-card">
-                <div class="media-card-photo" style="background-image: url('https://i.postimg.cc/761c5cfg/conference-01-jpg.png');" onclick="openLightboxModal('https://i.postimg.cc/761c5cfg/conference-01-jpg.png')"></div>
-                <div class="media-card-text">
-                    <span class="media-card-tag">Conferencia Magistral · Milán</span>
-                    <h3 class="media-card-title">Italian Insurtech Day: El Futuro del Seguro Conectado</h3>
-                    <p class="media-card-desc">Ponencia sobre telemetría en tiempo real, algoritmos predictivos y la integración de IoT en los procesos de suscripción aseguradora.</p>
-                    <button onclick="openContactModal()" class="media-card-link" style="background:none;border:none;cursor:pointer;padding:0;">Solicitar Ponencia →</button>
+    <section class="media-section-flat">
+        <div class="media-grid-flat">
+            <article class="media-card-flat">
+                <div class="media-photo-thumb" style="background-image: url('https://i.postimg.cc/761c5cfg/conference-01-jpg.png');" onclick="openLightboxImage('https://i.postimg.cc/761c5cfg/conference-01-jpg.png')"></div>
+                <div class="media-content-flat">
+                    <span class="media-type-tag">Conferencia Magistral · Milán</span>
+                    <h3 class="media-title-flat">Italian Insurtech Day: El Futuro del Seguro Conectado</h3>
+                    <p class="media-desc-flat">Ponencia sobre telemetría en tiempo real, algoritmos predictivos y la integración de IoT en los procesos de suscripción aseguradora.</p>
+                    <button onclick="openContactModal()" class="media-link-flat">Solicitar Ponencia →</button>
                 </div>
             </article>
 
-            <article class="media-card">
-                <div class="media-card-photo" style="background-image: url('https://i.postimg.cc/T3QyfYd6/conference-02-jpg.png');" onclick="openLightboxModal('https://i.postimg.cc/T3QyfYd6/conference-02-jpg.png')"></div>
-                <div class="media-card-text">
-                    <span class="media-card-tag">Mesa Redonda Directiva · Roma</span>
-                    <h3 class="media-card-title">European Mobility Forum: Dos Ruedas y Seguridad Vial</h3>
-                    <p class="media-card-desc">Panel de expertos sobre micromovilidad, infraestructura y sistemas de rescate de emergencia conectados (e-Call) en Europa.</p>
-                    <button onclick="openContactModal()" class="media-card-link" style="background:none;border:none;cursor:pointer;padding:0;">Ver Detalles →</button>
+            <article class="media-card-flat">
+                <div class="media-photo-thumb" style="background-image: url('https://i.postimg.cc/T3QyfYd6/conference-02-jpg.png');" onclick="openLightboxImage('https://i.postimg.cc/T3QyfYd6/conference-02-jpg.png')"></div>
+                <div class="media-content-flat">
+                    <span class="media-type-tag">Mesa Redonda Directiva · Roma</span>
+                    <h3 class="media-title-flat">European Mobility Forum: Dos Ruedas y Seguridad Vial</h3>
+                    <p class="media-desc-flat">Panel de expertos sobre micromovilidad, infraestructura y sistemas de rescate de emergencia conectados (e-Call) en Europa.</p>
+                    <button onclick="openContactModal()" class="media-link-flat">Ver Detalles →</button>
                 </div>
             </article>
 
-            <article class="media-card">
-                <div class="media-card-photo" style="background-image: url('assets/mobility-data.png');" onclick="openLightboxModal('assets/mobility-data.png')"></div>
-                <div class="media-card-text">
-                    <span class="media-card-tag">Entrevista en Medios · Insurzine TV</span>
-                    <h3 class="media-card-title">"En Italia, la confianza se construye con presencia comercial y rigor"</h3>
-                    <p class="media-card-desc">Entrevista en profundidad analizando la transformación de los modelos de distribución en el sur de Europa y las oportunidades del mercado telemático.</p>
-                    <a href="https://insurzine.tv" target="_blank" rel="noopener" class="media-card-link">Leer Noticia →</a>
+            <article class="media-card-flat">
+                <div class="media-photo-thumb" style="background-image: url('assets/mobility-data.png');" onclick="openLightboxImage('assets/mobility-data.png')"></div>
+                <div class="media-content-flat">
+                    <span class="media-type-tag">Entrevista en Medios · Insurzine TV</span>
+                    <h3 class="media-title-flat">"En Italia, la confianza se construye con presencia comercial y rigor"</h3>
+                    <p class="media-desc-flat">Entrevista en profundidad analizando la transformación de los modelos de distribución en el sur de Europa y las oportunidades del mercado telemático.</p>
+                    <a href="https://insurzine.tv" target="_blank" rel="noopener" class="media-link-flat">Leer Noticia →</a>
                 </div>
             </article>
         </div>
@@ -862,248 +834,224 @@ body {
 </div>
 
 <!-- ==========================================
-     TAB 5: LIDERAZGO & VALORES (HUMAN DIMENSION)
+     PESTAÑA 5: LIDERAZGO & HUMANO
      ========================================== -->
-<div class="tab-panel" id="panel-leadership" role="tabpanel">
-    <!-- Perspective Quote -->
-    <section class="perspective-quote">
-        <div class="perspective-quote-inner">
-            <p class="perspective-quote-mark">"</p>
-            <p class="perspective-quote-text">
-                For me, a product becomes a business when someone trusts it enough to buy. In Italy, that trust is built through presence.
-            </p>
-            <p class="perspective-quote-attr">— Maurizio Di Russo</p>
-        </div>
-    </section>
-
-    <!-- Human / Cycling Section (Original identity) -->
-    <section class="human-cycling">
-        <div class="human-cycling-img" role="img" aria-label="Maurizio Di Russo cycling"></div>
-        <div class="human-cycling-content">
-            <p class="human-label">Outside work</p>
-            <p class="human-text">
-                Two wheels. Open roads. Resistencia, cadencia y disciplina aplicadas a la gestión ejecutiva.
-            </p>
-        </div>
-    </section>
-
-    <!-- Core Values -->
-    <section class="value-section" style="background: var(--warm-white);">
-        <p class="value-header-label">Leadership Philosophy</p>
-        <h2 class="value-header-title">Principios de Liderazgo y Gobernanza</h2>
-        <div class="value-grid">
-            <div class="value-item">
-                <p class="value-item-title">Resistencia &amp; Foco</p>
-                <p class="value-item-body">La disciplina del ciclismo enseña que los grandes objetivos se alcanzan con gestión de energía, constancia y visión de largo plazo.</p>
-            </div>
-            <div class="value-item">
-                <p class="value-item-title">Rigor &amp; Ética</p>
-                <p class="value-item-body">Gobernanza transparente y decisiones basadas en datos objetivos, preservando siempre la reputación corporativa.</p>
-            </div>
-            <div class="value-item">
-                <p class="value-item-title">Cultura de Confianza</p>
-                <p class="value-item-body">Empoderamiento de equipos con autonomía responsable, alta exigencia y acompañamiento en el desbloqueo operativo.</p>
-            </div>
-        </div>
-    </section>
-</div>
-
-<!-- ==========================================
-     TAB 6: FORMACIÓN & CERTIFICACIONES
-     ========================================== -->
-<div class="tab-panel" id="panel-education" role="tabpanel">
-    <section class="education-wrap">
-        <p class="story-chapter-label">Credentials &amp; Executive Education</p>
-        <h2 class="section-title">Formación Directiva &amp; Credenciales</h2>
-        <p class="section-subtitle">
-            Base cuantitativa en economía y finanzas con actualización directiva continua en gestión estratégica, riesgos y gobernanza.
+<div class="tab-content-panel" id="pane-leadership" role="tabpanel">
+    <div class="section-banner-light">
+        <span class="section-kicker">Dimensión Humana &amp; Valores</span>
+        <h2 class="section-main-heading">Filosofía de Liderazgo</h2>
+        <p class="section-intro-text">
+            Construcción de equipos de alto rendimiento, cultura de transparencia y rigor en la ejecución operativa y la gobernanza corporativa.
         </p>
+    </div>
 
-        <div class="edu-grid-3">
-            <div class="edu-item-box">
-                <p class="edu-item-type">Grado Universitario</p>
-                <h3 class="edu-item-title">Licenciatura en Economía &amp; Finanzas</h3>
-                <div class="edu-item-school">Universidad de Estudios Económicos · Italia</div>
-                <p class="edu-item-desc">Análisis financiero, macroeconomía, estructura de mercados de capitales y modelos cuantitativos de riesgo.</p>
+    <!-- Cita de Confianza -->
+    <section class="quote-section-flat">
+        <p class="quote-mark-flat">"</p>
+        <p class="quote-text-flat">
+            For me, a product becomes a business when someone trusts it enough to buy. In Italy, that trust is built through presence.
+        </p>
+        <p class="quote-author-flat">— Maurizio Di Russo</p>
+    </section>
+
+    <!-- Ciclismo / Outside Work -->
+    <section class="cycling-section-flat">
+        <div class="cycling-bg-img" role="img" aria-label="Maurizio Di Russo cycling"></div>
+        <div class="cycling-caption-flat">
+            <p class="cycling-tag-flat">Outside work</p>
+            <p class="cycling-txt-flat">
+                Two wheels. Open roads. Resistencia, cadencia y disciplina deportiva aplicadas a la gestión ejecutiva.
+            </p>
+        </div>
+    </section>
+</div>
+
+<!-- ==========================================
+     PESTAÑA 6: FORMACIÓN & CREDENCIALES
+     ========================================== -->
+<div class="tab-content-panel" id="pane-education" role="tabpanel">
+    <div class="section-banner-light">
+        <span class="section-kicker">Credenciales Directivas</span>
+        <h2 class="section-main-heading">Formación &amp; Idiomas</h2>
+        <p class="section-intro-text">
+            Base cuantitativa en economía y finanzas complementada con formación directiva continua y negociación multicultural.
+        </p>
+    </div>
+
+    <section class="edu-section-flat">
+        <div class="edu-grid-flat">
+            <div class="edu-card-flat">
+                <p class="edu-tag-flat">Grado Universitario</p>
+                <h3 class="edu-title-flat">Licenciatura en Economía &amp; Finanzas</h3>
+                <div class="edu-school-flat">Universidad de Estudios Económicos · Italia</div>
+                <p class="edu-desc-flat">Análisis financiero, macroeconomía, estructura de mercados de capitales y modelos cuantitativos de riesgo.</p>
             </div>
 
-            <div class="edu-item-box">
-                <p class="edu-item-type">Executive Education</p>
-                <h3 class="edu-item-title">Programa de Dirección General</h3>
-                <div class="edu-item-school">Business School Ejecutiva · Europa</div>
-                <p class="edu-item-desc">Estrategia corporativa, negociación avanzada, liderazgo transformacional y gobierno corporativo para consejos.</p>
+            <div class="edu-card-flat">
+                <p class="edu-tag-flat">Executive Education</p>
+                <h3 class="edu-title-flat">Programa de Dirección General</h3>
+                <div class="edu-school-flat">Business School Ejecutiva · Europa</div>
+                <p class="edu-desc-flat">Estrategia corporativa, negociación avanzada, liderazgo transformacional y gobierno corporativo para consejos.</p>
             </div>
 
-            <div class="edu-item-box">
-                <p class="edu-item-type">Certificaciones</p>
-                <h3 class="edu-item-title">Insurtech &amp; Risk Governance</h3>
-                <div class="edu-item-school">Institutos Internacionales de Certificación</div>
-                <p class="edu-item-desc">Gobernanza de datos telemáticos, suscripción basada en algoritmos y marcos regulatorios europeos.</p>
+            <div class="edu-card-flat">
+                <p class="edu-tag-flat">Certificaciones</p>
+                <h3 class="edu-title-flat">Insurtech &amp; Risk Governance</h3>
+                <div class="edu-school-flat">Institutos Internacionales de Certificación</div>
+                <p class="edu-desc-flat">Gobernanza de datos telemáticos, suscripción basada en algoritmos y marcos regulatorios europeos.</p>
             </div>
         </div>
 
-        <div style="margin-top: 4rem; padding: 2.5rem 2rem; background: var(--midnight); color: var(--warm-white);">
-            <div style="font-size: 0.68rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-blue); margin-bottom: 0.6rem;">Competencias Lingüísticas</div>
-            <h3 style="font-size: 1.25rem; font-weight: 500; margin-bottom: 1.5rem;">Idiomas de Negociación Internacional</h3>
-            <div style="display: flex; gap: 3rem; flex-wrap: wrap;">
+        <div style="margin-top: 4rem; padding: 2.5rem 2rem; background-color: var(--midnight); color: #ffffff; border-radius: var(--radius-sm);">
+            <div style="font-size: 0.68rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-slate); margin-bottom: 0.5rem;">Competencias Lingüísticas</div>
+            <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 1.5rem;">Idiomas de Negociación Internacional</h3>
+            <div style="display: flex; gap: 3.5rem; flex-wrap: wrap;">
                 <div>
-                    <div style="font-size: 0.95rem; font-weight: 600; color: var(--warm-white);">Italiano</div>
-                    <div style="font-size: 0.72rem; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.1em;">Nativo</div>
+                    <div style="font-size: 0.95rem; font-weight: 700; color: #ffffff;">Italiano</div>
+                    <div style="font-size: 0.72rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.1em;">Nativo</div>
                 </div>
                 <div>
-                    <div style="font-size: 0.95rem; font-weight: 600; color: var(--warm-white);">Inglés</div>
-                    <div style="font-size: 0.72rem; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.1em;">Bilingüe / Negociación Directiva</div>
+                    <div style="font-size: 0.95rem; font-weight: 700; color: #ffffff;">Inglés</div>
+                    <div style="font-size: 0.72rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.1em;">Bilingüe / Negociación Directiva</div>
                 </div>
                 <div>
-                    <div style="font-size: 0.95rem; font-weight: 600; color: var(--warm-white);">Español</div>
-                    <div style="font-size: 0.72rem; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.1em;">Competencia Profesional</div>
+                    <div style="font-size: 0.95rem; font-weight: 700; color: #ffffff;">Español</div>
+                    <div style="font-size: 0.72rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.1em;">Competencia Profesional</div>
                 </div>
             </div>
         </div>
     </section>
 </div>
 <!-- ==========================================
-     VENTANA / BARRA FLOTANTE DE ACCIÓN DUAL (BOTTOM PILL)
+     BARRA FLOTANTE DE ACCIÓN DUAL (100% FLAT)
      ========================================== -->
-<div class="bottom-floating-pill">
-    <!-- Acción 1: Contactar (Prioritaria) -->
-    <button class="pill-action-btn pill-btn-contact" onclick="openContactModal()">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+<div class="flat-floating-bar">
+    <!-- Acción 1: Contactar (Prioridad 1) -->
+    <button class="flat-pill-btn btn-flat-contact" onclick="openContactModal()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
         Contactar
     </button>
-    <!-- Acción 2: Descargar CV (Secundaria) -->
-    <button class="pill-action-btn pill-btn-cv" onclick="openDownloadModal()">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+    <!-- Acción 2: Descargar CV (Prioridad 2) -->
+    <button class="flat-pill-btn btn-flat-cv" onclick="openDownloadModal()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
         Descargar CV
     </button>
 </div>
 
 <!-- ==========================================
-     MODAL DE CONTACTO DIRECTO (ELITE)
+     MODAL DE CONTACTO (FLAT BOTTOM SHEET EN MOBILE)
      ========================================== -->
-<div class="elite-modal-backdrop" id="contactModal" onclick="checkBackdrop(event, 'contactModal')">
-    <div class="elite-modal-card" role="dialog" aria-modal="true">
-        <div class="modal-bar-top">
-            <div>
-                <h3 class="modal-headline">Start a conversation</h3>
-                <p class="modal-subline">Canales directos de comunicación</p>
-            </div>
-            <button class="modal-close-btn" onclick="closeContactModal()">×</button>
+<div class="flat-modal-backdrop" id="contactModal" onclick="checkModalClick(event, 'contactModal')">
+    <div class="flat-modal-window" role="dialog" aria-modal="true">
+        <div class="modal-header-flat">
+            <h3 class="modal-title-flat">Iniciar Conversación</h3>
+            <button class="modal-close-x" onclick="closeContactModal()" aria-label="Cerrar">×</button>
         </div>
-        <div class="modal-inner-list">
-            <a href="mailto:maurizio@dirusso.com" class="modal-item-row">
-                <div class="modal-item-icon">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                </div>
+        <div class="modal-list-flat">
+            <a href="mailto:maurizio@dirusso.com" class="modal-row-flat">
+                <div class="modal-badge-icon">✉</div>
                 <div>
-                    <div class="modal-item-title">Email Directo</div>
-                    <div class="modal-item-sub">maurizio@dirusso.com</div>
+                    <div class="modal-row-main">Email Directo</div>
+                    <div class="modal-row-sub">maurizio@dirusso.com</div>
                 </div>
-                <div class="modal-item-arrow">Enviar →</div>
+                <div class="modal-row-arrow">Enviar →</div>
             </a>
 
-            <a href="https://www.linkedin.com/in/mauriziodirusso/" target="_blank" rel="noopener" class="modal-item-row">
-                <div class="modal-item-icon">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
-                </div>
+            <a href="https://www.linkedin.com/in/mauriziodirusso/" target="_blank" rel="noopener" class="modal-row-flat">
+                <div class="modal-badge-icon">in</div>
                 <div>
-                    <div class="modal-item-title">LinkedIn</div>
-                    <div class="modal-item-sub">linkedin.com/in/mauriziodirusso</div>
+                    <div class="modal-row-main">LinkedIn Oficial</div>
+                    <div class="modal-row-sub">linkedin.com/in/mauriziodirusso</div>
                 </div>
-                <div class="modal-item-arrow">Visitar →</div>
+                <div class="modal-row-arrow">Visitar →</div>
             </a>
 
-            <div class="modal-item-row" style="cursor: default;">
-                <div class="modal-item-icon">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                </div>
+            <div class="modal-row-flat" style="cursor: default;">
+                <div class="modal-badge-icon">📍</div>
                 <div>
-                    <div class="modal-item-title">Ubicación</div>
-                    <div class="modal-item-sub">Milán, Italia · Cobertura internacional EMEA</div>
+                    <div class="modal-row-main">Base Ejecutiva</div>
+                    <div class="modal-row-sub">Milán, Italia · Cobertura EMEA</div>
                 </div>
-                <div class="modal-item-arrow">Italia / EMEA</div>
+                <div class="modal-row-arrow">Italia</div>
             </div>
         </div>
     </div>
 </div>
 
 <!-- ==========================================
-     MODAL DE DESCARGA MULTI-FORMATO DE CV
+     MODAL DE DESCARGA DE CV (FLAT BOTTOM SHEET COMPACTO)
      ========================================== -->
-<div class="elite-modal-backdrop" id="downloadModal" onclick="checkBackdrop(event, 'downloadModal')">
-    <div class="elite-modal-card" role="dialog" aria-modal="true">
-        <div class="modal-bar-top">
-            <div>
-                <h3 class="modal-headline">Descargar CV &amp; Dossier</h3>
-                <p class="modal-subline">Formatos ejecutivos de evaluación</p>
-            </div>
-            <button class="modal-close-btn" onclick="closeDownloadModal()">×</button>
+<div class="flat-modal-backdrop" id="downloadModal" onclick="checkModalClick(event, 'downloadModal')">
+    <div class="flat-modal-window" role="dialog" aria-modal="true">
+        <div class="modal-header-flat">
+            <h3 class="modal-title-flat">Descargar CV &amp; Dossier</h3>
+            <button class="modal-close-x" onclick="closeDownloadModal()" aria-label="Cerrar">×</button>
         </div>
-        <div class="modal-inner-list">
-            <div class="modal-item-row" onclick="triggerCVDownload('CV Ejecutivo Integral (PDF Completo)')">
-                <div class="modal-item-icon">📄</div>
+        <div class="modal-list-flat">
+            <div class="modal-row-flat" onclick="executeCVDownload('CV Ejecutivo Integral (PDF)')">
+                <div class="modal-badge-icon">PDF</div>
                 <div>
-                    <div class="modal-item-title">1. CV Ejecutivo Integral (PDF)</div>
-                    <div class="modal-item-sub">Trayectoria completa, funciones directivas e impacto cuantitativo.</div>
+                    <div class="modal-row-main">1. CV Ejecutivo Integral</div>
+                    <div class="modal-row-sub">Trayectoria completa y responsabilidades directivas.</div>
                 </div>
-                <div class="modal-item-arrow">Descargar →</div>
+                <div class="modal-row-arrow">Descargar →</div>
             </div>
 
-            <div class="modal-item-row" onclick="triggerCVDownload('Executive One-Pager (Resumen C-Level)')">
-                <div class="modal-item-icon">📑</div>
+            <div class="modal-row-flat" onclick="executeCVDownload('Executive One-Pager (C-Level)')">
+                <div class="modal-badge-icon">1P</div>
                 <div>
-                    <div class="modal-item-title">2. Executive One-Pager (1 página)</div>
-                    <div class="modal-item-sub">Síntesis de alto nivel para Headhunters y Comités Directivos.</div>
+                    <div class="modal-row-main">2. Executive One-Pager</div>
+                    <div class="modal-row-sub">Resumen de 1 página para Comités y Headhunters.</div>
                 </div>
-                <div class="modal-item-arrow">Descargar →</div>
+                <div class="modal-row-arrow">Descargar →</div>
             </div>
 
-            <div class="modal-item-row" onclick="triggerCVDownload('Dossier de Casos de Estudio & ROI')">
-                <div class="modal-item-icon">📊</div>
+            <div class="modal-row-flat" onclick="executeCVDownload('Dossier de Casos de Estudio')">
+                <div class="modal-badge-icon">ROI</div>
                 <div>
-                    <div class="modal-item-title">3. Dossier de Casos &amp; ROI</div>
-                    <div class="modal-item-sub">Metodología de penetración comercial y métricas de crecimiento.</div>
+                    <div class="modal-row-main">3. Dossier de Casos &amp; ROI</div>
+                    <div class="modal-row-sub">Metodología de penetración y métricas clave.</div>
                 </div>
-                <div class="modal-item-arrow">Descargar →</div>
+                <div class="modal-row-arrow">Descargar →</div>
             </div>
 
-            <div class="modal-item-row" onclick="triggerCVDownload('CV Estándar (ATS-Optimized)')">
-                <div class="modal-item-icon">📋</div>
+            <div class="modal-row-flat" onclick="executeCVDownload('Formato Estándar ATS')">
+                <div class="modal-badge-icon">ATS</div>
                 <div>
-                    <div class="modal-item-title">4. Formato Estándar (ATS)</div>
-                    <div class="modal-item-sub">Formato optimizado para portales de reclutamiento corporativo.</div>
+                    <div class="modal-row-main">4. Formato Estándar (ATS)</div>
+                    <div class="modal-row-sub">Optimizado para sistemas de selección de talento.</div>
                 </div>
-                <div class="modal-item-arrow">Descargar →</div>
+                <div class="modal-row-arrow">Descargar →</div>
             </div>
         </div>
     </div>
 </div>
 
 <!-- ==========================================
-     LIGHTBOX PARA CONFERENCIAS
+     LIGHTBOX PARA IMÁGENES
      ========================================== -->
-<div class="lightbox-modal" id="lightboxModal" onclick="closeLightboxModal()">
+<div class="lightbox-flat" id="flatLightbox" onclick="closeLightboxImage()">
     <button style="position:absolute;top:1.5rem;right:2rem;background:transparent;border:none;color:#fff;font-size:2rem;cursor:pointer;">×</button>
-    <img class="lightbox-target-img" id="lightboxTargetImg" src="" alt="Fotografía ampliada">
+    <img class="lightbox-flat-img" id="flatLightboxImg" src="" alt="Fotografía ampliada">
 </div>
 
 <!-- TOAST -->
-<div class="toast-tag" id="toastTag">Acción ejecutada</div>
+<div class="flat-toast" id="flatToast">Acción completada</div>
 
 <!-- ==========================================
      JAVASCRIPT CONTROLLER
      ========================================== -->
 <script>
-function openTab(tabId) {
-    document.querySelectorAll('.tab-panel').forEach(function(p) {
-        p.classList.remove('active');
+function selectTab(id) {
+    document.querySelectorAll('.tab-content-panel').forEach(function(pane) {
+        pane.classList.remove('active');
     });
-    document.querySelectorAll('.tab-item-btn').forEach(function(b) {
-        b.classList.remove('active');
+    document.querySelectorAll('.nav-tab-pill').forEach(function(btn) {
+        btn.classList.remove('active');
     });
 
-    var p = document.getElementById('panel-' + tabId);
-    var b = document.getElementById('tab-btn-' + tabId);
+    var p = document.getElementById('pane-' + id);
+    var b = document.getElementById('tab-nav-' + id);
 
     if (p) {
         p.classList.add('active');
@@ -1134,55 +1082,55 @@ function closeDownloadModal() {
     if (m) { m.classList.remove('active'); document.body.style.overflow = ''; }
 }
 
-function checkBackdrop(e, id) {
+function checkModalClick(e, id) {
     if (e.target.id === id) {
         if (id === 'contactModal') closeContactModal();
         if (id === 'downloadModal') closeDownloadModal();
     }
 }
 
-function triggerCVDownload(name) {
+function executeCVDownload(doc) {
     closeDownloadModal();
-    showToastMsg('Descargando: ' + name);
+    triggerToast('Descargando: ' + doc);
 }
 
-function showToastMsg(txt) {
-    var t = document.getElementById('toastTag');
+function triggerToast(msg) {
+    var t = document.getElementById('flatToast');
     if (!t) return;
-    t.textContent = txt;
+    t.textContent = msg;
     t.classList.add('show');
     setTimeout(function() { t.classList.remove('show'); }, 3000);
 }
 
 // Filtros de Timeline
-function filterTimeline(cat, btn) {
-    document.querySelectorAll('.timeline-filter-strip .t-btn').forEach(function(b) {
+function applyTimelineFilter(cat, btn) {
+    document.querySelectorAll('.timeline-filters-flat .t-filter-pill').forEach(function(b) {
         b.classList.remove('active');
     });
     if (btn) btn.classList.add('active');
 
-    document.querySelectorAll('.timeline-card-row').forEach(function(row) {
+    document.querySelectorAll('.t-row-item').forEach(function(item) {
         if (cat === 'all') {
-            row.style.display = 'grid';
+            item.style.display = 'grid';
         } else {
-            var c = row.getAttribute('data-cat') || '';
-            row.style.display = (c.indexOf(cat) !== -1) ? 'grid' : 'none';
+            var c = item.getAttribute('data-cat') || '';
+            item.style.display = (c.indexOf(cat) !== -1) ? 'grid' : 'none';
         }
     });
 }
 
 // Lightbox
-function openLightboxModal(src) {
-    var m = document.getElementById('lightboxModal');
-    var img = document.getElementById('lightboxTargetImg');
+function openLightboxImage(src) {
+    var m = document.getElementById('flatLightbox');
+    var img = document.getElementById('flatLightboxImg');
     if (m && img) {
         img.src = src;
         m.classList.add('active');
         document.body.style.overflow = 'hidden';
     }
 }
-function closeLightboxModal() {
-    var m = document.getElementById('lightboxModal');
+function closeLightboxImage() {
+    var m = document.getElementById('flatLightbox');
     if (m) {
         m.classList.remove('active');
         document.body.style.overflow = '';
@@ -1193,7 +1141,7 @@ document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
         closeContactModal();
         closeDownloadModal();
-        closeLightboxModal();
+        closeLightboxImage();
     }
 });
 </script>
