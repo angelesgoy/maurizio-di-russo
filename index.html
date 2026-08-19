@@ -34,21 +34,24 @@
 }
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; border: none; outline: none; }
-html { scroll-behavior: smooth; overflow-x: hidden; }
+html { scroll-behavior: smooth; }
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     background-color: var(--warm-white);
     color: var(--text-dark);
     line-height: 1.6;
-    overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
 }
 
-/* ============ HEADER LAYOUT (DESKTOP: BRAND LEFT · TABS CENTER · CTA RIGHT) ============ */
+/* ============ STICKY HEADER (PERMANENTEMENTE FIJO AL HACER SCROLL) ============ */
 .site-top-bar {
-    position: sticky; top: 0; z-index: 1000;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 2500;
     background-color: var(--midnight);
     padding: 0.95rem 2.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
 }
 .site-top-bar-inner {
     max-width: 1400px; margin: 0 auto;
@@ -147,7 +150,7 @@ body {
     color: var(--graphite); max-width: 700px;
 }
 
-/* HERO */
+/* HERO (DESKTOP) */
 .hero-flat {
     min-height: calc(100vh - 80px); display: grid; grid-template-columns: 46% 54%;
     background-color: var(--midnight); position: relative;
@@ -312,14 +315,14 @@ body {
 
 /* FLOATING ACTION BAR (MOBILE ONLY) */
 .flat-floating-bar {
-    position: fixed; bottom: 1.5rem; left: 50%; transform: translateX(-50%); z-index: 2000;
+    position: fixed; bottom: 1.25rem; left: 50%; transform: translateX(-50%); z-index: 2000;
     background-color: var(--midnight); border-radius: var(--radius-pill);
-    padding: 0.45rem 0.55rem; display: none; align-items: center; gap: 0.5rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    padding: 0.4rem 0.5rem; display: none; align-items: center; gap: 0.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 .flat-pill-btn {
     display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
-    padding: 0.7rem 1.5rem; font-size: 0.7rem; font-weight: 700;
+    padding: 0.7rem 1.4rem; font-size: 0.7rem; font-weight: 700;
     letter-spacing: 0.12em; text-transform: uppercase; border-radius: var(--radius-pill);
     cursor: pointer; text-decoration: none; transition: all 0.18s ease;
     white-space: nowrap;
@@ -402,9 +405,6 @@ body {
 /* ============ RESPONSIVE RULES ============ */
 @media (max-width: 1024px) {
     .site-top-bar { padding: 0.9rem 1.5rem; }
-    .hero-flat { grid-template-columns: 1fr; min-height: auto; }
-    .hero-flat-left { padding: 3.5rem 1.5rem; }
-    .hero-flat-right { height: 45vh; min-height: 320px; }
     .proposition-flat { padding: 4rem 1.5rem; }
     .prop-grid-2x2 { grid-template-columns: 1fr; gap: 3rem; }
     .case-chapter-box-light, .case-chapter-box-dark { grid-template-columns: 1fr; padding: 4rem 1.5rem; gap: 2.5rem; }
@@ -423,34 +423,60 @@ body {
 }
 
 @media (max-width: 920px) {
-    /* En Tablet y Mobile: Apilado vertical y botones circulares */
-    .site-top-bar { padding: 1.15rem 1rem 0.95rem; }
+    /* STICKY HEADER EN MOBILE */
+    .site-top-bar { padding: 0.85rem 1rem 0.75rem; }
     .site-top-bar-inner {
-        flex-direction: column; justify-content: center; gap: 0.9rem;
+        flex-direction: column; justify-content: center; gap: 0.65rem;
     }
     .brand-block {
         align-items: center; text-align: center;
     }
-    .brand-title { font-size: 0.84rem; letter-spacing: 0.18em; }
-    .brand-sub { font-size: 0.58rem; letter-spacing: 0.14em; margin-top: 0.25rem; }
+    .brand-title { font-size: 0.82rem; letter-spacing: 0.16em; }
+    .brand-sub { font-size: 0.54rem; letter-spacing: 0.12em; margin-top: 0.2rem; }
 
-    /* Ocultar botones de header en mobile (se usan los flotantes) */
     .header-desktop-actions { display: none !important; }
 
-    /* Botones de navegación circulares en mobile */
+    /* BOTONES CIRCULARES */
     .tab-label-text { display: none; }
-    .tabs-pill-row { gap: 0.55rem; justify-content: center; width: 100%; }
+    .tabs-pill-row { gap: 0.5rem; justify-content: center; width: 100%; }
     .nav-tab-pill {
-        width: 44px; height: 44px; min-width: 44px; min-height: 44px;
+        width: 42px; height: 42px; min-width: 42px; min-height: 42px;
         border-radius: 50% !important;
         padding: 0 !important;
         display: flex !important; align-items: center !important; justify-content: center !important;
         flex-shrink: 0;
     }
-    .nav-tab-pill svg { width: 18px; height: 18px; }
+    .nav-tab-pill svg { width: 17px; height: 17px; }
 
-    /* Barra flotante activa en mobile */
-    body { padding-bottom: 6.5rem; }
+    /* HERO EN MOBILE: FOTO PROTAGONISTA ARRIBA FUSIONADA CON EL TEXTO */
+    .hero-flat {
+        display: flex; flex-direction: column; min-height: auto;
+    }
+    .hero-flat-right {
+        order: 1; width: 100%; height: 310px; min-height: 310px;
+        background-color: var(--midnight);
+    }
+    .hero-flat-portrait {
+        /* Fusión suave entre la foto y el fondo oscuro */
+        background-image: linear-gradient(180deg, rgba(11, 19, 32, 0.1) 40%, rgba(11, 19, 32, 0.9) 85%, var(--midnight) 100%), url('https://i.postimg.cc/0N1qWhKT/portrait-bw-jpg.png');
+        background-size: cover;
+        background-position: 50% 16%;
+        background-repeat: no-repeat;
+    }
+    .hero-flat-left {
+        order: 2; padding: 1.25rem 1.5rem 3rem; text-align: left;
+    }
+    .hero-flat-tag {
+        font-size: 0.62rem; letter-spacing: 0.16em; margin-bottom: 0.75rem;
+    }
+    .hero-flat-h1 {
+        font-size: 1.7rem; line-height: 1.25; margin-bottom: 0;
+    }
+    /* Ocultar botones duplicados del hero (se usa la barra fija) */
+    .hero-flat-actions { display: none !important; }
+
+    /* BARRA FLOTANTE FIJA EN MOBILE */
+    body { padding-bottom: 6rem; }
     .flat-floating-bar {
         display: flex !important;
         width: calc(100% - 2rem); justify-content: center; padding: 0.35rem 0.45rem;
@@ -467,7 +493,7 @@ body {
 </head>
 <body>
 
-<!-- TOP HEADER -->
+<!-- TOP STICKY HEADER -->
 <header class="site-top-bar">
     <div class="site-top-bar-inner">
         <!-- LEFT: BRAND IDENTIFIER -->
@@ -521,6 +547,9 @@ body {
 <!-- TAB 1: PERSPECTIVE & SCALE -->
 <div class="tab-content-panel active" id="pane-perspective" role="tabpanel">
     <section class="hero-flat">
+        <div class="hero-flat-right">
+            <div class="hero-flat-portrait" role="img" aria-label="Maurizio Di Russo"></div>
+        </div>
         <div class="hero-flat-left">
             <p class="hero-flat-tag">Maurizio Di Russo · Executive Dossier</p>
             <h1 class="hero-flat-h1">
@@ -536,9 +565,6 @@ body {
                     Download CV
                 </button>
             </div>
-        </div>
-        <div class="hero-flat-right">
-            <div class="hero-flat-portrait" role="img" aria-label="Maurizio Di Russo"></div>
         </div>
     </section>
 
