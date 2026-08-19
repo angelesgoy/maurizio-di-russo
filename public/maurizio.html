@@ -4,37 +4,35 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Maurizio Di Russo | Executive Dossier & Strategic Hub</title>
-<meta name="description" content="Dossier digital ejecutivo de Maurizio Di Russo: Dirección general, desarrollo de negocio, insurtech, movilidad y servicios financieros en Italia y Europa.">
+<meta name="description" content="Dossier digital ejecutivo de Maurizio Di Russo: Dirección general, desarrollo de negocio, insurtech, movilidad y finanzas.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root {
-    --midnight: #0b1320;
-    --midnight-elevated: #111d31;
-    --petroleum: #1e3352;
-    --petroleum-light: #2c476f;
-    --petroleum-soft: #3e5f8f;
-    --warm-white: #f8f6f0;
-    --warm-white-dim: #edeae2;
+    --midnight: #0f1a2e;
+    --midnight-surface: #17243b;
+    --petroleum: #2a3f5f;
+    --petroleum-light: #3a5278;
+    --petroleum-subtle: #4d6891;
+    --warm-white: #f5f2eb;
+    --warm-white-dim: #ebe8e0;
     --warm-card: #ffffff;
-    --graphite: #383838;
-    --charcoal: #1c1c24;
-    --muted-blue: #6d8ba6;
-    --text-dark: #12151e;
-    --text-light: #d8dbe2;
-    --text-muted: #8b98a5;
-    --accent: #4872a3;
-    --accent-gold: #c29b61;
-    --accent-gold-soft: rgba(194, 155, 97, 0.15);
-    --border-dark: rgba(255, 255, 255, 0.08);
-    --border-light: rgba(18, 21, 30, 0.08);
+    --graphite: #3d3d3d;
+    --charcoal: #2a2a2a;
+    --muted-blue: #5b7596;
+    --text-dark: #1a1a2e;
+    --text-light: #d4d2cb;
+    --text-muted: #8896a6;
+    --accent: #3d608a;
+    --border-dark: rgba(255, 255, 255, 0.1);
+    --border-light: rgba(42, 63, 95, 0.15);
     --photo-white: #f4f4f5;
     --radius-sm: 4px;
     --radius-md: 8px;
-    --radius-lg: 16px;
-    --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.06);
-    --shadow-elevated: 0 20px 40px rgba(0, 0, 0, 0.22);
+    --radius-pill: 999px;
+    --shadow-subtle: 0 4px 20px rgba(15, 26, 46, 0.06);
+    --shadow-floating: 0 12px 36px rgba(15, 26, 46, 0.28);
 }
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -46,971 +44,890 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
+    padding-bottom: 7rem;
 }
 
-.container { max-width: 1280px; margin: 0 auto; padding: 0 2.5rem; }
-.section-tag {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    font-size: 0.68rem; font-weight: 700; letter-spacing: 0.22em;
-    text-transform: uppercase; color: var(--accent); margin-bottom: 1.25rem;
-}
-.section-tag.light { color: var(--accent-gold); }
-.section-title {
-    font-size: clamp(2rem, 3.5vw, 3.1rem); font-weight: 600; line-height: 1.2;
-    color: var(--text-dark); letter-spacing: -0.02em; margin-bottom: 1.5rem;
-}
-.section-title.light { color: var(--warm-white); }
-.section-subtitle {
-    font-size: 1.05rem; font-weight: 300; line-height: 1.75;
-    color: var(--graphite); max-width: 720px;
-}
-.section-subtitle.light { color: var(--text-light); }
-
-.badge-gold {
-    display: inline-block; padding: 0.35rem 0.85rem;
-    background: var(--accent-gold-soft); border: 1px solid rgba(194, 155, 97, 0.35);
-    color: var(--accent-gold); font-size: 0.68rem; font-weight: 600;
-    letter-spacing: 0.12em; text-transform: uppercase; border-radius: 999px;
-}
-
-.nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-    padding: 1.25rem 3rem;
-    display: flex; justify-content: space-between; align-items: center;
-    transition: background 0.4s ease, padding 0.4s ease, border-color 0.4s ease;
-    border-bottom: 1px solid transparent;
-}
-.nav.scrolled {
-    background: rgba(11, 19, 32, 0.94);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    padding: 0.9rem 3rem;
+/* ============ HEADER PRINCIPAL ============ */
+.site-header {
+    position: sticky; top: 0; z-index: 1000;
+    background: var(--midnight);
     border-bottom: 1px solid var(--border-dark);
 }
-.nav-brand { display: flex; flex-direction: column; text-decoration: none; }
-.nav-logo {
-    font-size: 0.78rem; font-weight: 700; letter-spacing: 0.16em;
-    text-transform: uppercase; color: var(--text-dark);
-    transition: color 0.4s ease;
+.header-top {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.1rem 2.5rem 0.75rem;
 }
-.nav.scrolled .nav-logo { color: var(--warm-white); }
-.nav-role {
-    font-size: 0.58rem; font-weight: 500; letter-spacing: 0.12em;
+.brand-name {
+    font-size: 0.82rem; font-weight: 700; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--warm-white); text-decoration: none;
+}
+.brand-tag {
+    font-size: 0.62rem; font-weight: 500; letter-spacing: 0.12em;
     text-transform: uppercase; color: var(--muted-blue);
 }
-.nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
-.nav-links a {
-    font-size: 0.7rem; font-weight: 500; letter-spacing: 0.12em;
-    text-transform: uppercase; color: var(--text-muted);
-    text-decoration: none; transition: color 0.3s ease; position: relative;
-}
-.nav-links a::after {
-    content: ''; position: absolute; bottom: -4px; left: 0;
-    width: 0; height: 1.5px; background: var(--accent-gold); transition: width 0.3s ease;
-}
-.nav-links a:hover::after { width: 100%; }
-.nav-links a:hover { color: var(--warm-white); }
 
-.nav-actions { display: flex; align-items: center; gap: 1.2rem; }
-.btn-nav-cv {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    background: var(--accent-gold); color: var(--midnight);
-    padding: 0.55rem 1.25rem; font-size: 0.68rem; font-weight: 700;
-    letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none;
-    border-radius: var(--radius-sm); border: none; cursor: pointer;
-    transition: all 0.3s ease;
+/* ============ BARRA DE PESTAÑAS (TABS STRIP) ============ */
+.tabs-nav-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 0 1.5rem 0.6rem;
 }
-.btn-nav-cv:hover {
-    background: #dfb77d; transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(194, 155, 97, 0.3);
+.tabs-nav-wrapper::-webkit-scrollbar { display: none; }
+.tabs-nav {
+    display: flex; gap: 0.5rem; justify-content: center;
+    min-width: max-content; padding: 0.25rem 0;
+}
+.tab-btn {
+    display: inline-flex; align-items: center; gap: 0.55rem;
+    padding: 0.6rem 1.15rem;
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--text-light);
+    background: transparent; border: 1px solid transparent;
+    border-radius: var(--radius-pill); cursor: pointer;
+    transition: all 0.25s ease; white-space: nowrap;
+}
+.tab-btn svg { width: 15px; height: 15px; opacity: 0.75; transition: opacity 0.25s; }
+.tab-btn:hover {
+    color: var(--warm-white); background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.12);
+}
+.tab-btn.active {
+    color: var(--warm-white); background: var(--petroleum);
+    border-color: var(--petroleum-light); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+.tab-btn.active svg { opacity: 1; }
+
+/* ============ CONTENEDOR DE PESTAÑAS ============ */
+.tab-pane {
+    display: none; animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.tab-pane.active { display: block; }
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-.hero {
-    min-height: 100vh;
-    display: grid;
-    grid-template-columns: 48% 52%;
-    background: var(--midnight);
-    position: relative;
-    padding-top: 5rem;
+.container { max-width: 1200px; margin: 0 auto; padding: 3.5rem 2rem 5rem; }
+/* ============ COMPONENTES GENERALES ============ */
+.section-tag {
+    display: inline-block; font-size: 0.68rem; font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase; color: var(--petroleum-light);
+    margin-bottom: 0.9rem;
 }
-.hero-content {
-    display: flex; flex-direction: column; justify-content: center;
-    padding: 4rem 4rem 4rem 5rem; position: relative; z-index: 2;
+.section-title {
+    font-size: clamp(1.85rem, 3.2vw, 2.75rem); font-weight: 600; line-height: 1.25;
+    color: var(--text-dark); letter-spacing: -0.015em; margin-bottom: 1.25rem;
 }
-.hero-preheader {
-    display: flex; align-items: center; gap: 0.75rem; margin-bottom: 2rem;
-    opacity: 0; transform: translateY(20px); animation: fadeUp 1s 0.3s forwards;
+.section-subtitle {
+    font-size: 1rem; font-weight: 300; line-height: 1.75;
+    color: var(--graphite); max-width: 680px; margin-bottom: 3rem;
 }
-.hero-statement {
-    font-size: clamp(2.1rem, 3.6vw, 3.4rem); font-weight: 500; line-height: 1.18;
-    color: var(--warm-white); max-width: 560px; letter-spacing: -0.02em; margin-bottom: 1.75rem;
-    opacity: 0; transform: translateY(30px); animation: fadeUp 1s 0.6s forwards;
+
+/* ============ TAB 1: PERSPECTIVA & HERO ============ */
+.hero-box {
+    display: grid; grid-template-columns: 46% 54%;
+    background: var(--midnight); border-radius: var(--radius-md);
+    overflow: hidden; margin-bottom: 3rem; box-shadow: var(--shadow-subtle);
 }
-.hero-statement em { font-style: normal; color: var(--accent-gold); font-weight: 600; }
+.hero-info {
+    padding: 3.5rem 3rem; display: flex; flex-direction: column; justify-content: center;
+}
+.hero-tag {
+    font-size: 0.65rem; font-weight: 700; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--muted-blue); margin-bottom: 1.5rem;
+}
+.hero-title {
+    font-size: clamp(1.75rem, 2.8vw, 2.5rem); font-weight: 500; line-height: 1.25;
+    color: var(--warm-white); margin-bottom: 1.5rem; letter-spacing: -0.01em;
+}
+.hero-title em { font-style: normal; color: var(--text-light); font-weight: 600; }
 .hero-desc {
-    font-size: 1.02rem; font-weight: 300; line-height: 1.7;
-    color: var(--text-light); max-width: 500px; margin-bottom: 2.5rem;
-    opacity: 0; transform: translateY(20px); animation: fadeUp 1s 0.8s forwards;
+    font-size: 0.92rem; font-weight: 300; line-height: 1.7;
+    color: var(--text-light); margin-bottom: 2rem;
 }
-.hero-actions {
-    display: flex; flex-wrap: wrap; gap: 1.25rem; align-items: center;
-    opacity: 0; transform: translateY(20px); animation: fadeUp 1s 1s forwards;
+.hero-image-side {
+    position: relative; min-height: 380px; background: var(--photo-white);
 }
-.btn-primary {
-    display: inline-flex; align-items: center; gap: 0.75rem;
-    background: var(--warm-white); color: var(--midnight);
-    padding: 0.95rem 1.8rem; font-size: 0.74rem; font-weight: 700;
-    letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none;
-    border-radius: var(--radius-sm); border: none; cursor: pointer;
-    transition: all 0.3s ease;
-}
-.btn-primary:hover {
-    background: var(--accent-gold); color: var(--midnight);
-    transform: translateY(-2px); box-shadow: 0 6px 20px rgba(194, 155, 97, 0.25);
-}
-.btn-outline {
-    display: inline-flex; align-items: center; gap: 0.75rem;
-    background: transparent; color: var(--warm-white);
-    padding: 0.95rem 1.8rem; font-size: 0.74rem; font-weight: 600;
-    letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none;
-    border-radius: var(--radius-sm); border: 1px solid rgba(255, 255, 255, 0.2);
-    cursor: pointer; transition: all 0.3s ease;
-}
-.btn-outline:hover {
-    border-color: var(--accent-gold); color: var(--accent-gold);
-    background: rgba(194, 155, 97, 0.06);
-}
-
-.hero-image-wrap {
-    overflow: hidden; position: relative;
-    background: var(--midnight-elevated);
-}
-.hero-image {
+.hero-img {
     position: absolute; inset: 0;
     background-image: url('https://i.postimg.cc/0N1qWhKT/portrait-bw-jpg.png');
-    background-size: cover;
-    background-position: 50% 40%;
-    background-repeat: no-repeat;
-    clip-path: inset(0 100% 0 0);
-    animation: imageReveal 1.4s 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    background-size: cover; background-position: 50% 38%;
 }
-.hero-image-overlay {
-    position: absolute; inset: 0;
-    background: linear-gradient(90deg, var(--midnight) 0%, transparent 20%, transparent 80%, rgba(11, 19, 32, 0.4) 100%);
-    pointer-events: none;
-}
-@keyframes imageReveal { to { clip-path: inset(0 0 0 0); } }
 
-.metrics-banner {
-    background: var(--midnight-elevated);
-    border-top: 1px solid var(--border-dark);
-    border-bottom: 1px solid var(--border-dark);
-    padding: 3.5rem 0;
+.metrics-row {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-bottom: 3.5rem;
 }
-.metrics-grid {
-    display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem;
-    text-align: center;
+.metric-card {
+    background: var(--warm-card); padding: 1.8rem 1.5rem; border-radius: var(--radius-md);
+    border: 1px solid var(--border-light); text-align: center; box-shadow: var(--shadow-subtle);
 }
-.metric-item {
-    padding: 1rem 1.5rem;
-    border-right: 1px solid var(--border-dark);
+.metric-val {
+    font-size: 2.2rem; font-weight: 800; color: var(--petroleum); line-height: 1.1; margin-bottom: 0.4rem;
 }
-.metric-item:last-child { border-right: none; }
-.metric-number {
-    font-size: clamp(2.4rem, 4vw, 3.6rem); font-weight: 800;
-    color: var(--accent-gold); line-height: 1; letter-spacing: -0.02em; margin-bottom: 0.6rem;
+.metric-name {
+    font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--text-dark); margin-bottom: 0.25rem;
 }
-.metric-label {
-    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em;
-    text-transform: uppercase; color: var(--warm-white); margin-bottom: 0.35rem;
+.metric-detail { font-size: 0.76rem; font-weight: 300; color: var(--graphite); }
+
+.pillars-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+.pillar-box {
+    background: var(--warm-card); padding: 2.2rem; border-radius: var(--radius-md);
+    border: 1px solid var(--border-light); box-shadow: var(--shadow-subtle);
 }
-.metric-sub {
-    font-size: 0.8rem; font-weight: 300; color: var(--text-muted);
-}
-.perspective { padding: 8rem 0; background: var(--warm-white); }
-.perspective-header { margin-bottom: 5rem; }
-.pillars-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 3.5rem 4rem; }
-.pillar-card {
-    background: var(--warm-card); padding: 3rem;
-    border-radius: var(--radius-md); border: 1px solid var(--border-light);
-    box-shadow: var(--shadow-soft); transition: transform 0.3s ease, border-color 0.3s ease;
-}
-.pillar-card:hover { transform: translateY(-4px); border-color: var(--petroleum-soft); }
 .pillar-num {
-    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em;
-    color: var(--accent); margin-bottom: 1.25rem; text-transform: uppercase;
+    font-size: 0.65rem; font-weight: 700; letter-spacing: 0.16em;
+    color: var(--petroleum-light); margin-bottom: 0.75rem; text-transform: uppercase;
 }
 .pillar-title {
-    font-size: 1.45rem; font-weight: 600; line-height: 1.3;
-    color: var(--text-dark); margin-bottom: 1rem; letter-spacing: -0.01em;
+    font-size: 1.25rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.75rem; line-height: 1.35;
 }
-.pillar-body { font-size: 0.95rem; font-weight: 300; line-height: 1.75; color: var(--graphite); }
+.pillar-text { font-size: 0.9rem; font-weight: 300; line-height: 1.7; color: var(--graphite); }
 
-.cases-section { padding: 9rem 0; background: var(--midnight); color: var(--warm-white); }
-.methodology-bar {
-    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem;
-    margin: 4rem 0 5rem; padding: 2rem; background: var(--midnight-elevated);
-    border-radius: var(--radius-md); border: 1px solid var(--border-dark);
+/* ============ TAB 2: CASOS DE ESTUDIO ============ */
+.methodology-strip {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem;
+    margin-bottom: 3rem; padding: 1.5rem 1.8rem; background: var(--warm-card);
+    border-radius: var(--radius-md); border: 1px solid var(--border-light);
 }
-.method-step { position: relative; }
-.method-step-num {
-    font-size: 0.68rem; font-weight: 700; letter-spacing: 0.16em;
-    color: var(--accent-gold); margin-bottom: 0.5rem; text-transform: uppercase;
-}
-.method-step-title { font-size: 1.05rem; font-weight: 600; color: var(--warm-white); margin-bottom: 0.4rem; }
-.method-step-desc { font-size: 0.82rem; font-weight: 300; color: var(--text-muted); line-height: 1.5; }
+.step-num { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.14em; color: var(--petroleum-light); text-transform: uppercase; margin-bottom: 0.25rem; }
+.step-title { font-size: 0.92rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.25rem; }
+.step-desc { font-size: 0.78rem; font-weight: 300; color: var(--graphite); line-height: 1.5; }
 
-.cases-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2.5rem; }
+.cases-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
 .case-card {
-    background: var(--midnight-elevated); border: 1px solid var(--border-dark);
-    border-radius: var(--radius-md); overflow: hidden; display: flex; flex-direction: column;
-    transition: transform 0.3s ease, border-color 0.3s ease;
+    background: var(--warm-card); border: 1px solid var(--border-light);
+    border-radius: var(--radius-md); padding: 2.2rem; box-shadow: var(--shadow-subtle);
+    display: flex; flex-direction: column; gap: 1.25rem;
 }
-.case-card:hover { transform: translateY(-4px); border-color: var(--accent); }
-.case-card-header {
-    padding: 2.2rem 2.2rem 1.2rem;
+.case-badge-row { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.25rem; }
+.case-badge {
+    font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 0.25rem 0.6rem; background: var(--warm-white-dim); color: var(--petroleum);
+    border-radius: var(--radius-sm); border: 1px solid rgba(42, 63, 95, 0.15);
+}
+.case-header-title { font-size: 1.25rem; font-weight: 600; color: var(--text-dark); line-height: 1.35; }
+.case-company-label { font-size: 0.78rem; font-weight: 600; color: var(--petroleum-light); }
+.case-sec-label { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted-blue); margin-bottom: 0.2rem; }
+.case-sec-text { font-size: 0.86rem; font-weight: 300; line-height: 1.65; color: var(--graphite); }
+.case-highlight-box {
+    margin-top: auto; padding: 1rem 1.25rem; background: var(--warm-white-dim);
+    border-left: 3px solid var(--petroleum); border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+.case-highlight-stat { font-size: 1.05rem; font-weight: 700; color: var(--petroleum); margin-bottom: 0.2rem; }
+.case-highlight-desc { font-size: 0.78rem; font-weight: 300; color: var(--graphite); }
+
+/* ============ TAB 3: TRAYECTORIA ============ */
+.timeline-filter-row { display: flex; gap: 0.6rem; margin-bottom: 2.5rem; flex-wrap: wrap; }
+.t-filter-btn {
+    padding: 0.45rem 1.1rem; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; background: var(--warm-card); border: 1px solid var(--border-light);
+    color: var(--graphite); border-radius: var(--radius-pill); cursor: pointer; transition: all 0.2s;
+}
+.t-filter-btn.active, .t-filter-btn:hover { background: var(--petroleum); color: var(--warm-white); border-color: var(--petroleum); }
+
+.timeline-track { position: relative; max-width: 960px; }
+.timeline-track::before {
+    content: ''; position: absolute; left: 160px; top: 10px; bottom: 10px;
+    width: 2px; background: rgba(42, 63, 95, 0.15);
+}
+.timeline-row {
+    display: grid; grid-template-columns: 160px 1fr; gap: 2.5rem;
+    position: relative; margin-bottom: 3rem;
+}
+.timeline-left { text-align: right; padding-top: 0.25rem; }
+.timeline-years { font-size: 0.74rem; font-weight: 700; letter-spacing: 0.1em; color: var(--petroleum); text-transform: uppercase; }
+.timeline-place { font-size: 0.7rem; color: var(--muted-blue); margin-top: 0.2rem; }
+.timeline-bullet {
+    position: absolute; left: 154px; top: 0.55rem; width: 14px; height: 14px;
+    background: var(--warm-white); border: 3px solid var(--petroleum);
+    border-radius: 50%; z-index: 2;
+}
+.timeline-box {
+    background: var(--warm-card); padding: 2rem; border-radius: var(--radius-md);
+    border: 1px solid var(--border-light); box-shadow: var(--shadow-subtle);
+}
+.timeline-job { font-size: 1.15rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.2rem; }
+.timeline-firm { font-size: 0.88rem; font-weight: 600; color: var(--petroleum-light); margin-bottom: 0.9rem; }
+.timeline-desc { font-size: 0.88rem; font-weight: 300; line-height: 1.7; color: var(--graphite); margin-bottom: 1rem; }
+.timeline-points { list-style: none; display: flex; flex-direction: column; gap: 0.45rem; }
+.timeline-points li {
+    font-size: 0.82rem; font-weight: 400; color: var(--charcoal); padding-left: 1.2rem; position: relative;
+}
+.timeline-points li::before { content: '•'; position: absolute; left: 0; color: var(--petroleum); font-weight: 700; }
+
+/* ============ TAB 4: MEDIA & PRENSA ============ */
+.media-filter-row { display: flex; gap: 0.6rem; margin-bottom: 2.5rem; }
+.media-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+.media-item {
+    background: var(--warm-card); border: 1px solid var(--border-light);
+    border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-subtle);
+    display: flex; flex-direction: column;
+}
+.media-thumb {
+    height: 200px; background-size: cover; background-position: center; cursor: pointer; position: relative;
+}
+.media-thumb::after {
+    content: 'Ver Fotografía'; position: absolute; inset: 0; background: rgba(15, 26, 46, 0.7);
+    color: var(--warm-white); display: flex; align-items: center; justify-content: center;
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+    opacity: 0; transition: opacity 0.25s;
+}
+.media-thumb:hover::after { opacity: 1; }
+.media-body { padding: 1.6rem; display: flex; flex-direction: column; flex: 1; }
+.media-category { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--petroleum-light); margin-bottom: 0.4rem; }
+.media-headline { font-size: 1.05rem; font-weight: 600; color: var(--text-dark); line-height: 1.35; margin-bottom: 0.6rem; }
+.media-snippet { font-size: 0.82rem; font-weight: 300; line-height: 1.65; color: var(--graphite); margin-bottom: 1.2rem; flex: 1; }
+.media-action-link {
+    font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--petroleum); text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem;
+}
+
+/* ============ TAB 5: LIDERAZGO & HUMANO ============ */
+.leadership-layout { display: grid; grid-template-columns: 44% 56%; gap: 3.5rem; align-items: start; }
+.cycling-image-card {
+    height: 520px; border-radius: var(--radius-md); overflow: hidden; position: relative;
+    background-image: url('https://i.postimg.cc/cLTK04xZ/cycling-jpg.png');
+    background-size: cover; background-position: 50% 35%; box-shadow: var(--shadow-subtle);
+}
+.cycling-caption {
+    position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem 1.8rem 1.5rem;
+    background: linear-gradient(0deg, rgba(15, 26, 46, 0.9) 0%, transparent 100%); color: var(--warm-white);
+}
+.cycling-label { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-light); margin-bottom: 0.3rem; }
+.cycling-text { font-size: 0.9rem; font-weight: 300; line-height: 1.5; color: var(--warm-white); }
+
+.quote-card {
+    padding: 1.8rem 2rem; background: var(--warm-card); border-left: 3px solid var(--petroleum);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0; border-top: 1px solid var(--border-light);
+    border-right: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light);
+    margin-bottom: 2rem; box-shadow: var(--shadow-subtle);
+}
+.quote-phrase { font-size: 1.12rem; font-weight: 500; line-height: 1.55; color: var(--text-dark); font-style: italic; margin-bottom: 0.6rem; }
+.quote-by { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--petroleum-light); }
+
+.values-2col { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+.val-card { background: var(--warm-card); padding: 1.5rem; border-radius: var(--radius-md); border: 1px solid var(--border-light); }
+.val-card-title { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--petroleum); margin-bottom: 0.4rem; }
+.val-card-text { font-size: 0.82rem; font-weight: 300; line-height: 1.6; color: var(--graphite); }
+
+/* ============ TAB 6: FORMACIÓN ============ */
+.edu-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-bottom: 3rem; }
+.edu-box {
+    background: var(--warm-card); padding: 2.2rem; border-radius: var(--radius-md);
+    border: 1px solid var(--border-light); box-shadow: var(--shadow-subtle);
+}
+.edu-cat { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--petroleum-light); margin-bottom: 0.6rem; }
+.edu-heading { font-size: 1.1rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.4rem; line-height: 1.35; }
+.edu-place { font-size: 0.82rem; font-weight: 500; color: var(--petroleum); margin-bottom: 0.9rem; }
+.edu-paragraph { font-size: 0.82rem; font-weight: 300; line-height: 1.65; color: var(--graphite); }
+
+.languages-strip {
+    background: var(--midnight); color: var(--warm-white); padding: 2rem 2.5rem;
+    border-radius: var(--radius-md); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem;
+}
+.lang-col { display: flex; gap: 2.5rem; flex-wrap: wrap; }
+.lang-tag-name { font-size: 0.86rem; font-weight: 600; color: var(--warm-white); }
+.lang-tag-lvl { font-size: 0.68rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+
+/* ============ VENTANA FLOTANTE DE ACCIÓN (FLOATING DUAL ACTION BAR) ============ */
+.floating-action-bar {
+    position: fixed; bottom: 1.75rem; left: 50%; transform: translateX(-50%); z-index: 1500;
+    background: rgba(15, 26, 46, 0.96); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    border: 1px solid var(--border-dark); border-radius: var(--radius-pill);
+    padding: 0.5rem 0.65rem; display: flex; align-items: center; gap: 0.65rem;
+    box-shadow: var(--shadow-floating);
+}
+.action-pill-btn {
+    display: inline-flex; align-items: center; gap: 0.55rem;
+    padding: 0.75rem 1.6rem; font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase; border-radius: var(--radius-pill);
+    border: none; cursor: pointer; text-decoration: none; transition: all 0.25s ease;
+}
+.btn-action-contact {
+    background: var(--warm-white); color: var(--midnight);
+}
+.btn-action-contact:hover {
+    background: var(--petroleum-light); color: var(--warm-white); transform: translateY(-1px);
+}
+.btn-action-cv {
+    background: var(--petroleum); color: var(--warm-white); border: 1px solid var(--petroleum-light);
+}
+.btn-action-cv:hover {
+    background: var(--midnight-surface); transform: translateY(-1px);
+}
+
+/* ============ MODALES (CONTACTO & CV) ============ */
+.modal-overlay {
+    position: fixed; inset: 0; z-index: 2500; background: rgba(15, 26, 46, 0.85);
+    backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center;
+    padding: 1.5rem; opacity: 0; visibility: hidden; transition: all 0.25s ease;
+}
+.modal-overlay.open { opacity: 1; visibility: visible; }
+.modal-box {
+    background: var(--midnight); border: 1px solid var(--border-dark);
+    border-radius: var(--radius-md); max-width: 600px; width: 100%;
+    box-shadow: var(--shadow-floating); overflow: hidden; transform: scale(0.96);
+    transition: transform 0.25s ease; color: var(--warm-white);
+}
+.modal-overlay.open .modal-box { transform: scale(1); }
+.modal-top {
+    padding: 1.75rem 2rem 1.25rem; display: flex; justify-content: space-between; align-items: flex-start;
     border-bottom: 1px solid var(--border-dark);
 }
-.case-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem; }
-.case-tag {
-    font-size: 0.62rem; font-weight: 600; letter-spacing: 0.12em;
-    text-transform: uppercase; padding: 0.25rem 0.65rem; border-radius: 999px;
-    background: rgba(255, 255, 255, 0.06); color: var(--text-light);
+.modal-heading { font-size: 1.25rem; font-weight: 600; color: var(--warm-white); }
+.modal-subheading { font-size: 0.78rem; font-weight: 300; color: var(--text-muted); margin-top: 0.2rem; }
+.modal-x { background: transparent; border: none; color: var(--text-muted); font-size: 1.4rem; cursor: pointer; }
+.modal-x:hover { color: var(--warm-white); }
+
+.modal-content { padding: 1.75rem 2rem; display: flex; flex-direction: column; gap: 1rem; }
+.contact-row-item {
+    display: grid; grid-template-columns: auto 1fr auto; gap: 1.25rem; align-items: center;
+    padding: 1.1rem 1.4rem; background: var(--midnight-surface); border: 1px solid var(--border-dark);
+    border-radius: var(--radius-sm); text-decoration: none; color: var(--warm-white); transition: all 0.2s;
 }
-.case-title {
-    font-size: 1.35rem; font-weight: 600; color: var(--warm-white);
-    line-height: 1.3; margin-bottom: 0.5rem; letter-spacing: -0.01em;
+.contact-row-item:hover { border-color: var(--petroleum-light); background: rgba(42, 63, 95, 0.4); }
+.contact-icon { width: 36px; height: 36px; border-radius: var(--radius-sm); background: var(--petroleum); display: flex; align-items: center; justify-content: center; }
+.contact-title { font-size: 0.88rem; font-weight: 600; color: var(--warm-white); }
+.contact-value { font-size: 0.76rem; color: var(--text-muted); }
+.contact-arrow { font-size: 0.75rem; color: var(--muted-blue); }
+
+.cv-option-item {
+    display: grid; grid-template-columns: auto 1fr auto; gap: 1.25rem; align-items: center;
+    padding: 1.1rem 1.4rem; background: var(--midnight-surface); border: 1px solid var(--border-dark);
+    border-radius: var(--radius-sm); cursor: pointer; transition: all 0.2s;
 }
-.case-company { font-size: 0.8rem; font-weight: 500; color: var(--accent-gold); }
+.cv-option-item:hover { border-color: var(--petroleum-light); background: rgba(42, 63, 95, 0.4); }
 
-.case-card-body { padding: 2rem 2.2rem; flex: 1; display: flex; flex-direction: column; gap: 1.25rem; }
-.case-block-label {
-    font-size: 0.62rem; font-weight: 700; letter-spacing: 0.14em;
-    text-transform: uppercase; color: var(--muted-blue); margin-bottom: 0.3rem;
+.lightbox-overlay {
+    position: fixed; inset: 0; z-index: 3000; background: rgba(0, 0, 0, 0.92);
+    display: flex; align-items: center; justify-content: center; padding: 2rem;
+    opacity: 0; visibility: hidden; transition: all 0.25s;
 }
-.case-block-text { font-size: 0.88rem; font-weight: 300; line-height: 1.65; color: var(--text-light); }
+.lightbox-overlay.open { opacity: 1; visibility: visible; }
+.lightbox-image-target { max-width: 90vw; max-height: 85vh; object-fit: contain; }
+.lightbox-btn-close { position: absolute; top: 1.5rem; right: 2rem; background: transparent; border: none; color: #fff; font-size: 2rem; cursor: pointer; }
 
-.case-results-box {
-    margin-top: auto; padding: 1.25rem 1.5rem;
-    background: rgba(194, 155, 97, 0.08); border-left: 3px solid var(--accent-gold);
-    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+.toast-feedback {
+    position: fixed; bottom: 6rem; left: 50%; transform: translateX(-50%) translateY(40px); z-index: 3500;
+    background: var(--midnight); color: var(--warm-white); border: 1px solid var(--petroleum-light);
+    padding: 0.8rem 1.6rem; border-radius: var(--radius-pill); font-size: 0.78rem; font-weight: 600;
+    box-shadow: var(--shadow-floating); opacity: 0; transition: all 0.3s ease; pointer-events: none;
 }
-.case-results-title { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.14em; color: var(--accent-gold); text-transform: uppercase; margin-bottom: 0.4rem; }
-.case-results-stat { font-size: 1.15rem; font-weight: 700; color: var(--warm-white); }
-.case-results-desc { font-size: 0.8rem; font-weight: 300; color: var(--text-light); }
-.timeline-section { padding: 9rem 0; background: var(--warm-white); }
-.timeline-filter-bar { display: flex; gap: 1rem; margin: 3rem 0 4.5rem; flex-wrap: wrap; }
-.filter-btn {
-    padding: 0.6rem 1.4rem; font-size: 0.7rem; font-weight: 600;
-    letter-spacing: 0.12em; text-transform: uppercase;
-    background: transparent; border: 1px solid var(--border-light);
-    color: var(--graphite); border-radius: 999px; cursor: pointer; transition: all 0.3s ease;
-}
-.filter-btn.active, .filter-btn:hover { background: var(--midnight); color: var(--warm-white); border-color: var(--midnight); }
+.toast-feedback.show { transform: translateX(-50%) translateY(0); opacity: 1; }
 
-.timeline-list { position: relative; max-width: 1000px; margin: 0 auto; }
-.timeline-list::before {
-    content: ''; position: absolute; left: 180px; top: 10px; bottom: 10px;
-    width: 2px; background: rgba(30, 51, 82, 0.15);
-}
-.timeline-item { display: grid; grid-template-columns: 180px 1fr; gap: 3.5rem; position: relative; margin-bottom: 4.5rem; }
-.timeline-item:last-child { margin-bottom: 0; }
-.timeline-meta { text-align: right; padding-top: 0.35rem; }
-.timeline-date { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; color: var(--petroleum); text-transform: uppercase; margin-bottom: 0.3rem; }
-.timeline-location { font-size: 0.72rem; font-weight: 400; color: var(--muted-blue); }
-
-.timeline-node {
-    position: absolute; left: 174px; top: 0.65rem; width: 14px; height: 14px;
-    background: var(--warm-white); border: 3px solid var(--petroleum);
-    border-radius: 50%; z-index: 2; transition: all 0.3s ease;
-}
-.timeline-item:hover .timeline-node { background: var(--accent-gold); border-color: var(--midnight); transform: scale(1.3); }
-
-.timeline-card {
-    background: var(--warm-card); padding: 2.5rem; border-radius: var(--radius-md);
-    border: 1px solid var(--border-light); box-shadow: var(--shadow-soft); transition: transform 0.3s ease;
-}
-.timeline-card:hover { transform: translateY(-3px); }
-.timeline-role-row { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.4rem; }
-.timeline-role { font-size: 1.3rem; font-weight: 700; color: var(--text-dark); }
-.timeline-company { font-size: 1.05rem; font-weight: 600; color: var(--accent); margin-bottom: 1.2rem; }
-.timeline-summary { font-size: 0.92rem; font-weight: 300; line-height: 1.75; color: var(--graphite); margin-bottom: 1.5rem; }
-
-.timeline-achievements { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
-.timeline-achievements li { font-size: 0.86rem; font-weight: 400; color: var(--charcoal); padding-left: 1.4rem; position: relative; line-height: 1.6; }
-.timeline-achievements li::before { content: '→'; position: absolute; left: 0; color: var(--accent-gold); font-weight: 700; }
-
-.media-section { padding: 9rem 0; background: var(--midnight); color: var(--warm-white); }
-.media-tabs { display: flex; gap: 1rem; margin: 3rem 0 4rem; }
-.media-tab-btn {
-    padding: 0.65rem 1.6rem; font-size: 0.72rem; font-weight: 600;
-    letter-spacing: 0.14em; text-transform: uppercase; background: var(--midnight-elevated);
-    color: var(--text-muted); border: 1px solid var(--border-dark);
-    border-radius: var(--radius-sm); cursor: pointer; transition: all 0.3s ease;
-}
-.media-tab-btn.active, .media-tab-btn:hover { color: var(--warm-white); border-color: var(--accent-gold); background: rgba(194, 155, 97, 0.1); }
-
-.media-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
-.media-card {
-    background: var(--midnight-elevated); border: 1px solid var(--border-dark);
-    border-radius: var(--radius-md); overflow: hidden; display: flex; flex-direction: column; transition: transform 0.3s ease;
-}
-.media-card:hover { transform: translateY(-4px); border-color: var(--accent); }
-.media-card-img { height: 220px; background-size: cover; background-position: center; position: relative; cursor: pointer; }
-.media-card-content { padding: 2rem; display: flex; flex-direction: column; flex: 1; }
-.media-meta-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.8rem; }
-.media-type { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-gold); }
-.media-date { font-size: 0.7rem; color: var(--text-muted); }
-.media-title { font-size: 1.15rem; font-weight: 600; color: var(--warm-white); line-height: 1.35; margin-bottom: 0.8rem; }
-.media-desc { font-size: 0.84rem; font-weight: 300; line-height: 1.6; color: var(--text-light); margin-bottom: 1.5rem; flex: 1; }
-.media-link {
-    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
-    color: var(--warm-white); text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; transition: all 0.3s ease;
-}
-.media-link:hover { color: var(--accent-gold); gap: 0.8rem; }
-.leadership-section { padding: 9rem 0; background: var(--warm-white-dim); }
-.leadership-grid { display: grid; grid-template-columns: 45% 55%; gap: 5rem; align-items: center; }
-.leadership-img-wrap { position: relative; height: 600px; border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-elevated); }
-.leadership-img { position: absolute; inset: 0; background-size: cover; background-position: 50% 35%; background-image: url('https://i.postimg.cc/cLTK04xZ/cycling-jpg.png'); }
-.leadership-content { display: flex; flex-direction: column; }
-.quote-box {
-    margin: 2rem 0 3rem; padding: 2rem 2.5rem; background: var(--warm-white);
-    border-left: 3px solid var(--accent); border-radius: 0 var(--radius-md) var(--radius-md) 0; box-shadow: var(--shadow-soft);
-}
-.quote-text { font-size: 1.25rem; font-weight: 500; line-height: 1.5; color: var(--text-dark); font-style: italic; margin-bottom: 0.8rem; }
-.quote-author { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted-blue); }
-
-.values-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
-.value-card { background: var(--warm-card); padding: 1.8rem; border-radius: var(--radius-sm); border: 1px solid var(--border-light); }
-.value-card-title { font-size: 0.82rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--petroleum); margin-bottom: 0.6rem; }
-.value-card-text { font-size: 0.86rem; font-weight: 300; line-height: 1.65; color: var(--graphite); }
-
-.education-section { padding: 9rem 0; background: var(--warm-white); }
-.edu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; margin-top: 4rem; }
-.edu-card { background: var(--warm-card); padding: 2.5rem; border-radius: var(--radius-md); border: 1px solid var(--border-light); box-shadow: var(--shadow-soft); }
-.edu-icon { width: 44px; height: 44px; border-radius: var(--radius-sm); background: rgba(30, 51, 82, 0.08); color: var(--petroleum); display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; }
-.edu-category { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.8rem; }
-.edu-title { font-size: 1.2rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.5rem; line-height: 1.3; }
-.edu-institution { font-size: 0.88rem; font-weight: 500; color: var(--petroleum-light); margin-bottom: 1.25rem; }
-.edu-desc { font-size: 0.84rem; font-weight: 300; line-height: 1.65; color: var(--graphite); }
-
-.languages-box {
-    margin-top: 4.5rem; padding: 2.5rem 3rem; background: var(--midnight);
-    color: var(--warm-white); border-radius: var(--radius-md); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem;
-}
-.lang-title { font-size: 1.1rem; font-weight: 600; }
-.lang-list { display: flex; gap: 3rem; flex-wrap: wrap; }
-.lang-item { display: flex; flex-direction: column; }
-.lang-name { font-size: 0.88rem; font-weight: 600; color: var(--accent-gold); }
-.lang-level { font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; }
-
-.contact-section { padding: 9rem 0 5rem; background: var(--midnight); color: var(--warm-white); text-align: center; }
-.contact-wrapper { max-width: 800px; margin: 0 auto; }
-.contact-actions { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; margin: 3rem 0 4rem; }
-.contact-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 5rem; text-align: left; }
-.c-card { background: var(--midnight-elevated); padding: 2rem; border-radius: var(--radius-md); border: 1px solid var(--border-dark); }
-.c-card:hover { border-color: var(--accent-gold); }
-.c-card-label { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-gold); margin-bottom: 0.6rem; }
-.c-card-value { font-size: 1rem; font-weight: 500; color: var(--warm-white); }
-.c-card-value a { color: var(--warm-white); text-decoration: none; }
-.c-card-value a:hover { color: var(--accent-gold); }
-
-.site-footer { padding-top: 3rem; border-top: 1px solid var(--border-dark); display: flex; justify-content: space-between; align-items: center; font-size: 0.7rem; color: var(--text-muted); }
-
-.modal-backdrop {
-    position: fixed; inset: 0; z-index: 2000; background: rgba(11, 19, 32, 0.85); backdrop-filter: blur(8px);
-    display: flex; align-items: center; justify-content: center; padding: 1.5rem; opacity: 0; visibility: hidden; transition: all 0.3s ease;
-}
-.modal-backdrop.active { opacity: 1; visibility: visible; }
-.modal-window {
-    background: var(--midnight-elevated); border: 1px solid var(--border-dark); border-radius: var(--radius-lg); max-width: 680px; width: 100%;
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5); overflow: hidden; transform: translateY(20px); transition: transform 0.3s ease;
-}
-.modal-backdrop.active .modal-window { transform: translateY(0); }
-.modal-header { padding: 2rem 2.5rem 1.5rem; display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 1px solid var(--border-dark); }
-.modal-title { font-size: 1.35rem; font-weight: 600; color: var(--warm-white); }
-.modal-subtitle { font-size: 0.82rem; color: var(--text-muted); }
-.modal-close { background: transparent; border: none; color: var(--text-muted); font-size: 1.5rem; cursor: pointer; }
-.modal-close:hover { color: var(--warm-white); }
-
-.modal-body { padding: 2rem 2.5rem; display: flex; flex-direction: column; gap: 1.2rem; }
-.format-option {
-    display: grid; grid-template-columns: auto 1fr auto; gap: 1.5rem; align-items: center; padding: 1.4rem 1.6rem;
-    background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-dark); border-radius: var(--radius-md); cursor: pointer; transition: all 0.25s ease;
-}
-.format-option:hover { background: rgba(194, 155, 97, 0.08); border-color: var(--accent-gold); transform: translateX(4px); }
-.format-icon { width: 42px; height: 42px; border-radius: var(--radius-sm); background: rgba(194, 155, 97, 0.15); color: var(--accent-gold); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
-.format-info-title { font-size: 0.95rem; font-weight: 600; color: var(--warm-white); margin-bottom: 0.2rem; }
-.format-info-desc { font-size: 0.78rem; font-weight: 300; color: var(--text-muted); }
-.format-action-btn { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-gold); }
-
-.modal-footer { padding: 1.25rem 2.5rem; background: rgba(0, 0, 0, 0.2); border-top: 1px solid var(--border-dark); display: flex; justify-content: space-between; font-size: 0.72rem; color: var(--text-muted); }
-
-.lightbox-backdrop { position: fixed; inset: 0; z-index: 2500; background: rgba(0, 0, 0, 0.92); backdrop-filter: blur(10px); display: flex; align-items: center; justify-content: center; padding: 2rem; opacity: 0; visibility: hidden; transition: all 0.3s ease; }
-.lightbox-backdrop.active { opacity: 1; visibility: visible; }
-.lightbox-img { max-width: 90vw; max-height: 85vh; object-fit: contain; border-radius: var(--radius-sm); }
-.lightbox-close { position: absolute; top: 2rem; right: 2.5rem; background: transparent; border: none; color: #fff; font-size: 2rem; cursor: pointer; }
-
-.toast-msg {
-    position: fixed; bottom: 2rem; right: 2rem; z-index: 3000; background: var(--accent-gold); color: var(--midnight);
-    padding: 1rem 1.75rem; border-radius: var(--radius-sm); font-size: 0.8rem; font-weight: 700; box-shadow: var(--shadow-elevated); transform: translateY(100px); opacity: 0; transition: all 0.4s ease;
-}
-.toast-msg.show { transform: translateY(0); opacity: 1; }
-
-@keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
-.reveal { opacity: 0; transform: translateY(35px); transition: opacity 0.85s ease, transform 0.85s ease; }
-.reveal.visible { opacity: 1; transform: translateY(0); }
-.reveal-delay-1 { transition-delay: 0.12s; }
-.reveal-delay-2 { transition-delay: 0.24s; }
-.reveal-delay-3 { transition-delay: 0.36s; }
-
-@media (max-width: 1080px) {
-    .hero { grid-template-columns: 1fr; padding-top: 7rem; }
-    .hero-content { padding: 4rem 2.5rem; }
-    .hero-image-wrap { height: 60vh; }
-    .metrics-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
-    .pillars-grid, .cases-grid, .edu-grid, .leadership-grid { grid-template-columns: 1fr; }
-    .methodology-bar { grid-template-columns: repeat(2, 1fr); }
+/* ============ RESPONSIVE ============ */
+@media (max-width: 1024px) {
+    .hero-box { grid-template-columns: 1fr; }
+    .hero-image-side { height: 320px; }
+    .metrics-row { grid-template-columns: repeat(2, 1fr); }
+    .pillars-grid, .cases-grid, .leadership-layout, .edu-row { grid-template-columns: 1fr; }
     .media-grid { grid-template-columns: 1fr 1fr; }
-    .nav-links { display: none; }
-    .timeline-list::before { left: 20px; }
-    .timeline-item { grid-template-columns: 1fr; gap: 1rem; padding-left: 50px; }
-    .timeline-meta { text-align: left; }
-    .timeline-node { left: 14px; top: 0.4rem; }
-    .contact-cards { grid-template-columns: 1fr; }
+    .timeline-track::before { left: 16px; }
+    .timeline-row { grid-template-columns: 1fr; gap: 0.6rem; padding-left: 45px; }
+    .timeline-left { text-align: left; }
+    .timeline-bullet { left: 10px; top: 0.3rem; }
 }
 
 @media (max-width: 768px) {
-    .container { padding: 0 1.5rem; }
-    .nav { padding: 1rem 1.5rem; }
-    .hero-statement { font-size: 2.2rem; }
-    .metrics-grid, .methodology-bar, .media-grid, .values-grid { grid-template-columns: 1fr; }
-    .languages-box { flex-direction: column; align-items: flex-start; }
-    .site-footer { flex-direction: column; gap: 1rem; text-align: center; }
+    .container { padding: 2rem 1.25rem 5rem; }
+    .header-top { padding: 1rem 1.25rem 0.5rem; }
+    .tabs-nav-wrapper { padding: 0 1rem 0.5rem; justify-content: flex-start; }
+    .tabs-nav { justify-content: flex-start; }
+    .tab-btn { padding: 0.5rem 0.9rem; font-size: 0.65rem; }
+    .metrics-row { grid-template-columns: 1fr; }
+    .methodology-strip { grid-template-columns: 1fr; }
+    .media-grid, .values-2col { grid-template-columns: 1fr; }
+    .languages-strip { flex-direction: column; align-items: flex-start; }
+    .floating-action-bar { width: calc(100% - 2.5rem); justify-content: center; }
+    .action-pill-btn { padding: 0.7rem 1.1rem; font-size: 0.68rem; flex: 1; justify-content: center; }
 }
 </style>
 </head>
 <body>
-<nav class="nav" id="nav">
-    <a href="#hero" class="nav-brand">
-        <span class="nav-logo">Maurizio Di Russo</span>
-        <span class="nav-role">Executive Portfolio &amp; Dossier</span>
-    </a>
-    <ul class="nav-links">
-        <li><a href="#perspective">Perspectiva</a></li>
-        <li><a href="#cases">Casos de Estudio</a></li>
-        <li><a href="#timeline">Trayectoria</a></li>
-        <li><a href="#media">Institucional &amp; Prensa</a></li>
-        <li><a href="#leadership">Liderazgo</a></li>
-        <li><a href="#education">Formación</a></li>
-        <li><a href="#contact">Contacto</a></li>
-    </ul>
-    <div class="nav-actions">
-        <button class="btn-nav-cv" onclick="openDownloadModal()">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
-            </svg>
-            Descargar CV
-        </button>
+<!-- HEADER FIJO CON TÍTULO & BOTONERA HORIZONTAL DE PESTAÑAS -->
+<header class="site-header">
+    <div class="header-top">
+        <a href="javascript:void(0)" onclick="switchTab('perspective')" class="brand-name">Maurizio Di Russo</a>
+        <span class="brand-tag">Dossier Directivo</span>
     </div>
-</nav>
-
-<header class="hero" id="hero">
-    <div class="hero-content">
-        <div class="hero-preheader">
-            <span class="badge-gold">C-Level · Country Management · Strategic Growth</span>
-        </div>
-        <h1 class="hero-statement">
-            Liderazgo estratégico donde convergen <em>movilidad, tecnología,</em> finanzas y nuevos mercados.
-        </h1>
-        <p class="hero-desc">
-            Más de dos décadas impulsando la dirección general, apertura de mercados y acuerdos comerciales de gran envergadura en Italia y EMEA. Transformando la complejidad en modelos de negocio rentables y sostenibles.
-        </p>
-        <div class="hero-actions">
-            <button class="btn-primary" onclick="openDownloadModal()">
-                Descargar Dossier / CV
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
+    <div class="tabs-nav-wrapper">
+        <nav class="tabs-nav" role="tablist">
+            <!-- 1. Perspectiva -->
+            <button class="tab-btn active" id="btn-perspective" onclick="switchTab('perspective')" role="tab" aria-selected="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/></svg>
+                Perspectiva
             </button>
-            <a href="#cases" class="btn-outline">Ver Casos de Éxito</a>
-        </div>
-    </div>
-    <div class="hero-image-wrap">
-        <div class="hero-image" role="img" aria-label="Retrato Ejecutivo de Maurizio Di Russo"></div>
-        <div class="hero-image-overlay"></div>
+            <!-- 2. Casos de Estudio -->
+            <button class="tab-btn" id="btn-cases" onclick="switchTab('cases')" role="tab" aria-selected="false">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                Casos de Estudio
+            </button>
+            <!-- 3. Trayectoria -->
+            <button class="tab-btn" id="btn-timeline" onclick="switchTab('timeline')" role="tab" aria-selected="false">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                Trayectoria
+            </button>
+            <!-- 4. Media & Prensa -->
+            <button class="tab-btn" id="btn-media" onclick="switchTab('media')" role="tab" aria-selected="false">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/></svg>
+                Media &amp; Prensa
+            </button>
+            <!-- 5. Liderazgo & Humano -->
+            <button class="tab-btn" id="btn-leadership" onclick="switchTab('leadership')" role="tab" aria-selected="false">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                Liderazgo &amp; Valores
+            </button>
+            <!-- 6. Formación -->
+            <button class="tab-btn" id="btn-education" onclick="switchTab('education')" role="tab" aria-selected="false">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 6 3 6 3s6-1 6-3v-5"/></svg>
+                Formación
+            </button>
+        </nav>
     </div>
 </header>
 
-<section class="metrics-banner">
+<!-- ==========================================
+     PESTAÑA 1: PERSPECTIVA & MÉTRICAS GLOBALES
+     ========================================== -->
+<main class="tab-pane active" id="tab-perspective" role="tabpanel">
     <div class="container">
-        <div class="metrics-grid">
-            <div class="metric-item reveal">
-                <div class="metric-number">+€900M</div>
-                <div class="metric-label">Financiación &amp; Negocio</div>
-                <div class="metric-sub">Gestionado en banca, movilidad e insurtech</div>
+        <!-- Hero Card -->
+        <div class="hero-box">
+            <div class="hero-info">
+                <span class="hero-tag">Dirección General · Country Management · C-Level</span>
+                <h1 class="hero-title">
+                    Liderazgo estratégico donde convergen <em>movilidad, tecnología,</em> finanzas y nuevos mercados.
+                </h1>
+                <p class="hero-desc">
+                    Más de 20 años de experiencia directiva impulsando apertura de mercados, estructuras comerciales complejas y alianzas corporativas de gran escala en Italia y EMEA.
+                </p>
+                <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                    <button onclick="openContactModal()" class="action-pill-btn btn-action-contact" style="font-size: 0.68rem; padding: 0.65rem 1.4rem;">
+                        Iniciar Conversación
+                    </button>
+                    <button onclick="switchTab('cases')" class="action-pill-btn btn-action-cv" style="font-size: 0.68rem; padding: 0.65rem 1.4rem;">
+                        Ver Casos de Éxito →
+                    </button>
+                </div>
             </div>
-            <div class="metric-item reveal reveal-delay-1">
-                <div class="metric-number">20+</div>
-                <div class="metric-label">Años de Liderazgo</div>
-                <div class="metric-sub">Trayectoria ejecutiva probada en Italia y EMEA</div>
-            </div>
-            <div class="metric-item reveal reveal-delay-2">
-                <div class="metric-number">4</div>
-                <div class="metric-label">Sectores Clave</div>
-                <div class="metric-sub">Insurtech, Movilidad Eléctrica, Banca y Retail</div>
-            </div>
-            <div class="metric-item reveal reveal-delay-3">
-                <div class="metric-number">100%</div>
-                <div class="metric-label">Enfoque en Resultados</div>
-                <div class="metric-sub">Creación de valor, gobernanza y alianzas C-Level</div>
+            <div class="hero-image-side">
+                <div class="hero-img" role="img" aria-label="Maurizio Di Russo"></div>
             </div>
         </div>
-    </div>
-</section>
-<section class="perspective" id="perspective">
-    <div class="container">
-        <div class="perspective-header reveal">
-            <span class="section-tag">Visión Directiva Transversal</span>
+
+        <!-- Métricas Directivas -->
+        <div class="metrics-row">
+            <div class="metric-card">
+                <div class="metric-val">+€900M</div>
+                <div class="metric-name">Financiación &amp; Negocio</div>
+                <div class="metric-detail">Gestionado en banca, movilidad e insurtech</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-val">20+</div>
+                <div class="metric-name">Años de Liderazgo</div>
+                <div class="metric-detail">Trayectoria probada en Italia y EMEA</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-val">4</div>
+                <div class="metric-name">Sectores Clave</div>
+                <div class="metric-detail">Insurtech, Movilidad, Banca y Salud</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-val">100%</div>
+                <div class="metric-name">Enfoque en Resultados</div>
+                <div class="metric-detail">Gobernanza, P&amp;L y creación de valor</div>
+            </div>
+        </div>
+
+        <!-- Pilares Estratégicos -->
+        <div>
+            <span class="section-tag">Pilares Estratégicos</span>
             <h2 class="section-title">Creación de valor en entornos complejos y regulados</h2>
             <p class="section-subtitle">
-                Una trayectoria no se define por un único rol técnico, sino por la capacidad de gobernar la incertidumbre, alinear equipos multidisciplinares y ejecutar estrategias de expansión comercial con rigor financiero.
+                Una visión transversal orientada a conectar soluciones tecnológicas con demanda comercial real y resultados medibles.
             </p>
-        </div>
 
-        <div class="pillars-grid">
-            <div class="pillar-card reveal">
-                <div class="pillar-num">Pilar 01</div>
-                <h3 class="pillar-title">Apertura y Escalamiento en Mercados Complejos</h3>
-                <p class="pillar-body">
-                    Especialista en aterrizar propuestas de valor innovadoras en sectores tradicionales y regulados. Diseño de estrategias de penetración (Go-to-Market), marcos normativos y estructuración comercial de raíz.
-                </p>
-            </div>
-            <div class="pillar-card reveal reveal-delay-1">
-                <div class="pillar-num">Pilar 02</div>
-                <h3 class="pillar-title">De la Tecnología al Modelo de Negocio Rentable</h3>
-                <p class="pillar-body">
-                    Traducción de avances tecnológicos (telemática, SaaS, algoritmos de detección de accidentes, movilidad eléctrica) en productos asegurables, comercializables y escalables con retornos cuantificables.
-                </p>
-            </div>
-            <div class="pillar-card reveal reveal-delay-2">
-                <div class="pillar-num">Pilar 03</div>
-                <h3 class="pillar-title">Alianzas Estratégicas y Ecosistemas C-Level</h3>
-                <p class="pillar-body">
-                    Construcción de puentes de confianza entre corporaciones institucionales (banca, aseguradoras, multinacionales automotrices) y scale-ups europeas, orquestando acuerdos de distribución de largo recorrido.
-                </p>
-            </div>
-            <div class="pillar-card reveal reveal-delay-3">
-                <div class="pillar-num">Pilar 04</div>
-                <h3 class="pillar-title">Liderazgo de Equipos y Excelencia Operativa</h3>
-                <p class="pillar-body">
-                    Gestión con visión integral de P&amp;L, balance y gestión de riesgos. Liderazgo cercano enfocado en el desarrollo de talento, cultura de alto rendimiento y alineación con los objetivos del Consejo de Administración.
-                </p>
+            <div class="pillars-grid">
+                <div class="pillar-box">
+                    <div class="pillar-num">Pilar 01</div>
+                    <h3 class="pillar-title">Apertura y Escalamiento en Mercados Regulados</h3>
+                    <p class="pillar-text">Especialista en aterrizar propuestas innovadoras en sectores tradicionales. Diseño de estrategias Go-to-Market y estructuración de redes comerciales de raíz.</p>
+                </div>
+                <div class="pillar-box">
+                    <div class="pillar-num">Pilar 02</div>
+                    <h3 class="pillar-title">De la Tecnología al Modelo Rentable</h3>
+                    <p class="pillar-text">Traducción de avances tecnológicos (telemática, SaaS, algoritmos IoT, movilidad eléctrica) en productos comercializables y escalables.</p>
+                </div>
+                <div class="pillar-box">
+                    <div class="pillar-num">Pilar 03</div>
+                    <h3 class="pillar-title">Alianzas Estratégicas C-Level</h3>
+                    <p class="pillar-text">Construcción de acuerdos de confianza entre instituciones corporativas (banca, aseguradoras, automotrices) y scale-ups europeas.</p>
+                </div>
+                <div class="pillar-box">
+                    <div class="pillar-num">Pilar 04</div>
+                    <h3 class="pillar-title">Liderazgo de P&amp;L y Equipos</h3>
+                    <p class="pillar-text">Gestión rigurosa de márgenes, balance y mitigación de riesgos, alineando la ejecución operativa con las directrices del Consejo.</p>
+                </div>
             </div>
         </div>
     </div>
-</section>
+</main>
 
-<section class="cases-section" id="cases">
+<!-- ==========================================
+     PESTAÑA 2: CASOS DE ESTUDIO
+     ========================================== -->
+<section class="tab-pane" id="tab-cases" role="tabpanel">
     <div class="container">
-        <div class="reveal">
-            <span class="section-tag light">Metodología Ejecutiva &amp; Track Record</span>
-            <h2 class="section-title light">Casos de Estudio: De la Estrategia a los Resultados</h2>
-            <p class="section-subtitle light">
-                Ejemplos reales de cómo un enfoque estructurado y metódico genera impacto medible en diferentes industrias y fases de crecimiento corporativo.
-            </p>
+        <span class="section-tag">Metodología &amp; Track Record</span>
+        <h2 class="section-title">Casos de Estudio Reales</h2>
+        <p class="section-subtitle">
+            Cómo un enfoque directivo estructurado genera resultados cuantificables en distintas industrias y etapas de crecimiento.
+        </p>
+
+        <!-- Framework -->
+        <div class="methodology-strip">
+            <div>
+                <div class="step-num">Fase 01</div>
+                <div class="step-title">Diagnóstico &amp; Riesgo</div>
+                <div class="step-desc">Análisis regulatorio, dinámicas de mercado y viabilidad económica.</div>
+            </div>
+            <div>
+                <div class="step-num">Fase 02</div>
+                <div class="step-title">Arquitectura Estratégica</div>
+                <div class="step-desc">Diseño de canales, modelos de precios y propuesta diferencial.</div>
+            </div>
+            <div>
+                <div class="step-num">Fase 03</div>
+                <div class="step-title">Despliegue &amp; Alianzas</div>
+                <div class="step-desc">Negociación de acuerdos C-Level y activación comercial.</div>
+            </div>
+            <div>
+                <div class="step-num">Fase 04</div>
+                <div class="step-title">Escala &amp; Eficiencia</div>
+                <div class="step-desc">Optimización de márgenes, KPIs y expansión sostenible.</div>
+            </div>
         </div>
 
-        <div class="methodology-bar reveal reveal-delay-1">
-            <div class="method-step">
-                <div class="method-step-num">Fase 01</div>
-                <div class="method-step-title">Diagnóstico &amp; Riesgo</div>
-                <div class="method-step-desc">Evaluación del marco regulatorio, dinámicas de mercado y viabilidad económica.</div>
-            </div>
-            <div class="method-step">
-                <div class="method-step-num">Fase 02</div>
-                <div class="method-step-title">Arquitectura Estratégica</div>
-                <div class="method-step-desc">Diseño de canales, modelos de precios (pricing) y proposición de valor diferencial.</div>
-            </div>
-            <div class="method-step">
-                <div class="method-step-num">Fase 03</div>
-                <div class="method-step-title">Despliegue &amp; Alianzas</div>
-                <div class="method-step-desc">Negociación de acuerdos C-Level y activación operativa de redes de distribución.</div>
-            </div>
-            <div class="method-step">
-                <div class="method-step-num">Fase 04</div>
-                <div class="method-step-title">Escala &amp; Eficiencia</div>
-                <div class="method-step-desc">Optimización de márgenes, monitoreo de KPIs y expansión sostenible de cuota.</div>
-            </div>
-        </div>
-
+        <!-- Casos Grid -->
         <div class="cases-grid">
-            <article class="case-card reveal">
-                <div class="case-card-header">
-                    <div class="case-tags">
-                        <span class="case-tag">Insurtech &amp; Telemática</span>
-                        <span class="case-tag">Country Management</span>
-                    </div>
-                    <h3 class="case-title">Creación y Escalamiento del Ecosistema Insurtech en Italia</h3>
-                    <div class="case-company">Liberty Rider · Alianzas con REVO Insurance</div>
+            <!-- Caso 1 -->
+            <article class="case-card">
+                <div class="case-badge-row">
+                    <span class="case-badge">Insurtech &amp; IoT</span>
+                    <span class="case-badge">Country Management</span>
                 </div>
-                <div class="case-card-body">
-                    <div>
-                        <div class="case-block-label">Desafío Estratégico</div>
-                        <p class="case-block-text">Introducir tecnología de detección de accidentes y telemetría en el sector asegurador italiano, caracterizado por una alta aversión al cambio y barreras regulatorias.</p>
-                    </div>
-                    <div>
-                        <div class="case-block-label">Estrategia Directiva</div>
-                        <p class="case-block-text">Posicionamiento del producto como herramienta de mitigación de siniestralidad para aseguradoras (REVO Insurance), integrando tecnología de seguridad y valor para la comunidad de usuarios.</p>
-                    </div>
-                    <div class="case-results-box">
-                        <div class="case-results-title">Impacto Directivo</div>
-                        <div class="case-results-stat">+45% Penetración B2B</div>
-                        <div class="case-results-desc">Consolidación de alianzas institucionales y posicionamiento como referente del ecosistema insurtech en Italia.</div>
-                    </div>
+                <h3 class="case-header-title">Creación y Escalamiento del Ecosistema Insurtech en Italia</h3>
+                <div class="case-company-label">Liberty Rider · Alianzas con REVO Insurance</div>
+                <div>
+                    <div class="case-sec-label">Desafío Estratégico</div>
+                    <p class="case-sec-text">Introducir tecnología telemática y detección de accidentes en un mercado asegurador maduro y regulado.</p>
+                </div>
+                <div>
+                    <div class="case-sec-label">Estrategia Directiva</div>
+                    <p class="case-sec-text">Posicionamiento del producto como mitigador de siniestralidad para aseguradoras (REVO) integrando comunidad y seguridad activa.</p>
+                </div>
+                <div class="case-highlight-box">
+                    <div class="case-highlight-stat">+45% Penetración B2B</div>
+                    <div class="case-highlight-desc">Consolidación de alianzas institucionales y liderazgo en el ecosistema insurtech italiano.</div>
                 </div>
             </article>
 
-            <article class="case-card reveal reveal-delay-1">
-                <div class="case-card-header">
-                    <div class="case-tags">
-                        <span class="case-tag">Movilidad Sostenible</span>
-                        <span class="case-tag">Desarrollo B2B</span>
-                    </div>
-                    <h3 class="case-title">Penetración de Mercado y Desarrollo de Canal B2B para Movilidad Eléctrica</h3>
-                    <div class="case-company">CAKE (ridecake.com) · Sector Movilidad Europea</div>
+            <!-- Caso 2 -->
+            <article class="case-card">
+                <div class="case-badge-row">
+                    <span class="case-badge">Movilidad Eléctrica</span>
+                    <span class="case-badge">Desarrollo B2B</span>
                 </div>
-                <div class="case-card-body">
-                    <div>
-                        <div class="case-block-label">Desafío Estratégico</div>
-                        <p class="case-block-text">Establecer la presencia comercial en Italia de la marca sueca de motocicletas eléctricas premium sin red previa ni reconocimiento local en el segmento corporativo.</p>
-                    </div>
-                    <div>
-                        <div class="case-block-label">Estrategia Directiva</div>
-                        <p class="case-block-text">Enfoque en flotas comerciales B2B, última milla y acuerdos corporativos con empresas de logística sostenible y hospitality de alta gama.</p>
-                    </div>
-                    <div class="case-results-box">
-                        <div class="case-results-title">Impacto Directivo</div>
-                        <div class="case-results-stat">Lanzamiento Exitoso de Red</div>
-                        <div class="case-results-desc">Estructuración de acuerdos de distribución y validación del modelo B2B en las principales ciudades italianas.</div>
-                    </div>
+                <h3 class="case-header-title">Penetración de Mercado y Canal B2B para Movilidad Eléctrica</h3>
+                <div class="case-company-label">CAKE 0 emission (ridecake.com)</div>
+                <div>
+                    <div class="case-sec-label">Desafío Estratégico</div>
+                    <p class="case-sec-text">Establecer la presencia comercial en Italia de la marca sueca de motocicletas eléctricas premium sin red previa en el país.</p>
+                </div>
+                <div>
+                    <div class="case-sec-label">Estrategia Directiva</div>
+                    <p class="case-sec-text">Enfoque en flotas B2B, distribución de última milla y acuerdos corporativos con empresas de logística sostenible.</p>
+                </div>
+                <div class="case-highlight-box">
+                    <div class="case-highlight-stat">Lanzamiento Exitoso de Red</div>
+                    <div class="case-highlight-desc">Estructuración de acuerdos de distribución y validación del modelo B2B en ciudades clave.</div>
                 </div>
             </article>
 
-            <article class="case-card reveal">
-                <div class="case-card-header">
-                    <div class="case-tags">
-                        <span class="case-tag">Servicios Financieros</span>
-                        <span class="case-tag">Gestión de Riesgo</span>
-                    </div>
-                    <h3 class="case-title">Estructuración de Redes de Financiación y Distribución de Capital a Escala</h3>
-                    <div class="case-company">Agos Itafinco (Banca Intesa / Crédit Agricole) · CNH Capital</div>
+            <!-- Caso 3 -->
+            <article class="case-card">
+                <div class="case-badge-row">
+                    <span class="case-badge">Banca &amp; Crédito</span>
+                    <span class="case-badge">Gestión de Riesgo</span>
                 </div>
-                <div class="case-card-body">
-                    <div>
-                        <div class="case-block-label">Desafío Estratégico</div>
-                        <p class="case-block-text">Gestión y colocación de carteras de crédito y financiación industrial en escenarios de alta volatilidad crediticia y competencia bancaria.</p>
-                    </div>
-                    <div>
-                        <div class="case-block-label">Estrategia Directiva</div>
-                        <p class="case-block-text">Desarrollo de redes de concesionarios y acuerdos financieros con rigurosos modelos de scoring de riesgo y fidelización de canal.</p>
-                    </div>
-                    <div class="case-results-box">
-                        <div class="case-results-title">Impacto Directivo</div>
-                        <div class="case-results-stat">+€900M Gestionados</div>
-                        <div class="case-results-desc">Volumen acumulado de capital estructurado con índices de mora y riesgo dentro de los parámetros más exigentes.</div>
-                    </div>
+                <h3 class="case-header-title">Estructuración de Redes de Financiación y Riesgo a Escala</h3>
+                <div class="case-company-label">Agos Itafinco (Banca Intesa / Crédit Agricole) · CNH Capital</div>
+                <div>
+                    <div class="case-sec-label">Desafío Estratégico</div>
+                    <p class="case-sec-text">Gestión y colocación de grandes carteras de crédito y financiación industrial en escenarios de alta volatilidad.</p>
+                </div>
+                <div>
+                    <div class="case-sec-label">Estrategia Directiva</div>
+                    <p class="case-sec-text">Desarrollo de redes de concesionarios y acuerdos financieros con rigurosos modelos de scoring y control de mora.</p>
+                </div>
+                <div class="case-highlight-box">
+                    <div class="case-highlight-stat">+€900M Gestionados</div>
+                    <div class="case-highlight-desc">Volumen acumulado de capital estructurado con índices de mora dentro de los parámetros más exigentes.</div>
                 </div>
             </article>
 
-            <article class="case-card reveal reveal-delay-1">
-                <div class="case-card-header">
-                    <div class="case-tags">
-                        <span class="case-tag">Expansión Comercial</span>
-                        <span class="case-tag">Dirección Comercial</span>
-                    </div>
-                    <h3 class="case-title">Construcción y Escala de Red Comercial desde Cero</h3>
-                    <div class="case-company">Caredent Italia · Domestic &amp; General</div>
+            <!-- Caso 4 -->
+            <article class="case-card">
+                <div class="case-badge-row">
+                    <span class="case-badge">Expansión Comercial</span>
+                    <span class="case-badge">Health &amp; Retail</span>
                 </div>
-                <div class="case-card-body">
-                    <div>
-                        <div class="case-block-label">Desafío Estratégico</div>
-                        <p class="case-block-text">Diseñar y ejecutar la expansión territorial de una red comercial en un mercado altamente competitivo, asegurando rentabilidad unitaria por sucursal.</p>
-                    </div>
-                    <div>
-                        <div class="case-block-label">Estrategia Directiva</div>
-                        <p class="case-block-text">Estandarización de procesos de venta, formación de equipos de alto rendimiento e integración de seguros de garantía y planes de fidelización.</p>
-                    </div>
-                    <div class="case-results-box">
-                        <div class="case-results-title">Impacto Directivo</div>
-                        <div class="case-results-stat">Crecimiento Sostenido de Red</div>
-                        <div class="case-results-desc">Apertura exitosa de puntos estratégicos y maximización del valor medio por cliente (LTV).</div>
-                    </div>
+                <h3 class="case-header-title">Construcción y Escala de Red Comercial desde Cero</h3>
+                <div class="case-company-label">Caredent Italia · Domestic &amp; General</div>
+                <div>
+                    <div class="case-sec-label">Desafío Estratégico</div>
+                    <p class="case-sec-text">Diseñar y ejecutar la expansión territorial de una red comercial asegurando rentabilidad unitaria por punto de venta.</p>
+                </div>
+                <div>
+                    <div class="case-sec-label">Estrategia Directiva</div>
+                    <p class="case-sec-text">Estandarización de procesos de venta, formación de equipos de alto rendimiento e integración de convenios financieros.</p>
+                </div>
+                <div class="case-highlight-box">
+                    <div class="case-highlight-stat">Crecimiento Sostenido de Red</div>
+                    <div class="case-highlight-desc">Apertura exitosa de puntos estratégicos y maximización del valor medio por cliente (LTV).</div>
                 </div>
             </article>
         </div>
     </div>
 </section>
-<section class="timeline-section" id="timeline">
+<!-- ==========================================
+     PESTAÑA 3: TRAYECTORIA CRONOLÓGICA
+     ========================================== -->
+<section class="tab-pane" id="tab-timeline" role="tabpanel">
     <div class="container">
-        <div class="reveal">
-            <span class="section-tag">Carrera Ejecutiva</span>
-            <h2 class="section-title">Trayectoria Cronológica</h2>
-            <p class="section-subtitle">
-                Evolución profesional liderando organizaciones multinacionales, entidades financieras y compañías innovadoras en fases de expansión europea.
-            </p>
+        <span class="section-tag">Carrera Ejecutiva</span>
+        <h2 class="section-title">Trayectoria Cronológica</h2>
+        <p class="section-subtitle">
+            Evolución profesional liderando empresas multinacionales, entidades financieras y compañías en fases de expansión europea.
+        </p>
+
+        <div class="timeline-filter-row">
+            <button class="t-filter-btn active" onclick="filterTimeline('all', this)">Todos los Roles</button>
+            <button class="t-filter-btn" onclick="filterTimeline('c-level', this)">Dirección General &amp; Country Lead</button>
+            <button class="t-filter-btn" onclick="filterTimeline('bizdev', this)">Desarrollo de Negocio &amp; Escala</button>
+            <button class="t-filter-btn" onclick="filterTimeline('finance', this)">Finanzas &amp; Banca</button>
         </div>
 
-        <div class="timeline-filter-bar reveal">
-            <button class="filter-btn active" onclick="filterTimeline('all', this)">Todos los Roles</button>
-            <button class="filter-btn" onclick="filterTimeline('c-level', this)">Dirección General &amp; Country Lead</button>
-            <button class="filter-btn" onclick="filterTimeline('bizdev', this)">Desarrollo de Negocio &amp; Escala</button>
-            <button class="filter-btn" onclick="filterTimeline('finance', this)">Finanzas &amp; Banca</button>
-        </div>
-
-        <div class="timeline-list">
-            <div class="timeline-item reveal" data-category="c-level">
-                <div class="timeline-meta">
-                    <div class="timeline-date">2022 — Presente</div>
-                    <div class="timeline-location">Milán / Italia</div>
+        <div class="timeline-track">
+            <!-- 1. Liberty Rider -->
+            <div class="timeline-row" data-cat="c-level">
+                <div class="timeline-left">
+                    <div class="timeline-years">2022 — Presente</div>
+                    <div class="timeline-place">Milán / Italia</div>
                 </div>
-                <div class="timeline-node"></div>
-                <div class="timeline-card">
-                    <div class="timeline-role-row">
-                        <h3 class="timeline-role">Country Sales Manager / Country Lead</h3>
-                        <span class="badge-gold">Insurtech &amp; IoT</span>
-                    </div>
-                    <div class="timeline-company">Liberty Rider (Líder europeo en seguridad telemática)</div>
-                    <p class="timeline-summary">
-                        Responsable de la dirección estratégica, posicionamiento institucional y expansión comercial en el mercado italiano. Liderazgo en la negociación de acuerdos marco con grupos aseguradores y operadores de movilidad.
-                    </p>
-                    <ul class="timeline-achievements">
-                        <li>Firma de acuerdos de distribución y co-branding con aseguradoras de primer nivel (ej. REVO Insurance).</li>
-                        <li>Desarrollo de la estrategia de monetización de datos de telemática y reducción del índice de siniestralidad.</li>
-                        <li>Representación institucional en los principales foros y congresos del sector asegurador italiano.</li>
+                <div class="timeline-bullet"></div>
+                <div class="timeline-box">
+                    <h3 class="timeline-job">Country Sales Manager / Country Lead</h3>
+                    <div class="timeline-firm">Liberty Rider (Seguridad Telemática &amp; E-Call)</div>
+                    <p class="timeline-desc">Dirección estratégica, posicionamiento institucional y expansión comercial en Italia. Negociación de acuerdos marco con aseguradoras y operadores de movilidad.</p>
+                    <ul class="timeline-points">
+                        <li>Firma de acuerdos de distribución con aseguradoras de primer nivel (ej. REVO Insurance).</li>
+                        <li>Desarrollo del modelo de monetización de datos telemáticos para mitigación de siniestralidad.</li>
+                        <li>Representación institucional en los principales foros del sector asegurador italiano.</li>
                     </ul>
                 </div>
             </div>
 
-            <div class="timeline-item reveal" data-category="bizdev">
-                <div class="timeline-meta">
-                    <div class="timeline-date">2021 — 2022</div>
-                    <div class="timeline-location">Milán &amp; Estocolmo</div>
+            <!-- 2. CAKE -->
+            <div class="timeline-row" data-cat="bizdev">
+                <div class="timeline-left">
+                    <div class="timeline-years">2021 — 2022</div>
+                    <div class="timeline-place">Milán &amp; Estocolmo</div>
                 </div>
-                <div class="timeline-node"></div>
-                <div class="timeline-card">
-                    <div class="timeline-role-row">
-                        <h3 class="timeline-role">Head of Business Development Italy</h3>
-                        <span class="badge-gold">Movilidad Eléctrica</span>
-                    </div>
-                    <div class="timeline-company">CAKE 0 emission (ridecake.com)</div>
-                    <p class="timeline-summary">
-                        Liderazgo del lanzamiento comercial de la marca sueca de motocicletas eléctricas en Italia. Desarrollo de alianzas B2B para flotas comerciales, empresas de logística y distribución de última milla.
-                    </p>
-                    <ul class="timeline-achievements">
-                        <li>Estructuración de la red comercial corporativa y acuerdos con partners estratégicos de movilidad limpia.</li>
-                        <li>Negociación de soluciones de leasing y financiación para clientes corporativos.</li>
+                <div class="timeline-bullet"></div>
+                <div class="timeline-box">
+                    <h3 class="timeline-job">Head of Business Development Italy</h3>
+                    <div class="timeline-firm">CAKE 0 emission (ridecake.com)</div>
+                    <p class="timeline-desc">Liderazgo del lanzamiento comercial en Italia. Alianzas B2B para flotas corporativas, última milla y movilidad sostenible.</p>
+                    <ul class="timeline-points">
+                        <li>Estructuración de la red comercial corporativa y acuerdos con partners estratégicos.</li>
+                        <li>Negociación de soluciones de leasing y financiación para flotas comerciales.</li>
                     </ul>
                 </div>
             </div>
 
-            <div class="timeline-item reveal" data-category="c-level bizdev">
-                <div class="timeline-meta">
-                    <div class="timeline-date">2016 — 2021</div>
-                    <div class="timeline-location">Italia</div>
+            <!-- 3. Caredent Italia -->
+            <div class="timeline-row" data-cat="c-level bizdev">
+                <div class="timeline-left">
+                    <div class="timeline-years">2016 — 2021</div>
+                    <div class="timeline-place">Italia</div>
                 </div>
-                <div class="timeline-node"></div>
-                <div class="timeline-card">
-                    <div class="timeline-role-row">
-                        <h3 class="timeline-role">Director Comercial &amp; Expansión</h3>
-                        <span class="badge-gold">Health &amp; Retail</span>
-                    </div>
-                    <div class="timeline-company">Caredent Italia</div>
-                    <p class="timeline-summary">
-                        Dirección de la estrategia de crecimiento y apertura de centros clínicos en toda Italia. Gestión de equipos comerciales y optimización de convenios financieros para pacientes y corporaciones.
-                    </p>
-                    <ul class="timeline-achievements">
-                        <li>Supervisión de la rentabilidad y rendimiento de la red comercial de centros en expansión.</li>
-                        <li>Implementación de programas de fidelización y financiación al consumo de alto impacto.</li>
+                <div class="timeline-bullet"></div>
+                <div class="timeline-box">
+                    <h3 class="timeline-job">Director Comercial &amp; Expansión</h3>
+                    <div class="timeline-firm">Caredent Italia</div>
+                    <p class="timeline-desc">Estrategia de crecimiento y expansión territorial de centros clínicos en Italia. Gestión de equipos comerciales y convenios financieros.</p>
+                    <ul class="timeline-points">
+                        <li>Supervisión de la rentabilidad y rendimiento de la red comercial en expansión.</li>
+                        <li>Implementación de convenios de financiación al consumo de alto impacto.</li>
                     </ul>
                 </div>
             </div>
 
-            <div class="timeline-item reveal" data-category="bizdev finance">
-                <div class="timeline-meta">
-                    <div class="timeline-date">2011 — 2016</div>
-                    <div class="timeline-location">Milán / Reino Unido</div>
+            <!-- 4. Domestic & General -->
+            <div class="timeline-row" data-cat="bizdev finance">
+                <div class="timeline-left">
+                    <div class="timeline-years">2011 — 2016</div>
+                    <div class="timeline-place">Milán / Reino Unido</div>
                 </div>
-                <div class="timeline-node"></div>
-                <div class="timeline-card">
-                    <div class="timeline-role-row">
-                        <h3 class="timeline-role">Key Account &amp; Business Development Manager</h3>
-                        <span class="badge-gold">Seguros &amp; Garantías</span>
-                    </div>
-                    <div class="timeline-company">Domestic &amp; General Group</div>
-                    <p class="timeline-summary">
-                        Gestión de grandes cuentas multinacionales y diseño de programas de extensión de garantía y seguros de electrodomésticos y tecnología en el mercado italiano.
-                    </p>
-                    <ul class="timeline-achievements">
-                        <li>Negociación de contratos marco con fabricantes y cadenas líderes de retail y electrónica de consumo.</li>
+                <div class="timeline-bullet"></div>
+                <div class="timeline-box">
+                    <h3 class="timeline-job">Key Account &amp; Business Development Manager</h3>
+                    <div class="timeline-firm">Domestic &amp; General Group</div>
+                    <p class="timeline-desc">Gestión de grandes cuentas multinacionales y diseño de programas de extensión de garantía y seguros de retail y tecnología.</p>
+                    <ul class="timeline-points">
+                        <li>Contratos marco con fabricantes y cadenas líderes de retail y electrónica de consumo.</li>
                         <li>Crecimiento de doble dígito en volumen de pólizas emitidas mediante canales integrados.</li>
                     </ul>
                 </div>
             </div>
 
-            <div class="timeline-item reveal" data-category="finance">
-                <div class="timeline-meta">
-                    <div class="timeline-date">2004 — 2011</div>
-                    <div class="timeline-location">Milán / Italia</div>
+            <!-- 5. Agos Itafinco -->
+            <div class="timeline-row" data-cat="finance">
+                <div class="timeline-left">
+                    <div class="timeline-years">2004 — 2011</div>
+                    <div class="timeline-place">Milán / Italia</div>
                 </div>
-                <div class="timeline-node"></div>
-                <div class="timeline-card">
-                    <div class="timeline-role-row">
-                        <h3 class="timeline-role">Senior Commercial &amp; Regional Manager</h3>
-                        <span class="badge-gold">Banca &amp; Crédito</span>
-                    </div>
-                    <div class="timeline-company">Agos Itafinco (Banca Intesa / Crédit Agricole)</div>
-                    <p class="timeline-summary">
-                        Liderazgo de redes regionales de financiación al consumo y distribución de crédito automotriz e industrial. Evaluación y control de riesgos comerciales.
-                    </p>
-                    <ul class="timeline-achievements">
-                        <li>Superación sistemática de objetivos de colocación de carteras crediticias con control de mora.</li>
-                        <li>Consolidación de relaciones con asociaciones empresariales y redes de distribución institucional.</li>
+                <div class="timeline-bullet"></div>
+                <div class="timeline-box">
+                    <h3 class="timeline-job">Senior Commercial &amp; Regional Manager</h3>
+                    <div class="timeline-firm">Agos Itafinco (Banca Intesa / Crédit Agricole)</div>
+                    <p class="timeline-desc">Liderazgo de redes regionales de financiación y distribución de crédito industrial y automotriz con estricto control de riesgo.</p>
+                    <ul class="timeline-points">
+                        <li>Superación continua de objetivos de colocación de carteras con control de mora.</li>
+                        <li>Consolidación de alianzas con asociaciones empresariales y redes de distribución.</li>
                     </ul>
                 </div>
             </div>
 
-            <div class="timeline-item reveal" data-category="finance">
-                <div class="timeline-meta">
-                    <div class="timeline-date">2000 — 2004</div>
-                    <div class="timeline-location">Turín / Italia</div>
+            <!-- 6. CNH Capital -->
+            <div class="timeline-row" data-cat="finance">
+                <div class="timeline-left">
+                    <div class="timeline-years">2000 — 2004</div>
+                    <div class="timeline-place">Turín / Italia</div>
                 </div>
-                <div class="timeline-node"></div>
-                <div class="timeline-card">
-                    <div class="timeline-role-row">
-                        <h3 class="timeline-role">Commercial Finance Specialist</h3>
-                        <span class="badge-gold">Financiación Industrial</span>
-                    </div>
-                    <div class="timeline-company">CNH Industrial Capital</div>
-                    <p class="timeline-summary">
-                        Estructuración de operaciones de financiación y leasing de maquinaria industrial y agrícola para la red de concesionarios oficiales.
-                    </p>
+                <div class="timeline-bullet"></div>
+                <div class="timeline-box">
+                    <h3 class="timeline-job">Commercial Finance Specialist</h3>
+                    <div class="timeline-firm">CNH Industrial Capital</div>
+                    <p class="timeline-desc">Estructuración de operaciones de financiación y leasing de maquinaria industrial y agrícola para concesionarios oficiales.</p>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<section class="media-section" id="media">
-    <div class="container">
-        <div class="reveal">
-            <span class="section-tag light">Presencia Institucional &amp; Difusión</span>
-            <h2 class="section-title light">Conferencias, Prensa &amp; Medios</h2>
-            <p class="section-subtitle light">
-                Participación activa como ponente y referente de opinión en foros internacionales de insurtech, movilidad conectada y transformación de servicios financieros.
-            </p>
-        </div>
 
-        <div class="media-tabs reveal">
-            <button class="media-tab-btn active" onclick="filterMedia('all', this)">Todo el Contenido</button>
-            <button class="media-tab-btn" onclick="filterMedia('conferencias', this)">Ponencias &amp; Congresos</button>
-            <button class="media-tab-btn" onclick="filterMedia('prensa', this)">Prensa &amp; Entrevistas</button>
+<!-- ==========================================
+     PESTAÑA 4: INSTITUCIONAL & MEDIA
+     ========================================== -->
+<section class="tab-pane" id="tab-media" role="tabpanel">
+    <div class="container">
+        <span class="section-tag">Presencia Institucional</span>
+        <h2 class="section-title">Conferencias, Congresos &amp; Prensa</h2>
+        <p class="section-subtitle">
+            Participación como ponente y referente de opinión en foros internacionales de insurtech, movilidad conectada y transformación de servicios financieros.
+        </p>
+
+        <div class="media-filter-row">
+            <button class="t-filter-btn active" onclick="filterMedia('all', this)">Todo el Contenido</button>
+            <button class="t-filter-btn" onclick="filterMedia('conferencias', this)">Ponencias &amp; Congresos</button>
+            <button class="t-filter-btn" onclick="filterMedia('prensa', this)">Prensa &amp; Entrevistas</button>
         </div>
 
         <div class="media-grid">
-            <article class="media-card reveal" data-type="conferencias">
-                <div class="media-card-img" style="background-image: url('https://i.postimg.cc/761c5cfg/conference-01-jpg.png');" onclick="openLightbox('https://i.postimg.cc/761c5cfg/conference-01-jpg.png')"></div>
-                <div class="media-card-content">
-                    <div class="media-meta-row">
-                        <span class="media-type">Conferencia Magistral</span>
-                        <span class="media-date">Milan, Italia</span>
-                    </div>
-                    <h3 class="media-title">Italian Insurtech Day: El Futuro del Seguro Conectado</h3>
-                    <p class="media-desc">
-                        Ponencia sobre el impacto de la telemetría en tiempo real, algoritmos predictivos y cómo las aseguradoras tradicionales pueden integrar IoT sin fricción en sus procesos de suscripción.
-                    </p>
-                    <a href="#contact" class="media-link">
-                        Solicitar Resumen de Ponencia
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                    </a>
+            <!-- 1 -->
+            <article class="media-item" data-media-type="conferencias">
+                <div class="media-thumb" style="background-image: url('https://i.postimg.cc/761c5cfg/conference-01-jpg.png');" onclick="openLightbox('https://i.postimg.cc/761c5cfg/conference-01-jpg.png')"></div>
+                <div class="media-body">
+                    <span class="media-category">Conferencia Magistral · Milán</span>
+                    <h3 class="media-headline">Italian Insurtech Day: El Futuro del Seguro Conectado</h3>
+                    <p class="media-snippet">Ponencia sobre telemetría en tiempo real, algoritmos predictivos y la integración de IoT en los procesos de suscripción aseguradora.</p>
+                    <a href="javascript:void(0)" onclick="openContactModal()" class="media-action-link">Solicitar Ponencia →</a>
                 </div>
             </article>
 
-            <article class="media-card reveal reveal-delay-1" data-type="conferencias">
-                <div class="media-card-img" style="background-image: url('https://i.postimg.cc/T3QyfYd6/conference-02-jpg.png');" onclick="openLightbox('https://i.postimg.cc/T3QyfYd6/conference-02-jpg.png')"></div>
-                <div class="media-card-content">
-                    <div class="media-meta-row">
-                        <span class="media-type">Panel Directivo</span>
-                        <span class="media-date">Roma, Italia</span>
-                    </div>
-                    <h3 class="media-title">European Mobility Forum: Dos Ruedas y Seguridad Vial Activa</h3>
-                    <p class="media-desc">
-                        Participación en el panel de expertos debatiendo sobre infraestructura urbana, micromovilidad y sistemas de rescate de emergencia conectados (e-Call) en Europa.
-                    </p>
-                    <a href="#contact" class="media-link">
-                        Ver Detalles del Panel
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                    </a>
+            <!-- 2 -->
+            <article class="media-item" data-media-type="conferencias">
+                <div class="media-thumb" style="background-image: url('https://i.postimg.cc/T3QyfYd6/conference-02-jpg.png');" onclick="openLightbox('https://i.postimg.cc/T3QyfYd6/conference-02-jpg.png')"></div>
+                <div class="media-body">
+                    <span class="media-category">Mesa Redonda Directiva · Roma</span>
+                    <h3 class="media-headline">European Mobility Forum: Dos Ruedas y Seguridad Vial Activa</h3>
+                    <p class="media-snippet">Panel de expertos sobre micromovilidad, infraestructura y sistemas de rescate de emergencia conectados (e-Call) en Europa.</p>
+                    <a href="javascript:void(0)" onclick="openContactModal()" class="media-action-link">Ver Resumen →</a>
                 </div>
             </article>
 
-            <article class="media-card reveal reveal-delay-2" data-type="prensa">
-                <div class="media-card-img" style="background-image: url('/assets/mobility-data.png');" onclick="openLightbox('/assets/mobility-data.png')"></div>
-                <div class="media-card-content">
-                    <div class="media-meta-row">
-                        <span class="media-type">Entrevista en Medios</span>
-                        <span class="media-date">Insurzine TV / Euresa</span>
-                    </div>
-                    <h3 class="media-title">"En Italia, la confianza se construye con presencia comercial y rigor"</h3>
-                    <p class="media-desc">
-                        Entrevista en profundidad analizando la transformación de los modelos de distribución de seguros en el sur de Europa y las oportunidades del mercado telemático.
-                    </p>
-                    <a href="https://insurzine.tv" target="_blank" rel="noopener" class="media-link">
-                        Leer Cobertura en Medios
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                    </a>
+            <!-- 3 -->
+            <article class="media-item" data-media-type="prensa">
+                <div class="media-thumb" style="background-image: url('assets/mobility-data.png');" onclick="openLightbox('assets/mobility-data.png')"></div>
+                <div class="media-body">
+                    <span class="media-category">Entrevista en Medios · Insurzine TV</span>
+                    <h3 class="media-headline">"En Italia, la confianza se construye con presencia comercial y rigor"</h3>
+                    <p class="media-snippet">Entrevista en profundidad analizando la transformación de los modelos de distribución en el sur de Europa y las oportunidades del mercado telemático.</p>
+                    <a href="https://insurzine.tv" target="_blank" rel="noopener" class="media-action-link">Leer Noticia →</a>
                 </div>
             </article>
         </div>
     </div>
 </section>
 
-<section class="leadership-section" id="leadership">
+<!-- ==========================================
+     PESTAÑA 5: LIDERAZGO & VALORES
+     ========================================== -->
+<section class="tab-pane" id="tab-leadership" role="tabpanel">
     <div class="container">
-        <div class="leadership-grid">
-            <div class="leadership-img-wrap reveal">
-                <div class="leadership-img" role="img" aria-label="Maurizio Di Russo - Disciplina deportiva y ciclismo"></div>
+        <span class="section-tag">Dimensión Humana &amp; Gestión</span>
+        <h2 class="section-title">Filosofía de Liderazgo y Valores</h2>
+        <p class="section-subtitle">
+            El liderazgo directivo no consiste en imponer respuestas, sino en formular las preguntas correctas, dotar de claridad a los equipos y mantener el rigor ante la incertidumbre.
+        </p>
+
+        <div class="leadership-layout">
+            <!-- Imagen deportiva / ciclismo -->
+            <div class="cycling-image-card">
+                <div class="cycling-caption">
+                    <div class="cycling-label">Fuera de la Oficina</div>
+                    <div class="cycling-text">Ciclismo de ruta y ultra-distancia. Cadencia, resistencia y foco mental aplicados a la gestión ejecutiva.</div>
+                </div>
             </div>
 
-            <div class="leadership-content reveal reveal-delay-1">
-                <span class="section-tag">Dimensión Humana &amp; Gestión</span>
-                <h2 class="section-title">Filosofía de Liderazgo y Valores</h2>
-                <p class="section-subtitle">
-                    Los mejores líderes no son los que tienen respuestas automáticas para todo, sino los que saben construir las preguntas correctas, dotar de claridad a sus equipos y mantener la serenidad ante la complejidad.
-                </p>
-
-                <div class="quote-box">
-                    <p class="quote-text">
+            <!-- Manifiesto y Valores -->
+            <div>
+                <div class="quote-card">
+                    <p class="quote-phrase">
                         "Un producto se convierte en negocio cuando alguien confía lo suficiente como para adoptarlo. En mercados complejos, esa confianza no se delega: se construye con presencia, palabra y constancia."
                     </p>
-                    <div class="quote-author">— Maurizio Di Russo</div>
+                    <div class="quote-by">— Maurizio Di Russo</div>
                 </div>
 
-                <div class="values-grid">
-                    <div class="value-card">
-                        <h4 class="value-card-title">Resistencia &amp; Enfoque</h4>
-                        <p class="value-card-text">La pasión por el ciclismo de fondo y las largas rutas me enseñó que los grandes objetivos se alcanzan con cadencia, gestión de energía y foco inquebrantable.</p>
+                <div class="values-2col">
+                    <div class="val-card">
+                        <h4 class="val-card-title">Resistencia &amp; Foco</h4>
+                        <p class="val-card-text">La disciplina deportiva enseña que los grandes objetivos se alcanzan con gestión de energía, constancia y visión de largo plazo.</p>
                     </div>
-                    <div class="value-card">
-                        <h4 class="value-card-title">Rigor &amp; Ética</h4>
-                        <p class="value-card-text">Gobernanza transparente y decisiones fundamentadas en datos, salvaguardando siempre la reputación corporativa a largo plazo.</p>
+                    <div class="val-card">
+                        <h4 class="val-card-title">Rigor &amp; Ética</h4>
+                        <p class="val-card-text">Gobernanza transparente y decisiones basadas en datos objetivos, preservando siempre la reputación corporativa.</p>
                     </div>
-                    <div class="value-card">
-                        <h4 class="value-card-title">Cultura de Confianza</h4>
-                        <p class="value-card-text">Empoderar a los equipos dándoles autonomía con alta exigencia y acompañamiento cercano en la resolución de bloqueos.</p>
+                    <div class="val-card">
+                        <h4 class="val-card-title">Cultura de Confianza</h4>
+                        <p class="val-card-text">Empoderamiento de equipos con autonomía responsable, alta exigencia y acompañamiento en el desbloqueo operativo.</p>
                     </div>
-                    <div class="value-card">
-                        <h4 class="value-card-title">Pragmatismo Comercial</h4>
-                        <p class="value-card-text">Visión estratégica orientada siempre a la cuenta de resultados (P&amp;L) y a la viabilidad práctica de cada acuerdo.</p>
+                    <div class="val-card">
+                        <h4 class="val-card-title">Pragmatismo Comercial</h4>
+                        <p class="val-card-text">Visión estratégica anclada en la cuenta de resultados (P&amp;L) y la viabilidad práctica de cada acuerdo.</p>
                     </div>
                 </div>
             </div>
@@ -1018,238 +935,241 @@ body {
     </div>
 </section>
 
-<section class="education-section" id="education">
+<!-- ==========================================
+     PESTAÑA 6: FORMACIÓN & CREDENCIALES
+     ========================================== -->
+<section class="tab-pane" id="tab-education" role="tabpanel">
     <div class="container">
-        <div class="reveal">
-            <span class="section-tag">Credenciales &amp; Formación Continua</span>
-            <h2 class="section-title">Desarrollo Académico &amp; Directivo</h2>
-            <p class="section-subtitle">
-                Formación sólida en economía y finanzas combinada con actualización ejecutiva continua en liderazgo, gobernanza y tecnologías emergentes.
-            </p>
-        </div>
+        <span class="section-tag">Desarrollo Académico</span>
+        <h2 class="section-title">Formación Directiva &amp; Certificaciones</h2>
+        <p class="section-subtitle">
+            Base cuantitativa en economía y finanzas con actualización directiva continua en gestión estratégica, riesgos y gobernanza.
+        </p>
 
-        <div class="edu-grid">
-            <div class="edu-card reveal">
-                <div class="edu-icon">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 6 3 6 3s6-1 6-3v-5"/>
-                    </svg>
-                </div>
-                <div class="edu-category">Formación Universitaria</div>
-                <h3 class="edu-title">Licenciatura en Economía &amp; Finanzas</h3>
-                <div class="edu-institution">Universidad de Estudios Económicos · Italia</div>
-                <p class="edu-desc">
-                    Base académica en análisis financiero, macroeconomía, estructura de mercados y modelos de gestión cuantitativa de capital y riesgo.
-                </p>
+        <div class="edu-row">
+            <div class="edu-box">
+                <div class="edu-cat">Grado Universitario</div>
+                <h3 class="edu-heading">Licenciatura en Economía &amp; Finanzas</h3>
+                <div class="edu-place">Universidad de Estudios Económicos · Italia</div>
+                <p class="edu-paragraph">Análisis financiero, macroeconomía, estructura de mercados de capitales y modelos cuantitativos de riesgo.</p>
             </div>
-
-            <div class="edu-card reveal reveal-delay-1">
-                <div class="edu-icon">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-                    </svg>
-                </div>
-                <div class="edu-category">Executive Education</div>
-                <h3 class="edu-title">Programa de Dirección General &amp; Liderazgo</h3>
-                <div class="edu-institution">Business School Ejecutiva · Europa</div>
-                <p class="edu-desc">
-                    Especialización en formulación de estrategia corporativa, gestión del cambio, negociación avanzada y gobierno corporativo para consejos de administración.
-                </p>
+            <div class="edu-box">
+                <div class="edu-cat">Executive Education</div>
+                <h3 class="edu-heading">Programa de Dirección General</h3>
+                <div class="edu-place">Business School Ejecutiva · Europa</div>
+                <p class="edu-paragraph">Estrategia corporativa, negociación avanzada, liderazgo transformacional y gobierno corporativo para consejos.</p>
             </div>
-
-            <div class="edu-card reveal reveal-delay-2">
-                <div class="edu-icon">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>
-                    </svg>
-                </div>
-                <div class="edu-category">Certificaciones Directivas</div>
-                <h3 class="edu-title">Insurtech, Risk Governance &amp; Digital Assets</h3>
-                <div class="edu-institution">Institutos Internacionales de Certificación</div>
-                <p class="edu-desc">
-                    Acreditaciones en gobernanza de riesgos tecnológicos, modelos de suscripción basados en datos y cumplimiento regulatorio europeo (GDPR / Solvencia).
-                </p>
+            <div class="edu-box">
+                <div class="edu-cat">Certificaciones Clave</div>
+                <h3 class="edu-heading">Insurtech &amp; Risk Governance</h3>
+                <div class="edu-place">Institutos Internacionales de Certificación</div>
+                <p class="edu-paragraph">Gobernanza de datos telemáticos, suscripción basada en algoritmos y marcos regulatorios europeos.</p>
             </div>
         </div>
 
-        <div class="languages-box reveal">
+        <div class="languages-strip">
             <div>
-                <div class="lang-title">Competencias Lingüísticas Internacionales</div>
-                <div style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.3rem;">Capacidad para liderar negociaciones y comités en entornos multiculturales</div>
+                <h4 style="font-size: 1rem; font-weight: 600;">Competencias Lingüísticas Internacionales</h4>
+                <div style="font-size: 0.78rem; color: var(--text-muted); margin-top: 0.2rem;">Negociación y dirección en entornos multiculturales</div>
             </div>
-            <div class="lang-list">
-                <div class="lang-item">
-                    <span class="lang-name">Italiano</span>
-                    <span class="lang-level">Nativo</span>
+            <div class="lang-col">
+                <div>
+                    <div class="lang-tag-name">Italiano</div>
+                    <div class="lang-tag-lvl">Nativo</div>
                 </div>
-                <div class="lang-item">
-                    <span class="lang-name">Inglés</span>
-                    <span class="lang-level">Bilingüe / Profesional Directivo</span>
+                <div>
+                    <div class="lang-tag-name">Inglés</div>
+                    <div class="lang-tag-lvl">Bilingüe / Profesional Directivo</div>
                 </div>
-                <div class="lang-item">
-                    <span class="lang-name">Español</span>
-                    <span class="lang-level">Competencia Profesional</span>
+                <div>
+                    <div class="lang-tag-name">Español</div>
+                    <div class="lang-tag-lvl">Competencia Profesional</div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+<!-- ==========================================
+     VENTANA / BARRA FLOTANTE DE ACCIÓN DUAL
+     ========================================== -->
+<div class="floating-action-bar">
+    <!-- Acción 1: Contactar (Prioridad 1) -->
+    <button class="action-pill-btn btn-action-contact" onclick="openContactModal()">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Contactar
+    </button>
+    <!-- Acción 2: Descargar CV (Prioridad 2) -->
+    <button class="action-pill-btn btn-action-cv" onclick="openDownloadModal()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        Descargar CV
+    </button>
+</div>
 
-<section class="contact-section" id="contact">
-    <div class="container">
-        <div class="contact-wrapper">
-            <span class="section-tag light reveal">Inicie una Conversación</span>
-            <h2 class="section-title light reveal reveal-delay-1">¿Conversamos sobre oportunidades estratégicas?</h2>
-            <p class="section-subtitle light reveal reveal-delay-2" style="margin: 0 auto 2.5rem;">
-                Abierto a posiciones directivas (Dirección General, Country Management, C-Level), membresías en Consejos Asesores o proyectos de escalamiento en Europa.
-            </p>
-
-            <div class="contact-actions reveal reveal-delay-3">
-                <button class="btn-primary" onclick="openDownloadModal()">
-                    Descargar CV en PDF
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-                </button>
-                <a href="mailto:maurizio@dirusso.com" class="btn-outline">Enviar Correo Directo</a>
-            </div>
-
-            <div class="contact-cards reveal">
-                <div class="c-card">
-                    <div class="c-card-label">LinkedIn Oficial</div>
-                    <div class="c-card-value">
-                        <a href="https://www.linkedin.com/in/mauriziodirusso/" target="_blank" rel="noopener">linkedin.com/in/mauriziodirusso</a>
-                    </div>
-                </div>
-                <div class="c-card">
-                    <div class="c-card-label">Correo Electrónico</div>
-                    <div class="c-card-value">
-                        <a href="mailto:maurizio@dirusso.com">maurizio@dirusso.com</a>
-                    </div>
-                </div>
-                <div class="c-card">
-                    <div class="c-card-label">Base Geográfica</div>
-                    <div class="c-card-value">Milán · Roma · Proyección Europea</div>
-                </div>
-            </div>
-
-            <footer class="site-footer">
-                <div>© 2026 Maurizio Di Russo · Executive Dossier &amp; Portfolio Hub</div>
-                <div>Diseñado para Headhunters, Consejos de Administración y Comités C-Level</div>
-            </footer>
-        </div>
-    </div>
-</section>
-<div class="modal-backdrop" id="downloadModal" onclick="closeOnBackdrop(event)">
-    <div class="modal-window" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-        <div class="modal-header">
+<!-- ==========================================
+     MODAL DE CONTACTO
+     ========================================== -->
+<div class="modal-overlay" id="contactModal" onclick="handleModalBackdrop(event, 'contactModal')">
+    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="contactModalTitle">
+        <div class="modal-top">
             <div>
-                <h3 class="modal-title" id="modalTitle">Centro de Descarga de CV &amp; Dossier</h3>
-                <p class="modal-subtitle">Seleccione el formato adaptado a su necesidad de evaluación</p>
+                <h3 class="modal-heading" id="contactModalTitle">Iniciar una Conversación</h3>
+                <p class="modal-subheading">Canales de contacto directo con Maurizio Di Russo</p>
             </div>
-            <button class="modal-close" onclick="closeDownloadModal()" aria-label="Cerrar ventana">×</button>
+            <button class="modal-x" onclick="closeContactModal()" aria-label="Cerrar">×</button>
         </div>
-
-        <div class="modal-body">
-            <div class="format-option" onclick="triggerDownload('CV Ejecutivo Integral (PDF Completo)')">
-                <div class="format-icon">📄</div>
-                <div>
-                    <div class="format-info-title">1. CV Ejecutivo Integral (PDF Completo)</div>
-                    <div class="format-info-desc">Documento exhaustivo con trayectoria completa, roles, empresas y referencias (3 páginas).</div>
+        <div class="modal-content">
+            <a href="mailto:maurizio@dirusso.com" class="contact-row-item">
+                <div class="contact-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                 </div>
-                <div class="format-action-btn">Descargar →</div>
-            </div>
-
-            <div class="format-option" onclick="triggerDownload('Executive One-Pager (Resumen C-Level)')">
-                <div class="format-icon">📑</div>
                 <div>
-                    <div class="format-info-title">2. Executive One-Pager (Resumen C-Level)</div>
-                    <div class="format-info-desc">Síntesis estratégica de alto impacto para Headhunters y Comités de Selección (1 página).</div>
+                    <div class="contact-title">Correo Electrónico Directo</div>
+                    <div class="contact-value">maurizio@dirusso.com</div>
                 </div>
-                <div class="format-action-btn">Descargar →</div>
-            </div>
+                <div class="contact-arrow">Enviar →</div>
+            </a>
 
-            <div class="format-option" onclick="triggerDownload('Dossier de Casos de Estudio & Track Record')">
-                <div class="format-icon">📊</div>
+            <a href="https://www.linkedin.com/in/mauriziodirusso/" target="_blank" rel="noopener" class="contact-row-item">
+                <div class="contact-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+                </div>
                 <div>
-                    <div class="format-info-title">3. Dossier de Casos de Estudio &amp; Track Record</div>
-                    <div class="format-info-desc">Desglose metodológico de proyectos, estrategias implementadas y ROI cuantificado.</div>
+                    <div class="contact-title">Perfil de LinkedIn</div>
+                    <div class="contact-value">linkedin.com/in/mauriziodirusso</div>
                 </div>
-                <div class="format-action-btn">Descargar →</div>
-            </div>
+                <div class="contact-arrow">Visitar →</div>
+            </a>
 
-            <div class="format-option" onclick="triggerDownload('CV Estándar (Optimizado para ATS)')">
-                <div class="format-icon">📋</div>
+            <div class="contact-row-item" style="cursor: default;">
+                <div class="contact-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
                 <div>
-                    <div class="format-info-title">4. Formato Estándar (ATS-Optimized)</div>
-                    <div class="format-info-desc">Estructura limpia y sin elementos gráficos pesados para sistemas automáticos de reclutamiento.</div>
+                    <div class="contact-title">Ubicación y Disponibilidad</div>
+                    <div class="contact-value">Milán, Italia · Cobertura y Viajes en Europa</div>
                 </div>
-                <div class="format-action-btn">Descargar →</div>
+                <div class="contact-arrow">Italia / EMEA</div>
             </div>
-        </div>
-
-        <div class="modal-footer">
-            <span>Formato: PDF de Alta Resolución</span>
-            <span>Actualizado: Agosto 2026</span>
         </div>
     </div>
 </div>
 
-<div class="lightbox-backdrop" id="lightbox" onclick="closeLightbox()">
-    <button class="lightbox-close" aria-label="Cerrar imagen">×</button>
-    <img class="lightbox-img" id="lightboxImg" src="" alt="Vista previa de conferencia">
+<!-- ==========================================
+     MODAL DE DESCARGA MULTI-FORMATO DE CV
+     ========================================== -->
+<div class="modal-overlay" id="downloadModal" onclick="handleModalBackdrop(event, 'downloadModal')">
+    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="cvModalTitle">
+        <div class="modal-top">
+            <div>
+                <h3 class="modal-heading" id="cvModalTitle">Descargar CV &amp; Dossier</h3>
+                <p class="modal-subheading">Formatos ejecutivos adaptados a su requerimiento</p>
+            </div>
+            <button class="modal-x" onclick="closeDownloadModal()" aria-label="Cerrar">×</button>
+        </div>
+        <div class="modal-content">
+            <div class="cv-option-item" onclick="triggerDownload('CV Ejecutivo Integral (PDF Completo)')">
+                <div class="contact-icon">📄</div>
+                <div>
+                    <div class="contact-title">1. CV Ejecutivo Integral (PDF Completo)</div>
+                    <div class="contact-value">Trayectoria exhaustiva, logros cuantitativos y responsabilidades directivas.</div>
+                </div>
+                <div class="contact-arrow">Descargar →</div>
+            </div>
+
+            <div class="cv-option-item" onclick="triggerDownload('Executive One-Pager (Resumen C-Level)')">
+                <div class="contact-icon">📑</div>
+                <div>
+                    <div class="contact-title">2. Executive One-Pager (Resumen C-Level)</div>
+                    <div class="contact-value">Síntesis directiva de 1 página optimizada para Headhunters y Comités.</div>
+                </div>
+                <div class="contact-arrow">Descargar →</div>
+            </div>
+
+            <div class="cv-option-item" onclick="triggerDownload('Dossier de Casos de Estudio & ROI')">
+                <div class="contact-icon">📊</div>
+                <div>
+                    <div class="contact-title">3. Dossier de Casos de Estudio &amp; ROI</div>
+                    <div class="contact-value">Desglose de metodología, alianzas corporativas y resultados medibles.</div>
+                </div>
+                <div class="contact-arrow">Descargar →</div>
+            </div>
+
+            <div class="cv-option-item" onclick="triggerDownload('CV Estándar (ATS-Optimized)')">
+                <div class="contact-icon">📋</div>
+                <div>
+                    <div class="contact-title">4. Formato Estándar (ATS-Optimized)</div>
+                    <div class="contact-value">Formato simplificado para sistemas automáticos de selección de personal.</div>
+                </div>
+                <div class="contact-arrow">Descargar →</div>
+            </div>
+        </div>
+    </div>
 </div>
 
-<div class="toast-msg" id="toastMsg">Documento descargado con éxito</div>
+<!-- ==========================================
+     LIGHTBOX PARA IMÁGENES DE CONFERENCIAS
+     ========================================== -->
+<div class="lightbox-overlay" id="lightbox" onclick="closeLightbox()">
+    <button class="lightbox-btn-close" aria-label="Cerrar imagen">×</button>
+    <img class="lightbox-image-target" id="lightboxImg" src="" alt="Fotografía ampliada">
+</div>
 
+<!-- TOAST NOTIFICATION -->
+<div class="toast-feedback" id="toastFeedback">Acción ejecutada</div>
+
+<!-- ==========================================
+     SCRIPT DE CONTROLADOR DE PESTAÑAS & MODALES
+     ========================================== -->
 <script>
-(function() {
-    'use strict';
-
-    var nav = document.getElementById('nav');
-    window.addEventListener('scroll', function() {
-        if (nav) {
-            nav.classList.toggle('scrolled', window.pageYOffset > 50);
-        }
-    }, { passive: true });
-
-    var revealObserver = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-            if (entry.isIntersecting) entry.target.classList.add('visible');
-        });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-    document.querySelectorAll('.reveal').forEach(function(el) { revealObserver.observe(el); });
-
-    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
-        anchor.addEventListener('click', function(e) {
-            var targetId = this.getAttribute('href');
-            if (targetId === '#' || !targetId) return;
-            var targetEl = document.querySelector(targetId);
-            if (targetEl) {
-                e.preventDefault();
-                targetEl.scrollIntoView({ behavior: 'smooth' });
-            }
-        });
+function switchTab(tabId) {
+    // Desactivar todos los paneles y botones
+    document.querySelectorAll('.tab-pane').forEach(function(pane) {
+        pane.classList.remove('active');
     });
-})();
+    document.querySelectorAll('.tab-btn').forEach(function(btn) {
+        btn.classList.remove('active');
+        btn.setAttribute('aria-selected', 'false');
+    });
+
+    // Activar el panel seleccionado
+    var targetPane = document.getElementById('tab-' + tabId);
+    var targetBtn = document.getElementById('btn-' + tabId);
+
+    if (targetPane) {
+        targetPane.classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    if (targetBtn) {
+        targetBtn.classList.add('active');
+        targetBtn.setAttribute('aria-selected', 'true');
+        // Scroll horizontal al botón en mobile si es necesario
+        targetBtn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+    }
+}
+
+// Modales
+function openContactModal() {
+    var m = document.getElementById('contactModal');
+    if (m) { m.classList.add('open'); document.body.style.overflow = 'hidden'; }
+}
+function closeContactModal() {
+    var m = document.getElementById('contactModal');
+    if (m) { m.classList.remove('open'); document.body.style.overflow = ''; }
+}
 
 function openDownloadModal() {
-    var modal = document.getElementById('downloadModal');
-    if (modal) {
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    }
+    var m = document.getElementById('downloadModal');
+    if (m) { m.classList.add('open'); document.body.style.overflow = 'hidden'; }
 }
-
 function closeDownloadModal() {
-    var modal = document.getElementById('downloadModal');
-    if (modal) {
-        modal.classList.remove('active');
-        document.body.style.overflow = '';
-    }
+    var m = document.getElementById('downloadModal');
+    if (m) { m.classList.remove('open'); document.body.style.overflow = ''; }
 }
 
-function closeOnBackdrop(e) {
-    if (e.target.id === 'downloadModal') {
-        closeDownloadModal();
+function handleModalBackdrop(e, modalId) {
+    if (e.target.id === modalId) {
+        if (modalId === 'contactModal') closeContactModal();
+        if (modalId === 'downloadModal') closeDownloadModal();
     }
 }
 
@@ -1258,74 +1178,70 @@ function triggerDownload(docName) {
     showToast('Iniciando descarga: ' + docName);
 }
 
-function showToast(msg) {
-    var toast = document.getElementById('toastMsg');
-    if (!toast) return;
-    toast.textContent = msg;
-    toast.classList.add('show');
-    setTimeout(function() {
-        toast.classList.remove('show');
-    }, 3500);
+function showToast(text) {
+    var t = document.getElementById('toastFeedback');
+    if (!t) return;
+    t.textContent = text;
+    t.classList.add('show');
+    setTimeout(function() { t.classList.remove('show'); }, 3200);
 }
 
-function filterTimeline(category, btn) {
-    document.querySelectorAll('.timeline-filter-bar .filter-btn').forEach(function(b) {
+// Filtros de Trayectoria
+function filterTimeline(cat, btn) {
+    document.querySelectorAll('.timeline-filter-row .t-filter-btn').forEach(function(b) {
         b.classList.remove('active');
     });
     if (btn) btn.classList.add('active');
 
-    var items = document.querySelectorAll('.timeline-item');
-    items.forEach(function(item) {
-        if (category === 'all') {
-            item.style.display = 'grid';
+    document.querySelectorAll('.timeline-row').forEach(function(row) {
+        if (cat === 'all') {
+            row.style.display = 'grid';
         } else {
-            var cats = item.getAttribute('data-category') || '';
-            if (cats.indexOf(category) !== -1) {
-                item.style.display = 'grid';
-            } else {
-                item.style.display = 'none';
-            }
+            var c = row.getAttribute('data-cat') || '';
+            row.style.display = (c.indexOf(cat) !== -1) ? 'grid' : 'none';
         }
     });
 }
 
+// Filtros de Media
 function filterMedia(type, btn) {
-    document.querySelectorAll('.media-tabs .media-tab-btn').forEach(function(b) {
+    document.querySelectorAll('.media-filter-row .t-filter-btn').forEach(function(b) {
         b.classList.remove('active');
     });
     if (btn) btn.classList.add('active');
 
-    var cards = document.querySelectorAll('.media-card');
-    cards.forEach(function(card) {
+    document.querySelectorAll('.media-item').forEach(function(item) {
         if (type === 'all') {
-            card.style.display = 'flex';
+            item.style.display = 'flex';
         } else {
-            var ctype = card.getAttribute('data-type') || '';
-            card.style.display = (ctype === type) ? 'flex' : 'none';
+            var t = item.getAttribute('data-media-type') || '';
+            item.style.display = (t === type) ? 'flex' : 'none';
         }
     });
 }
 
+// Lightbox
 function openLightbox(src) {
     var lb = document.getElementById('lightbox');
     var img = document.getElementById('lightboxImg');
     if (lb && img) {
         img.src = src;
-        lb.classList.add('active');
+        lb.classList.add('open');
         document.body.style.overflow = 'hidden';
     }
 }
-
 function closeLightbox() {
     var lb = document.getElementById('lightbox');
     if (lb) {
-        lb.classList.remove('active');
+        lb.classList.remove('open');
         document.body.style.overflow = '';
     }
 }
 
+// Tecla Escape para cerrar
 document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
+        closeContactModal();
         closeDownloadModal();
         closeLightbox();
     }
