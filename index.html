@@ -42,49 +42,50 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
-    padding-bottom: 7rem;
 }
 
-/* ============ HEADER: BRAND ON TOP, SUBTITLE BELOW ============ */
+/* ============ HEADER LAYOUT (DESKTOP: BRAND LEFT · TABS CENTER · CTA RIGHT) ============ */
 .site-top-bar {
     position: sticky; top: 0; z-index: 1000;
     background-color: var(--midnight);
-    padding: 1.15rem 2rem 1.05rem;
-    display: flex; flex-direction: column; align-items: center;
+    padding: 0.95rem 2.5rem;
+}
+.site-top-bar-inner {
+    max-width: 1400px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
 }
 .brand-block {
-    display: flex; flex-direction: column; align-items: center; text-align: center;
-    margin-bottom: 0.9rem;
+    display: flex; flex-direction: column; align-items: flex-start; text-align: left;
+    flex-shrink: 0;
 }
 .brand-title {
-    font-size: 0.86rem; font-weight: 700; letter-spacing: 0.2em;
+    font-size: 0.86rem; font-weight: 700; letter-spacing: 0.18em;
     text-transform: uppercase; color: #ffffff; text-decoration: none;
     line-height: 1.2;
 }
 .brand-sub {
-    font-size: 0.58rem; font-weight: 500; letter-spacing: 0.16em;
-    text-transform: uppercase; color: var(--muted-slate); margin-top: 0.28rem;
+    font-size: 0.56rem; font-weight: 500; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--muted-slate); margin-top: 0.22rem;
 }
 
-/* ============ BOTONERA SUPERIOR (CÍRCULOS PERFECTOS EN MOBILE) ============ */
+/* TABS CONTAINER */
 .tabs-scroll-container {
-    width: 100%; max-width: 900px;
     overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none;
 }
 .tabs-scroll-container::-webkit-scrollbar { display: none; }
 .tabs-pill-row {
-    display: flex; gap: 0.65rem; justify-content: center; align-items: center; min-width: max-content; padding: 0.1rem 0;
+    display: flex; gap: 0.55rem; justify-content: center; align-items: center; min-width: max-content; padding: 0.1rem 0;
 }
 
 .nav-tab-pill {
-    display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
-    padding: 0.55rem 1.1rem; font-size: 0.68rem; font-weight: 600;
-    letter-spacing: 0.12em; text-transform: uppercase;
+    display: inline-flex; align-items: center; justify-content: center; gap: 0.45rem;
+    padding: 0.55rem 1.05rem; font-size: 0.68rem; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase;
     color: var(--text-dim); background-color: var(--midnight-surface);
     border-radius: var(--radius-pill); cursor: pointer;
     transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
 }
-.nav-tab-pill svg { width: 16px; height: 16px; stroke-width: 1.8; stroke: currentColor; fill: none; flex-shrink: 0; }
+.nav-tab-pill svg { width: 15px; height: 15px; stroke-width: 1.8; stroke: currentColor; fill: none; flex-shrink: 0; }
 .nav-tab-pill:hover {
     color: #ffffff; background-color: var(--petroleum);
 }
@@ -96,6 +97,30 @@ body {
 
 .tab-label-text { display: inline-block; }
 
+/* DESKTOP HEADER ACTIONS (RIGHT) */
+.header-desktop-actions {
+    display: flex; align-items: center; gap: 0.6rem; flex-shrink: 0;
+}
+.header-action-btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem;
+    padding: 0.55rem 1.15rem; font-size: 0.68rem; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase; border-radius: var(--radius-pill);
+    cursor: pointer; transition: all 0.2s ease;
+}
+.btn-head-contact {
+    background-color: #ffffff; color: var(--midnight);
+}
+.btn-head-contact:hover {
+    background-color: var(--warm-white-dim); transform: translateY(-1px);
+}
+.btn-head-cv {
+    background-color: var(--petroleum); color: #ffffff;
+}
+.btn-head-cv:hover {
+    background-color: var(--petroleum-hover); transform: translateY(-1px);
+}
+
+/* ============ TAB VIEW SYSTEM ============ */
 .tab-content-panel {
     display: none; animation: tabAppear 0.35s ease forwards;
 }
@@ -122,8 +147,9 @@ body {
     color: var(--graphite); max-width: 700px;
 }
 
+/* HERO */
 .hero-flat {
-    min-height: calc(100vh - 110px); display: grid; grid-template-columns: 46% 54%;
+    min-height: calc(100vh - 80px); display: grid; grid-template-columns: 46% 54%;
     background-color: var(--midnight); position: relative;
 }
 .hero-flat-left {
@@ -168,6 +194,7 @@ body {
     background-size: cover; background-position: 50% 42%; background-repeat: no-repeat;
 }
 
+/* PROPOSITION */
 .proposition-flat { padding: 6rem 4rem; background-color: var(--warm-white); max-width: 1200px; margin: 0 auto; }
 .prop-kicker { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted-slate); margin-bottom: 3.5rem; }
 .prop-grid-2x2 { display: grid; grid-template-columns: 1fr 1fr; gap: 4.5rem 3.5rem; }
@@ -175,6 +202,7 @@ body {
 .prop-card-title { font-size: clamp(1.35rem, 2vw, 1.8rem); font-weight: 600; line-height: 1.25; color: var(--text-dark); margin-bottom: 1rem; }
 .prop-card-body { font-size: 0.92rem; font-weight: 300; line-height: 1.75; color: var(--graphite); }
 
+/* SCALE */
 .scale-flat { padding: 6.5rem 3rem; background-color: var(--midnight); text-align: center; }
 .scale-flat-tag { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-slate); margin-bottom: 1.5rem; }
 .scale-flat-number { font-size: clamp(4rem, 10vw, 8rem); font-weight: 800; line-height: 1; color: #ffffff; letter-spacing: -0.03em; margin-bottom: 1.5rem; }
@@ -183,6 +211,7 @@ body {
 .scale-col-val { font-size: clamp(1.6rem, 2.8vw, 2.2rem); font-weight: 700; color: #ffffff; margin-bottom: 0.3rem; }
 .scale-col-lbl { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted-slate); }
 
+/* METHOD & CASES */
 .method-strip-flat {
     display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem;
     padding: 3.5rem 4rem; background-color: var(--warm-white-dim);
@@ -215,6 +244,7 @@ body {
 .ch-photo-wrap { position: relative; height: 60vh; min-height: 420px; background-color: var(--photo-bg); overflow: hidden; border-radius: var(--radius-sm); }
 .ch-photo { position: absolute; inset: 0; background-size: cover; background-position: 50% 30%; }
 
+/* TIMELINE */
 .timeline-section-flat { padding: 3rem 4rem 6rem; max-width: 1050px; margin: 0 auto; }
 .timeline-filters-flat { display: flex; gap: 0.6rem; margin-bottom: 3.5rem; flex-wrap: wrap; }
 .t-filter-pill {
@@ -238,6 +268,7 @@ body {
 .t-job-bullets li { font-size: 0.82rem; color: var(--charcoal); padding-left: 1.2rem; position: relative; }
 .t-job-bullets li::before { content: '•'; position: absolute; left: 0; color: var(--petroleum); font-weight: 700; }
 
+/* MEDIA */
 .media-section-flat { padding: 5rem 4rem 6rem; background-color: var(--midnight); color: #ffffff; }
 .media-grid-flat { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; max-width: 1200px; margin: 3rem auto 0; }
 .media-card-flat { background-color: var(--midnight-surface); display: flex; flex-direction: column; border-radius: var(--radius-sm); overflow: hidden; }
@@ -255,6 +286,7 @@ body {
 .media-desc-flat { font-size: 0.82rem; font-weight: 300; line-height: 1.65; color: var(--text-dim); margin-bottom: 1.25rem; flex: 1; }
 .media-link-flat { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #ffffff; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; background: none; cursor: pointer; padding: 0; }
 
+/* LEADERSHIP */
 .quote-section-flat { padding: 6rem 4rem; background-color: var(--midnight); color: #ffffff; text-align: center; }
 .quote-mark-flat { font-size: 6rem; font-weight: 200; line-height: 0.5; color: var(--petroleum); margin-bottom: 2rem; }
 .quote-text-flat { font-size: clamp(1.6rem, 2.7vw, 2.5rem); font-weight: 500; line-height: 1.35; color: #ffffff; max-width: 860px; margin: 0 auto; }
@@ -269,6 +301,7 @@ body {
 .cycling-tag-flat { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted-slate); margin-bottom: 0.4rem; }
 .cycling-txt-flat { font-size: 1.1rem; font-weight: 400; color: #ffffff; max-width: 600px; line-height: 1.6; }
 
+/* EDUCATION */
 .edu-section-flat { padding: 3rem 4rem 6rem; max-width: 1200px; margin: 0 auto; }
 .edu-grid-flat { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 3rem; }
 .edu-card-flat { padding: 2.2rem 2rem; background-color: var(--card-white); border-radius: var(--radius-md); }
@@ -277,10 +310,11 @@ body {
 .edu-school-flat { font-size: 0.82rem; font-weight: 600; color: var(--petroleum-light); margin-bottom: 0.9rem; }
 .edu-desc-flat { font-size: 0.82rem; font-weight: 300; line-height: 1.65; color: var(--graphite); }
 
+/* FLOATING ACTION BAR (MOBILE ONLY) */
 .flat-floating-bar {
     position: fixed; bottom: 1.5rem; left: 50%; transform: translateX(-50%); z-index: 2000;
     background-color: var(--midnight); border-radius: var(--radius-pill);
-    padding: 0.45rem 0.55rem; display: flex; align-items: center; gap: 0.5rem;
+    padding: 0.45rem 0.55rem; display: none; align-items: center; gap: 0.5rem;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
 }
 .flat-pill-btn {
@@ -306,6 +340,7 @@ body {
     background-color: var(--petroleum-hover);
 }
 
+/* MODALES */
 .flat-modal-backdrop {
     position: fixed; inset: 0; z-index: 3000; background-color: rgba(11, 19, 32, 0.85);
     display: flex; align-items: center; justify-content: center; padding: 1.5rem;
@@ -346,6 +381,7 @@ body {
 .modal-row-sub { font-size: 0.72rem; font-weight: 300; color: var(--text-dim); }
 .modal-row-arrow { font-size: 0.72rem; font-weight: 600; color: var(--accent); }
 
+/* TOAST */
 .flat-toast {
     position: fixed; bottom: 5.5rem; left: 50%; transform: translateX(-50%) translateY(20px); z-index: 3500;
     background-color: var(--midnight); color: #ffffff;
@@ -363,8 +399,9 @@ body {
 .lightbox-flat.active { opacity: 1; visibility: visible; }
 .lightbox-flat-img { max-width: 90vw; max-height: 85vh; object-fit: contain; }
 
+/* ============ RESPONSIVE RULES ============ */
 @media (max-width: 1024px) {
-    .site-top-bar { padding: 1.1rem 1.25rem 1rem; }
+    .site-top-bar { padding: 0.9rem 1.5rem; }
     .hero-flat { grid-template-columns: 1fr; min-height: auto; }
     .hero-flat-left { padding: 3.5rem 1.5rem; }
     .hero-flat-right { height: 45vh; min-height: 320px; }
@@ -385,14 +422,22 @@ body {
     .scale-flat-cols { flex-direction: column; gap: 2rem; }
 }
 
-@media (max-width: 768px) {
-    /* Header: "Maurizio Di Russo" arriba y "Mobility, Data & Insurance" abajo con aire */
-    .site-top-bar { padding: 1.15rem 1rem 1rem; }
-    .brand-block { margin-bottom: 0.95rem; }
+@media (max-width: 920px) {
+    /* En Tablet y Mobile: Apilado vertical y botones circulares */
+    .site-top-bar { padding: 1.15rem 1rem 0.95rem; }
+    .site-top-bar-inner {
+        flex-direction: column; justify-content: center; gap: 0.9rem;
+    }
+    .brand-block {
+        align-items: center; text-align: center;
+    }
     .brand-title { font-size: 0.84rem; letter-spacing: 0.18em; }
     .brand-sub { font-size: 0.58rem; letter-spacing: 0.14em; margin-top: 0.25rem; }
 
-    /* Botonera en Mobile: CÍRCULOS PERFECTOS (100% redondos, no ovalados) */
+    /* Ocultar botones de header en mobile (se usan los flotantes) */
+    .header-desktop-actions { display: none !important; }
+
+    /* Botones de navegación circulares en mobile */
     .tab-label-text { display: none; }
     .tabs-pill-row { gap: 0.55rem; justify-content: center; width: 100%; }
     .nav-tab-pill {
@@ -404,11 +449,14 @@ body {
     }
     .nav-tab-pill svg { width: 18px; height: 18px; }
 
-    /* Floating Action Bar */
-    .flat-floating-bar { width: calc(100% - 2rem); justify-content: center; padding: 0.35rem 0.45rem; }
+    /* Barra flotante activa en mobile */
+    body { padding-bottom: 6.5rem; }
+    .flat-floating-bar {
+        display: flex !important;
+        width: calc(100% - 2rem); justify-content: center; padding: 0.35rem 0.45rem;
+    }
     .flat-pill-btn { flex: 1; padding: 0.65rem 0.8rem; font-size: 0.66rem; }
 
-    /* Bottom Sheet modal in mobile */
     .flat-modal-backdrop { align-items: flex-end; padding: 0; }
     .flat-modal-window { border-radius: 20px 20px 0 0; max-height: 85vh; }
     .modal-header-flat { padding: 1.25rem 1.5rem 0.9rem; }
@@ -421,37 +469,52 @@ body {
 
 <!-- TOP HEADER -->
 <header class="site-top-bar">
-    <div class="brand-block">
-        <a href="javascript:void(0)" onclick="selectTab('perspective')" class="brand-title">Maurizio Di Russo</a>
-        <span class="brand-sub">Mobility, Data &amp; Insurance</span>
-    </div>
-    <div class="tabs-scroll-container">
-        <nav class="tabs-pill-row" role="tablist">
-            <button class="nav-tab-pill active" id="tab-nav-perspective" onclick="selectTab('perspective')" role="tab" title="Perspective">
-                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/></svg>
-                <span class="tab-label-text">Perspective</span>
+    <div class="site-top-bar-inner">
+        <!-- LEFT: BRAND IDENTIFIER -->
+        <div class="brand-block">
+            <a href="javascript:void(0)" onclick="selectTab('perspective')" class="brand-title">Maurizio Di Russo</a>
+            <span class="brand-sub">Mobility, Data &amp; Insurance</span>
+        </div>
+
+        <!-- CENTER: SECTION TABS -->
+        <div class="tabs-scroll-container">
+            <nav class="tabs-pill-row" role="tablist">
+                <button class="nav-tab-pill active" id="tab-nav-perspective" onclick="selectTab('perspective')" role="tab" title="Perspective">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/></svg>
+                    <span class="tab-label-text">Perspective</span>
+                </button>
+                <button class="nav-tab-pill" id="tab-nav-cases" onclick="selectTab('cases')" role="tab" title="Case Studies">
+                    <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                    <span class="tab-label-text">Cases</span>
+                </button>
+                <button class="nav-tab-pill" id="tab-nav-timeline" onclick="selectTab('timeline')" role="tab" title="Career Track">
+                    <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                    <span class="tab-label-text">Track</span>
+                </button>
+                <button class="nav-tab-pill" id="tab-nav-media" onclick="selectTab('media')" role="tab" title="Media & Press">
+                    <svg viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/></svg>
+                    <span class="tab-label-text">Media</span>
+                </button>
+                <button class="nav-tab-pill" id="tab-nav-leadership" onclick="selectTab('leadership')" role="tab" title="Leadership & Values">
+                    <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    <span class="tab-label-text">Leadership</span>
+                </button>
+                <button class="nav-tab-pill" id="tab-nav-education" onclick="selectTab('education')" role="tab" title="Education & Credentials">
+                    <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 6 3 6 3s6-1 6-3v-5"/></svg>
+                    <span class="tab-label-text">Education</span>
+                </button>
+            </nav>
+        </div>
+
+        <!-- RIGHT: DESKTOP ACTIONS -->
+        <div class="header-desktop-actions">
+            <button class="header-action-btn btn-head-contact" onclick="openContactModal()">
+                Contact
             </button>
-            <button class="nav-tab-pill" id="tab-nav-cases" onclick="selectTab('cases')" role="tab" title="Case Studies">
-                <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-                <span class="tab-label-text">Cases</span>
+            <button class="header-action-btn btn-head-cv" onclick="openDownloadModal()">
+                Download CV
             </button>
-            <button class="nav-tab-pill" id="tab-nav-timeline" onclick="selectTab('timeline')" role="tab" title="Career Track">
-                <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-                <span class="tab-label-text">Track</span>
-            </button>
-            <button class="nav-tab-pill" id="tab-nav-media" onclick="selectTab('media')" role="tab" title="Media & Press">
-                <svg viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/></svg>
-                <span class="tab-label-text">Media</span>
-            </button>
-            <button class="nav-tab-pill" id="tab-nav-leadership" onclick="selectTab('leadership')" role="tab" title="Leadership & Values">
-                <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-                <span class="tab-label-text">Leadership</span>
-            </button>
-            <button class="nav-tab-pill" id="tab-nav-education" onclick="selectTab('education')" role="tab" title="Education & Credentials">
-                <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 6 3 6 3s6-1 6-3v-5"/></svg>
-                <span class="tab-label-text">Education</span>
-            </button>
-        </nav>
+        </div>
     </div>
 </header>
 
@@ -865,7 +928,7 @@ body {
     </section>
 </div>
 
-<!-- FLOATING ACTION BAR -->
+<!-- FLOATING ACTION BAR (MOBILE ONLY) -->
 <div class="flat-floating-bar">
     <button class="flat-pill-btn btn-flat-contact" onclick="openContactModal()">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
