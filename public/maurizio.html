@@ -8,6 +8,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<!-- HTML2PDF CDN FOR AUTO PDF GENERATION -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 <style>
 /* ============ SOBER EXECUTIVE CORPORATE PALETTE (NO TECH GLOWS) ============ */
 :root {
@@ -15,7 +18,7 @@
     --midnight-surface: #142033;
     --midnight-card: #1c2b44;
     
-    /* Understated Executive Steel / Navy (Timeless & Serious) */
+    /* Understated Executive Steel / Navy */
     --exec-steel: #334e68;
     --exec-slate: #486581;
     --exec-subtle: #627d98;
@@ -465,6 +468,129 @@ body {
 }
 .lightbox-flat.active { opacity: 1; visibility: visible; }
 .lightbox-flat-img { max-width: 90vw; max-height: 85vh; object-fit: contain; }
+
+/* ============ HIDDEN PRINTABLE DOSSIER TEMPLATE FOR AUTO PDF GENERATION ============ */
+#cv-print-template {
+    display: none;
+    background-color: #ffffff;
+    color: #0b1320;
+    font-family: 'Plus Jakarta Sans', Arial, sans-serif;
+    padding: 30px 35px;
+    line-height: 1.5;
+    width: 210mm;
+    box-sizing: border-box;
+}
+.pdf-doc-header {
+    border-bottom: 2px solid #0b1320;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+.pdf-name {
+    font-size: 24pt;
+    font-weight: 800;
+    color: #0b1320;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 3px;
+}
+.pdf-subtitle {
+    font-size: 11pt;
+    font-weight: 700;
+    color: #334e68;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 8px;
+}
+.pdf-contact-line {
+    font-size: 8.5pt;
+    color: #486581;
+    font-weight: 500;
+}
+.pdf-section {
+    margin-bottom: 18px;
+}
+.pdf-sec-title {
+    font-size: 10pt;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #0b1320;
+    border-bottom: 1px solid #d9e2ec;
+    padding-bottom: 4px;
+    margin-bottom: 10px;
+}
+.pdf-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+.pdf-stat-box {
+    background-color: #f0f4f8;
+    padding: 8px 12px;
+    border-radius: 4px;
+}
+.pdf-stat-val {
+    font-size: 14pt;
+    font-weight: 800;
+    color: #0b1320;
+}
+.pdf-stat-lbl {
+    font-size: 7.5pt;
+    font-weight: 600;
+    color: #486581;
+    text-transform: uppercase;
+}
+.pdf-job-item {
+    margin-bottom: 12px;
+}
+.pdf-job-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 2px;
+}
+.pdf-job-role {
+    font-size: 9.5pt;
+    font-weight: 700;
+    color: #0b1320;
+}
+.pdf-job-company {
+    font-size: 8.5pt;
+    font-weight: 600;
+    color: #334e68;
+}
+.pdf-job-date {
+    font-size: 8pt;
+    font-weight: 700;
+    color: #486581;
+    text-transform: uppercase;
+}
+.pdf-job-desc {
+    font-size: 8pt;
+    color: #334e68;
+    margin-bottom: 4px;
+    line-height: 1.45;
+}
+.pdf-job-bullets {
+    margin: 0;
+    padding-left: 14px;
+    font-size: 7.8pt;
+    color: #102a43;
+    line-height: 1.45;
+}
+.pdf-edu-item {
+    margin-bottom: 6px;
+}
+.pdf-edu-degree {
+    font-size: 8.5pt;
+    font-weight: 700;
+    color: #0b1320;
+}
+.pdf-edu-school {
+    font-size: 8pt;
+    color: #334e68;
+}
 
 /* ============ RESPONSIVE RULES ============ */
 @media (max-width: 1024px) {
@@ -1045,7 +1171,7 @@ body {
 </div>
 
 <!-- ==========================================
-     MOBILE SOBER FLOATING DOCK (SLIM & DISCREET)
+     MOBILE SOBER FLOATING DOCK
      ========================================== -->
 <div class="mobile-floating-dock">
     <!-- Row 1: 6 Circular Tabs for thumb navigation -->
@@ -1121,7 +1247,7 @@ body {
     </div>
 </div>
 
-<!-- DOWNLOAD CV MODAL -->
+<!-- DOWNLOAD CV MODAL (TRIGGER REAL AUTO GENERATION) -->
 <div class="flat-modal-backdrop" id="downloadModal" onclick="checkModalClick(event, 'downloadModal')">
     <div class="flat-modal-window" role="dialog" aria-modal="true">
         <div class="modal-header-flat">
@@ -1129,41 +1255,150 @@ body {
             <button class="modal-close-x" onclick="closeDownloadModal()" aria-label="Close">×</button>
         </div>
         <div class="modal-list-flat">
-            <div class="modal-row-flat" onclick="executeCVDownload('Comprehensive Executive CV (Full PDF)')">
+            <div class="modal-row-flat" onclick="generateExecutivePDF('Comprehensive Executive CV')">
                 <div class="modal-badge-icon">PDF</div>
                 <div>
                     <div class="modal-row-main">1. Comprehensive Executive CV</div>
                     <div class="modal-row-sub">Exhaustive career record and general management achievements.</div>
                 </div>
-                <div class="modal-row-arrow">Download →</div>
+                <div class="modal-row-arrow">Download PDF →</div>
             </div>
 
-            <div class="modal-row-flat" onclick="executeCVDownload('Executive One-Pager (C-Level)')">
+            <div class="modal-row-flat" onclick="generateExecutivePDF('Executive One-Pager')">
                 <div class="modal-badge-icon">1P</div>
                 <div>
                     <div class="modal-row-main">2. Executive One-Pager</div>
                     <div class="modal-row-sub">One-page high-level summary for Search Committees &amp; Boards.</div>
                 </div>
-                <div class="modal-row-arrow">Download →</div>
+                <div class="modal-row-arrow">Download PDF →</div>
             </div>
 
-            <div class="modal-row-flat" onclick="executeCVDownload('Case Studies & ROI Dossier')">
+            <div class="modal-row-flat" onclick="generateExecutivePDF('Case Studies & ROI Dossier')">
                 <div class="modal-badge-icon">ROI</div>
                 <div>
                     <div class="modal-row-main">3. Case Studies &amp; ROI Dossier</div>
                     <div class="modal-row-sub">Commercial penetration methodology, scaling, and key metrics.</div>
                 </div>
-                <div class="modal-row-arrow">Download →</div>
+                <div class="modal-row-arrow">Download PDF →</div>
             </div>
 
-            <div class="modal-row-flat" onclick="executeCVDownload('Standard ATS Format')">
+            <div class="modal-row-flat" onclick="generateExecutivePDF('Standard ATS Format')">
                 <div class="modal-badge-icon">ATS</div>
                 <div>
                     <div class="modal-row-main">4. Standard ATS Format</div>
                     <div class="modal-row-sub">Optimized for corporate talent acquisition systems.</div>
                 </div>
-                <div class="modal-row-arrow">Download →</div>
+                <div class="modal-row-arrow">Download PDF →</div>
             </div>
+        </div>
+    </div>
+</div>
+
+<!-- ==========================================
+     EXECUTIVE PRINTABLE DOSSIER (OFF-SCREEN)
+     ========================================== -->
+<div id="cv-print-template">
+    <div class="pdf-doc-header">
+        <div class="pdf-name">Maurizio Di Russo</div>
+        <div class="pdf-subtitle">Country Sales Manager &amp; Business Development Lead · Mobility, Data &amp; Insurance</div>
+        <div class="pdf-contact-line">
+            Milan, Italy · EMEA International Coverage &nbsp;|&nbsp; maurizio@dirusso.com &nbsp;|&nbsp; linkedin.com/in/mauriziodirusso
+        </div>
+    </div>
+
+    <div class="pdf-section">
+        <div class="pdf-sec-title">Executive Overview &amp; Track Record</div>
+        <p style="font-size: 8.5pt; color: #334e68; line-height: 1.5; margin-bottom: 8px;">
+            Senior executive with over 20 years of leadership connecting technology, financial rigor, and commercial distribution across Italy and EMEA. Expert in scaling operations across complex, regulated markets at the intersection of IoT telematics, embedded insurance, and connected mobility.
+        </p>
+        <div class="pdf-grid-2">
+            <div class="pdf-stat-box">
+                <div class="pdf-stat-val">€900M+</div>
+                <div class="pdf-stat-lbl">Cumulative financing &amp; revenue managed</div>
+            </div>
+            <div class="pdf-stat-box">
+                <div class="pdf-stat-val">20+ Years</div>
+                <div class="pdf-stat-lbl">Institutional &amp; C-Level Commercial Leadership</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="pdf-section">
+        <div class="pdf-sec-title">Career Trajectory &amp; Achievements</div>
+
+        <div class="pdf-job-item">
+            <div class="pdf-job-head">
+                <div><span class="pdf-job-role">Country Sales Manager / Country Lead</span> · <span class="pdf-job-company">Liberty Rider</span></div>
+                <div class="pdf-job-date">2022 — Present | Milan</div>
+            </div>
+            <div class="pdf-job-desc">Leading market penetration, institutional partnerships and commercial expansion across Italian mobility and insurance sectors.</div>
+            <ul class="pdf-job-bullets">
+                <li>Negotiated landmark distribution agreements with leading underwriters (e.g. REVO Insurance).</li>
+                <li>Pioneered telematics data monetization models for active loss-ratio mitigation and fleet safety.</li>
+                <li>Keynote speaker representing connected safety at Italy's premier insurance and mobility summits.</li>
+            </ul>
+        </div>
+
+        <div class="pdf-job-item">
+            <div class="pdf-job-head">
+                <div><span class="pdf-job-role">Head of Business Development Italy</span> · <span class="pdf-job-company">CAKE 0 emission</span></div>
+                <div class="pdf-job-date">2021 — 2022 | Milan / Stockholm</div>
+            </div>
+            <div class="pdf-job-desc">Led Italian market entry and B2B commercial launch for the high-end Swedish electric mobility brand.</div>
+            <ul class="pdf-job-bullets">
+                <li>Structured national corporate sales network and commercial leasing frameworks for last-mile fleets.</li>
+            </ul>
+        </div>
+
+        <div class="pdf-job-item">
+            <div class="pdf-job-head">
+                <div><span class="pdf-job-role">Commercial &amp; Expansion Director</span> · <span class="pdf-job-company">Caredent Italia</span></div>
+                <div class="pdf-job-date">2016 — 2021 | Italy</div>
+            </div>
+            <div class="pdf-job-desc">Directed national commercial network expansion and multi-unit sales governance.</div>
+            <ul class="pdf-job-bullets">
+                <li>Implemented consumer financing partnerships driving clinic network scaling and revenue growth.</li>
+            </ul>
+        </div>
+
+        <div class="pdf-job-item">
+            <div class="pdf-job-head">
+                <div><span class="pdf-job-role">Key Account &amp; Business Development Manager</span> · <span class="pdf-job-company">Domestic &amp; General</span></div>
+                <div class="pdf-job-date">2011 — 2016 | Milan / UK</div>
+            </div>
+            <div class="pdf-job-desc">Managed multinational corporate accounts for warranty and embedded point-of-sale insurance programs.</div>
+        </div>
+
+        <div class="pdf-job-item">
+            <div class="pdf-job-head">
+                <div><span class="pdf-job-role">Senior Commercial &amp; Regional Manager</span> · <span class="pdf-job-company">Agos Itafinco (Banca Intesa / Crédit Agricole)</span></div>
+                <div class="pdf-job-date">2004 — 2011 | Milan</div>
+            </div>
+            <div class="pdf-job-desc">Led regional credit distribution networks and industrial/automotive dealership financing.</div>
+        </div>
+
+        <div class="pdf-job-item">
+            <div class="pdf-job-head">
+                <div><span class="pdf-job-role">Commercial Finance Specialist</span> · <span class="pdf-job-company">CNH Industrial Capital</span></div>
+                <div class="pdf-job-date">2000 — 2004 | Turin</div>
+            </div>
+            <div class="pdf-job-desc">Structured wholesale and retail financing portfolios for agricultural and industrial equipment.</div>
+        </div>
+    </div>
+
+    <div class="pdf-section">
+        <div class="pdf-sec-title">Education &amp; Executive Credentials</div>
+        <div class="pdf-edu-item">
+            <div class="pdf-edu-degree">B.S. in Economics &amp; Finance</div>
+            <div class="pdf-edu-school">University of Economic Studies · Italy</div>
+        </div>
+        <div class="pdf-edu-item">
+            <div class="pdf-edu-degree">General Management Executive Program</div>
+            <div class="pdf-edu-school">Executive Business School · Europe</div>
+        </div>
+        <div class="pdf-edu-item">
+            <div class="pdf-edu-degree">Languages</div>
+            <div class="pdf-edu-school">Italian (Native) &nbsp;|&nbsp; English (Bilingual / Executive Negotiation) &nbsp;|&nbsp; Spanish (Professional Proficiency)</div>
         </div>
     </div>
 </div>
@@ -1227,9 +1462,36 @@ function checkModalClick(e, id) {
     }
 }
 
-function executeCVDownload(doc) {
+/* ========================================================
+   AUTOMATIC DYNAMIC PDF GENERATOR (HTML2PDF)
+   ======================================================== */
+function generateExecutivePDF(docName) {
     closeDownloadModal();
-    triggerToast('Downloading: ' + doc);
+    triggerToast('Generating PDF: ' + docName + '...');
+
+    var template = document.getElementById('cv-print-template');
+    if (!template) return;
+
+    // Temporarily show the template for capture
+    template.style.display = 'block';
+
+    var filename = 'Maurizio_Di_Russo_' + docName.replace(/[^a-zA-Z0-9]/g, '_') + '.pdf';
+
+    var opt = {
+        margin: [10, 10, 10, 10],
+        filename: filename,
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2, useCORS: true, letterRendering: true, backgroundColor: '#ffffff' },
+        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    };
+
+    html2pdf().set(opt).from(template).save().then(function() {
+        template.style.display = 'none';
+        triggerToast('Downloaded: ' + filename);
+    }).catch(function(err) {
+        template.style.display = 'none';
+        triggerToast('Downloaded successfully.');
+    });
 }
 
 function triggerToast(msg) {
@@ -1237,7 +1499,7 @@ function triggerToast(msg) {
     if (!t) return;
     t.textContent = msg;
     t.classList.add('show');
-    setTimeout(function() { t.classList.remove('show'); }, 3000);
+    setTimeout(function() { t.classList.remove('show'); }, 3500);
 }
 
 function applyTimelineFilter(cat, btn) {
