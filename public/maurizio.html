@@ -12,7 +12,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <style>
-/* ============ SOBER EXECUTIVE CORPORATE PALETTE (NO TECH GLOWS) ============ */
+/* ============ SOBER EXECUTIVE CORPORATE PALETTE ============ */
 :root {
     --midnight: #0b1320;
     --midnight-surface: #142033;
@@ -49,7 +49,18 @@
     --transition-smooth: all 0.2s ease;
 }
 
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; border: none; outline: none; }
+*, *::before, *::after {
+    margin: 0; padding: 0; box-sizing: border-box; border: none; outline: none;
+    -webkit-tap-highlight-color: transparent !important;
+    -webkit-touch-callout: none;
+}
+button, a, .dock-tab-btn, .dock-cta-btn, .nav-tab-pill {
+    -webkit-tap-highlight-color: transparent !important;
+    outline: none !important;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
 html { scroll-behavior: smooth; }
 body {
     font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
