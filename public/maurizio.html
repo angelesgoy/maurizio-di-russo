@@ -93,27 +93,24 @@ body {
 }
 .tabs-scroll-container::-webkit-scrollbar { display: none; }
 .tabs-pill-row {
-    display: flex; gap: 0.5rem; justify-content: center; align-items: center; min-width: max-content; padding: 0.1rem 0;
+    display: flex; gap: 0.55rem; justify-content: center; align-items: center; min-width: max-content; padding: 0.1rem 0;
 }
 
+/* BOTONES DE SECCIONES (TEXT ONLY · TITLE CASE · BOLDER) */
 .nav-tab-pill {
-    display: inline-flex; align-items: center; justify-content: center; gap: 0.45rem;
-    padding: 0.55rem 1.05rem; font-size: 0.7rem; font-weight: 600;
-    letter-spacing: 0.08em; text-transform: uppercase;
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 0.6rem 1.25rem; font-size: 0.82rem; font-weight: 700;
+    letter-spacing: 0.01em; text-transform: none;
     color: var(--text-dim); background-color: var(--midnight-surface);
     border-radius: var(--radius-pill); cursor: pointer;
     transition: var(--transition-smooth);
 }
-.nav-tab-pill svg { width: 15px; height: 15px; stroke-width: 1.8; stroke: currentColor; fill: none; flex-shrink: 0; }
 .nav-tab-pill:hover {
     color: #ffffff; background-color: var(--midnight-card);
 }
 .nav-tab-pill.active {
-    color: var(--midnight); background-color: #ffffff; font-weight: 700;
+    color: var(--midnight); background-color: #ffffff; font-weight: 800;
 }
-.nav-tab-pill.active svg { stroke: var(--midnight); }
-
-.tab-label-text { display: inline-block; }
 
 /* DESKTOP HEADER ACTIONS */
 .header-desktop-actions {
@@ -121,7 +118,7 @@ body {
 }
 .header-action-btn {
     display: inline-flex; align-items: center; justify-content: center; gap: 0.45rem;
-    padding: 0.55rem 1.25rem; font-size: 0.7rem; font-weight: 700;
+    padding: 0.55rem 1.25rem; font-size: 0.72rem; font-weight: 700;
     letter-spacing: 0.08em; text-transform: uppercase; border-radius: var(--radius-pill);
     cursor: pointer; transition: var(--transition-smooth);
 }
@@ -407,7 +404,7 @@ body {
 .edu-school-flat { font-size: 0.86rem; font-weight: 600; color: var(--exec-steel); margin-bottom: 0.95rem; }
 .edu-desc-flat { font-size: 0.86rem; font-weight: 400; line-height: 1.7; color: var(--text-body); }
 
-/* ============ MOBILE FLOATING DOCK (SLIM & DISCREET) ============ */
+/* ============ MOBILE FLOATING DOCK ============ */
 .mobile-floating-dock { display: none; }
 
 /* ============ MODALES ============ */
@@ -469,7 +466,7 @@ body {
 .lightbox-flat.active { opacity: 1; visibility: visible; }
 .lightbox-flat-img { max-width: 90vw; max-height: 85vh; object-fit: contain; }
 
-/* ============ HIDDEN PRINTABLE DOSSIER TEMPLATE FOR AUTO PDF GENERATION ============ */
+/* ============ HIDDEN PRINTABLE DOSSIER TEMPLATE ============ */
 #cv-print-template {
     display: none;
     background-color: #ffffff;
@@ -718,32 +715,26 @@ body {
             <span class="brand-sub">Mobility, Data &amp; Insurance</span>
         </div>
 
-        <!-- CENTER: SECTION TABS (DESKTOP) -->
+        <!-- CENTER: SECTION TABS (DESKTOP: TEXT ONLY, TITLE CASE, BOLDER) -->
         <div class="tabs-scroll-container desktop-tabs-only">
             <nav class="tabs-pill-row" role="tablist">
-                <button class="nav-tab-pill active" id="tab-nav-perspective" onclick="selectTab('perspective')" role="tab" title="Perspective">
-                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/></svg>
-                    <span class="tab-label-text">Perspective</span>
+                <button class="nav-tab-pill active" id="tab-nav-perspective" onclick="selectTab('perspective')" role="tab">
+                    Perspective
                 </button>
-                <button class="nav-tab-pill" id="tab-nav-cases" onclick="selectTab('cases')" role="tab" title="Case Studies">
-                    <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-                    <span class="tab-label-text">Cases</span>
+                <button class="nav-tab-pill" id="tab-nav-cases" onclick="selectTab('cases')" role="tab">
+                    Cases
                 </button>
-                <button class="nav-tab-pill" id="tab-nav-timeline" onclick="selectTab('timeline')" role="tab" title="Career Track">
-                    <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-                    <span class="tab-label-text">Track</span>
+                <button class="nav-tab-pill" id="tab-nav-timeline" onclick="selectTab('timeline')" role="tab">
+                    Track
                 </button>
-                <button class="nav-tab-pill" id="tab-nav-media" onclick="selectTab('media')" role="tab" title="Media & Press">
-                    <svg viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/></svg>
-                    <span class="tab-label-text">Media</span>
+                <button class="nav-tab-pill" id="tab-nav-media" onclick="selectTab('media')" role="tab">
+                    Media
                 </button>
-                <button class="nav-tab-pill" id="tab-nav-leadership" onclick="selectTab('leadership')" role="tab" title="Leadership & Values">
-                    <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-                    <span class="tab-label-text">Leadership</span>
+                <button class="nav-tab-pill" id="tab-nav-leadership" onclick="selectTab('leadership')" role="tab">
+                    Leadership
                 </button>
-                <button class="nav-tab-pill" id="tab-nav-education" onclick="selectTab('education')" role="tab" title="Education & Credentials">
-                    <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 6 3 6 3s6-1 6-3v-5"/></svg>
-                    <span class="tab-label-text">Education</span>
+                <button class="nav-tab-pill" id="tab-nav-education" onclick="selectTab('education')" role="tab">
+                    Education
                 </button>
             </nav>
         </div>
@@ -1472,9 +1463,7 @@ function generateExecutivePDF(docName) {
     var template = document.getElementById('cv-print-template');
     if (!template) return;
 
-    // Temporarily show the template for capture
     template.style.display = 'block';
-
     var filename = 'Maurizio_Di_Russo_' + docName.replace(/[^a-zA-Z0-9]/g, '_') + '.pdf';
 
     var opt = {
