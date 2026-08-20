@@ -61,7 +61,12 @@ button, a, .dock-tab-btn, .dock-cta-btn, .nav-tab-pill {
     -webkit-user-select: none;
 }
 
-html { scroll-behavior: smooth; }
+html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
 body {
     font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     background-color: var(--bg-page);
@@ -79,6 +84,7 @@ body {
     background-color: var(--midnight);
     padding: 0.95rem 3rem;
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+    width: 100%;
 }
 .site-top-bar-inner {
     max-width: 1400px; margin: 0 auto;
@@ -148,7 +154,7 @@ body {
 
 /* ============ TAB VIEW SYSTEM ============ */
 .tab-content-panel {
-    display: none; animation: tabAppear 0.3s ease forwards;
+    display: none; animation: tabAppear 0.3s ease forwards; width: 100%;
 }
 .tab-content-panel.active { display: block; }
 @keyframes tabAppear {
@@ -177,7 +183,7 @@ body {
 /* ============ HERO SECTION (DESKTOP) ============ */
 .hero-flat {
     min-height: calc(100vh - 85px); display: grid; grid-template-columns: 48% 52%;
-    background-color: var(--midnight); position: relative;
+    background-color: var(--midnight); position: relative; width: 100%;
 }
 .hero-flat-left {
     display: flex; flex-direction: column; justify-content: center;
@@ -222,7 +228,7 @@ body {
 }
 
 /* ============ PROPOSITION ============ */
-.proposition-flat { padding: 3.5rem 3rem 7rem; background-color: var(--bg-page); max-width: 1200px; margin: 0 auto; }
+.proposition-flat { padding: 3.5rem 3rem 7rem; background-color: var(--bg-page); max-width: 1200px; margin: 0 auto; width: 100%; }
 .prop-grid-2x2 { display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem 3.5rem; }
 .prop-card {
     padding: 2.25rem; background-color: var(--bg-subtle); border-radius: var(--radius-md);
@@ -243,7 +249,7 @@ body {
 .prop-card-body { font-size: 0.96rem; font-weight: 400; line-height: 1.8; color: var(--text-body); }
 
 /* ============ SCALE ============ */
-.scale-flat { padding: 7.5rem 3rem; background-color: var(--midnight); text-align: center; }
+.scale-flat { padding: 7.5rem 3rem; background-color: var(--midnight); text-align: center; width: 100%; }
 .scale-flat-tag {
     display: inline-block; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.2em;
     text-transform: uppercase; color: var(--exec-light); margin-bottom: 1.5rem;
@@ -287,7 +293,7 @@ body {
 }
 .case-chapter-box-dark {
     display: grid; grid-template-columns: 1fr 1fr; align-items: center;
-    padding: 5.5rem 4rem; gap: 4.5rem; background-color: var(--midnight); color: #ffffff;
+    padding: 5.5rem 4rem; gap: 4.5rem; background-color: var(--midnight); color: #ffffff; width: 100%;
 }
 .case-chapter-box-dark .ch-card-title { color: #ffffff; }
 .case-chapter-box-dark .ch-card-body { color: var(--text-dim); }
@@ -320,7 +326,7 @@ body {
 .ch-photo { position: absolute; inset: 0; background-size: cover; background-position: 50% 30%; }
 
 /* ============ TIMELINE ============ */
-.timeline-section-flat { padding: 3rem 4rem 7rem; max-width: 1100px; margin: 0 auto; }
+.timeline-section-flat { padding: 3rem 4rem 7rem; max-width: 1100px; margin: 0 auto; width: 100%; }
 .timeline-filters-flat { display: flex; gap: 0.65rem; margin-bottom: 3.5rem; flex-wrap: wrap; }
 .t-filter-pill {
     padding: 0.6rem 1.3rem; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em;
@@ -354,7 +360,7 @@ body {
 .t-job-bullets li::before { content: '•'; position: absolute; left: 0; color: var(--exec-steel); font-weight: 700; font-size: 1rem; line-height: 1; }
 
 /* ============ MEDIA & PRESS ============ */
-.media-section-flat { padding: 5.5rem 4rem 7rem; background-color: var(--midnight); color: #ffffff; }
+.media-section-flat { padding: 5.5rem 4rem 7rem; background-color: var(--midnight); color: #ffffff; width: 100%; }
 .media-grid-flat { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.25rem; max-width: 1200px; margin: 3rem auto 0; }
 .media-card-flat {
     background-color: var(--midnight-surface); display: flex; flex-direction: column;
@@ -383,12 +389,12 @@ body {
 .media-link-flat:hover { color: #ffffff; }
 
 /* ============ LEADERSHIP & VALUES ============ */
-.quote-section-flat { padding: 7.5rem 4rem; background-color: var(--midnight); color: #ffffff; text-align: center; }
+.quote-section-flat { padding: 7.5rem 4rem; background-color: var(--midnight); color: #ffffff; text-align: center; width: 100%; }
 .quote-mark-flat { font-size: 6.5rem; font-weight: 300; line-height: 0.4; color: var(--midnight-surface); margin-bottom: 2.25rem; }
 .quote-text-flat { font-size: clamp(1.75rem, 3vw, 2.6rem); font-weight: 500; line-height: 1.35; color: #ffffff; max-width: 880px; margin: 0 auto; letter-spacing: -0.015em; }
 .quote-author-flat { margin-top: 2.75rem; font-size: 0.76rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--exec-light); }
 
-.cycling-section-flat { position: relative; height: 80vh; min-height: 520px; overflow: hidden; background-color: #0e1726; }
+.cycling-section-flat { position: relative; height: 80vh; min-height: 520px; overflow: hidden; background-color: #0e1726; width: 100%; }
 .cycling-bg-img { position: absolute; inset: 0; background-image: url('https://i.postimg.cc/cLTK04xZ/cycling-jpg.png'); background-size: cover; background-position: 50% 35%; }
 .cycling-caption-flat {
     position: absolute; bottom: 0; left: 0; right: 0; padding: 3rem 4rem 2.5rem;
@@ -398,7 +404,7 @@ body {
 .cycling-txt-flat { font-size: 1.2rem; font-weight: 400; color: #ffffff; max-width: 620px; line-height: 1.65; }
 
 /* ============ EDUCATION & CREDENTIALS ============ */
-.edu-section-flat { padding: 3rem 4rem 7rem; max-width: 1200px; margin: 0 auto; }
+.edu-section-flat { padding: 3rem 4rem 7rem; max-width: 1200px; margin: 0 auto; width: 100%; }
 .edu-grid-flat { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.25rem; margin-top: 3.5rem; }
 .edu-card-flat {
     padding: 2.5rem 2rem; background-color: var(--bg-subtle); border-radius: var(--radius-md);
@@ -414,6 +420,56 @@ body {
 .edu-title-flat { font-size: 1.15rem; font-weight: 600; color: var(--text-heading); margin-bottom: 0.35rem; }
 .edu-school-flat { font-size: 0.86rem; font-weight: 500; color: var(--exec-steel); margin-bottom: 0.95rem; }
 .edu-desc-flat { font-size: 0.86rem; font-weight: 400; line-height: 1.7; color: var(--text-body); }
+
+.edu-subgrid-2 {
+    margin-top: 3.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+.edu-subcard-box {
+    padding: 2.25rem;
+    background-color: var(--bg-subtle);
+    border-radius: var(--radius-md);
+    transition: var(--transition-smooth);
+}
+.edu-subcard-box:hover {
+    background-color: var(--bg-elevated);
+}
+.edu-subcard-tag {
+    font-size: 0.68rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--exec-steel); margin-bottom: 0.5rem;
+}
+.edu-subcard-title {
+    font-size: 1.15rem; font-weight: 600; color: var(--text-heading); margin-bottom: 0.75rem;
+}
+.edu-subcard-desc {
+    font-size: 0.88rem; color: var(--text-body); line-height: 1.65;
+}
+
+.edu-lang-box {
+    margin-top: 2.5rem;
+    padding: 3rem;
+    background-color: var(--midnight);
+    color: #ffffff;
+    border-radius: var(--radius-md);
+}
+.edu-lang-tag {
+    font-size: 0.72rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--exec-light); margin-bottom: 0.6rem;
+}
+.edu-lang-heading {
+    font-size: 1.35rem; font-weight: 600; margin-bottom: 2rem;
+}
+.edu-lang-row {
+    display: flex; gap: 3.5rem; flex-wrap: wrap;
+}
+.edu-lang-item-title {
+    font-size: 1.05rem; font-weight: 600; color: #ffffff;
+}
+.edu-lang-item-sub {
+    font-size: 0.76rem; color: var(--exec-light); text-transform: uppercase; letter-spacing: 0.12em; margin-top: 0.2rem;
+}
 
 /* ============ MOBILE BOTTOM BAR (LINEA RECTA PURA) ============ */
 .mobile-floating-dock { display: none; }
@@ -666,6 +722,7 @@ body {
 /* ============ RESPONSIVE RULES ============ */
 @media (max-width: 1024px) {
     .site-top-bar { padding: 1rem 1.5rem; }
+    .section-banner-light { padding: 4.5rem 1.5rem 2rem; }
     .proposition-flat { padding: 3.5rem 1.5rem 5rem; }
     .prop-grid-2x2 { grid-template-columns: 1fr; gap: 2.25rem; }
     .case-chapter-box-light, .case-chapter-box-dark { grid-template-columns: 1fr; padding: 4rem 1.5rem; gap: 2.5rem; }
@@ -679,7 +736,10 @@ body {
     .quote-section-flat { padding: 4.5rem 1.5rem; }
     .cycling-caption-flat { padding: 2.25rem 1.5rem; }
     .edu-section-flat { padding: 3rem 1.5rem 5rem; }
-    .edu-grid-flat { grid-template-columns: 1fr; }
+    .edu-grid-flat { grid-template-columns: 1fr; gap: 1.5rem; }
+    .edu-subgrid-2 { grid-template-columns: 1fr; gap: 1.5rem; margin-top: 2.5rem; }
+    .edu-lang-box { padding: 2rem 1.5rem; margin-top: 2rem; }
+    .edu-lang-row { gap: 2rem; }
     .scale-flat-cols { flex-direction: column; gap: 2.25rem; }
 }
 
@@ -696,7 +756,7 @@ body {
 
     /* MOBILE HERO */
     .hero-flat {
-        display: flex; flex-direction: column; min-height: auto; background-color: var(--midnight);
+        display: flex; flex-direction: column; min-height: auto; background-color: var(--midnight); width: 100%;
     }
     .hero-flat-right {
         order: 1; width: 100%; height: 280px; min-height: 280px;
@@ -709,7 +769,7 @@ body {
         background-repeat: no-repeat;
     }
     .hero-flat-left {
-        order: 2; padding: 2rem 1.5rem 3.5rem; text-align: left; background-color: var(--midnight);
+        order: 2; padding: 2rem 1.5rem 3.5rem; text-align: left; background-color: var(--midnight); width: 100%;
     }
     .hero-flat-tag {
         font-size: 0.68rem; letter-spacing: 0.18em; margin-bottom: 0.75rem; color: var(--exec-light);
@@ -718,6 +778,20 @@ body {
         font-size: 1.85rem; line-height: 1.25; margin-bottom: 0; color: #ffffff;
     }
     .hero-flat-actions { display: none !important; }
+
+    /* MOBILE SECTION BANNERS */
+    .section-banner-light { padding: 3rem 1.25rem 1.5rem; }
+    .section-main-heading { font-size: 1.85rem; }
+
+    /* MOBILE EDUCATION SECTION ADJUSTMENTS */
+    .edu-section-flat { padding: 2rem 1.25rem 5rem; }
+    .edu-grid-flat { grid-template-columns: 1fr; gap: 1.25rem; margin-top: 2rem; }
+    .edu-card-flat { padding: 1.75rem 1.25rem; }
+    .edu-subgrid-2 { grid-template-columns: 1fr; gap: 1.25rem; margin-top: 1.5rem; }
+    .edu-subcard-box { padding: 1.75rem 1.25rem; }
+    .edu-lang-box { padding: 1.75rem 1.25rem; margin-top: 1.5rem; }
+    .edu-lang-heading { font-size: 1.15rem; margin-bottom: 1.5rem; }
+    .edu-lang-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
 
     /* MOBILE BOTTOM BAR (PURA LINEA RECTA SIN REDONDECES) */
     body { padding-bottom: 6.5rem; }
@@ -1234,44 +1308,44 @@ body {
         </div>
 
         <!-- REGULATORY & CERTIFICATIONS BAR -->
-        <div style="margin-top: 3.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
-            <div style="padding: 2.25rem; background-color: var(--bg-subtle); border-radius: var(--radius-md);">
-                <div style="font-size: 0.68rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--exec-steel); margin-bottom: 0.5rem;">Institutional Registries</div>
-                <h3 style="font-size: 1.15rem; font-weight: 600; color: var(--text-heading); margin-bottom: 0.75rem;">IVASS (RUI) &amp; OAM Registered</h3>
-                <p style="font-size: 0.88rem; color: var(--text-body); line-height: 1.65;">
+        <div class="edu-subgrid-2">
+            <div class="edu-subcard-box">
+                <div class="edu-subcard-tag">Institutional Registries</div>
+                <h3 class="edu-subcard-title">IVASS (RUI) &amp; OAM Registered</h3>
+                <p class="edu-subcard-desc">
                     Registered insurance intermediary with RUI (IVASS) with direct governance track record. Registered with OAM (Organismo Agenti e Mediatori).
                 </p>
             </div>
 
-            <div style="padding: 2.25rem; background-color: var(--bg-subtle); border-radius: var(--radius-md);">
-                <div style="font-size: 0.68rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--exec-steel); margin-bottom: 0.5rem;">Professional Certifications</div>
-                <h3 style="font-size: 1.15rem; font-weight: 600; color: var(--text-heading); margin-bottom: 0.75rem;">27 Professional Certifications</h3>
-                <p style="font-size: 0.88rem; color: var(--text-body); line-height: 1.65;">
+            <div class="edu-subcard-box">
+                <div class="edu-subcard-tag">Professional Certifications</div>
+                <h3 class="edu-subcard-title">27 Professional Certifications</h3>
+                <p class="edu-subcard-desc">
                     Including <em>Removing Noise and Bias from Strategic Decision-Making</em>, <em>Six Sigma Foundations</em>, <em>Tech Trends</em>, and <em>Salesforce for Sales Managers</em>.
                 </p>
             </div>
         </div>
 
         <!-- LANGUAGES COMPACT PANEL (INCLUYE PORTUGUES) -->
-        <div style="margin-top: 2.5rem; padding: 3rem; background-color: var(--midnight); color: #ffffff; border-radius: var(--radius-md);">
-            <div style="font-size: 0.72rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--exec-light); margin-bottom: 0.6rem;">Language Competencies</div>
-            <h3 style="font-size: 1.35rem; font-weight: 600; margin-bottom: 2rem;">International Negotiation Languages</h3>
-            <div style="display: flex; gap: 3.5rem; flex-wrap: wrap;">
+        <div class="edu-lang-box">
+            <div class="edu-lang-tag">Language Competencies</div>
+            <h3 class="edu-lang-heading">International Negotiation Languages</h3>
+            <div class="edu-lang-row">
                 <div>
-                    <div style="font-size: 1.05rem; font-weight: 600; color: #ffffff;">Italian</div>
-                    <div style="font-size: 0.76rem; color: var(--exec-light); text-transform: uppercase; letter-spacing: 0.12em; margin-top: 0.2rem;">Native or Bilingual</div>
+                    <div class="edu-lang-item-title">Italian</div>
+                    <div class="edu-lang-item-sub">Native or Bilingual</div>
                 </div>
                 <div>
-                    <div style="font-size: 1.05rem; font-weight: 600; color: #ffffff;">English</div>
-                    <div style="font-size: 0.76rem; color: var(--exec-light); text-transform: uppercase; letter-spacing: 0.12em; margin-top: 0.2rem;">Full Professional Proficiency</div>
+                    <div class="edu-lang-item-title">English</div>
+                    <div class="edu-lang-item-sub">Full Professional Proficiency</div>
                 </div>
                 <div>
-                    <div style="font-size: 1.05rem; font-weight: 600; color: #ffffff;">Spanish</div>
-                    <div style="font-size: 0.76rem; color: var(--exec-light); text-transform: uppercase; letter-spacing: 0.12em; margin-top: 0.2rem;">Professional Working</div>
+                    <div class="edu-lang-item-title">Spanish</div>
+                    <div class="edu-lang-item-sub">Professional Working</div>
                 </div>
                 <div>
-                    <div style="font-size: 1.05rem; font-weight: 600; color: #ffffff;">Portuguese</div>
-                    <div style="font-size: 0.76rem; color: var(--exec-light); text-transform: uppercase; letter-spacing: 0.12em; margin-top: 0.2rem;">Elementary Proficiency</div>
+                    <div class="edu-lang-item-title">Portuguese</div>
+                    <div class="edu-lang-item-sub">Elementary Proficiency</div>
                 </div>
             </div>
         </div>
