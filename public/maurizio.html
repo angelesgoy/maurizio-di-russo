@@ -87,7 +87,7 @@ body {
     text-transform: uppercase; color: var(--accent-blue-muted); margin-top: 0.25rem;
 }
 
-/* TABS CONTAINER */
+/* TABS CONTAINER (DESKTOP) */
 .tabs-scroll-container {
     overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none;
 }
@@ -154,7 +154,7 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* ============ SECTION HEADER ON WHITE (GENEROUS SPACING & STRONG TYPOGRAPHY) ============ */
+/* ============ SECTION HEADER ON WHITE ============ */
 .section-banner-light {
     padding: 6rem 3rem 2.5rem; max-width: 1200px; margin: 0 auto;
 }
@@ -222,7 +222,7 @@ body {
     background-size: cover; background-position: 50% 42%; background-repeat: no-repeat;
 }
 
-/* ============ PROPOSITION (4 PILLARS) ============ */
+/* ============ PROPOSITION ============ */
 .proposition-flat { padding: 4rem 3rem 8rem; background-color: var(--bg-page); max-width: 1200px; margin: 0 auto; }
 .prop-grid-2x2 { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem 4rem; }
 .prop-card {
@@ -243,7 +243,7 @@ body {
 }
 .prop-card-body { font-size: 1rem; font-weight: 400; line-height: 1.8; color: var(--text-body); }
 
-/* ============ SCALE (€900M+) ============ */
+/* ============ SCALE ============ */
 .scale-flat { padding: 8rem 3rem; background-color: var(--midnight); text-align: center; }
 .scale-flat-tag {
     display: inline-block; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.2em;
@@ -418,35 +418,8 @@ body {
 .edu-school-flat { font-size: 0.88rem; font-weight: 600; color: var(--accent-blue); margin-bottom: 1rem; }
 .edu-desc-flat { font-size: 0.88rem; font-weight: 400; line-height: 1.7; color: var(--text-body); }
 
-/* ============ FLOATING ACTION BAR (MOBILE ONLY) ============ */
-.flat-floating-bar {
-    position: fixed; bottom: 1.5rem; left: 50%; transform: translateX(-50%); z-index: 2000;
-    background-color: var(--midnight); border-radius: var(--radius-pill);
-    padding: 0.45rem 0.55rem; display: none; align-items: center; gap: 0.6rem;
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.45);
-}
-.flat-pill-btn {
-    display: inline-flex; align-items: center; justify-content: center; gap: 0.55rem;
-    padding: 0.75rem 1.45rem; font-size: 0.72rem; font-weight: 700;
-    letter-spacing: 0.1em; text-transform: uppercase; border-radius: var(--radius-pill);
-    cursor: pointer; text-decoration: none; transition: var(--transition-smooth);
-    white-space: nowrap;
-}
-.flat-pill-btn svg { width: 15px; height: 15px; stroke-width: 2.2; }
-.flat-pill-btn:active { transform: scale(0.96); }
-
-.btn-flat-contact {
-    background-color: #ffffff; color: var(--midnight);
-}
-.btn-flat-contact:hover {
-    background-color: var(--accent-blue-light); color: var(--accent-blue-hover);
-}
-.btn-flat-cv {
-    background-color: var(--accent-blue); color: #ffffff;
-}
-.btn-flat-cv:hover {
-    background-color: var(--accent-blue-hover);
-}
+/* ============ MOBILE FLOATING DOCK (TABS ROW + CTAS ROW) ============ */
+.mobile-floating-dock { display: none; }
 
 /* ============ MODALES / BOTTOM SHEET ============ */
 .flat-modal-backdrop {
@@ -491,7 +464,7 @@ body {
 
 /* TOAST */
 .flat-toast {
-    position: fixed; bottom: 5.5rem; left: 50%; transform: translateX(-50%) translateY(20px); z-index: 3500;
+    position: fixed; bottom: 8.5rem; left: 50%; transform: translateX(-50%) translateY(20px); z-index: 3500;
     background-color: var(--midnight); color: #ffffff;
     padding: 0.85rem 1.75rem; border-radius: var(--radius-pill); font-size: 0.8rem; font-weight: 700;
     letter-spacing: 0.08em; opacity: 0; transition: var(--transition-smooth); pointer-events: none;
@@ -528,63 +501,92 @@ body {
 }
 
 @media (max-width: 920px) {
-    /* MOBILE STICKY HEADER */
-    .site-top-bar { padding: 0.85rem 1rem 0.75rem; }
-    .site-top-bar-inner {
-        flex-direction: column; justify-content: center; gap: 0.6rem;
-    }
-    .brand-block {
-        align-items: center; text-align: center;
-    }
-    .brand-title { font-size: 0.85rem; letter-spacing: 0.18em; }
+    /* MOBILE TOP BAR (ULTRA CLEAN: NAME ONLY) */
+    .desktop-tabs-only { display: none !important; }
+    .header-desktop-actions { display: none !important; }
     .brand-sub { display: none !important; }
 
-    .header-desktop-actions { display: none !important; }
-
-    /* BOTONES CIRCULARES */
-    .tab-label-text { display: none; }
-    .tabs-pill-row { gap: 0.5rem; justify-content: center; width: 100%; }
-    .nav-tab-pill {
-        width: 44px; height: 44px; min-width: 44px; min-height: 44px;
-        border-radius: 50% !important;
-        padding: 0 !important;
-        display: flex !important; align-items: center !important; justify-content: center !important;
-        flex-shrink: 0;
-    }
-    .nav-tab-pill svg { width: 18px; height: 18px; }
+    .site-top-bar { padding: 0.95rem 1.25rem; text-align: center; }
+    .site-top-bar-inner { justify-content: center; }
+    .brand-block { align-items: center; text-align: center; }
+    .brand-title { font-size: 0.88rem; letter-spacing: 0.2em; }
 
     /* MOBILE HERO: FOTO FUSIONADA ARRIBA + TEXTO */
     .hero-flat {
         display: flex; flex-direction: column; min-height: auto;
     }
     .hero-flat-right {
-        order: 1; width: 100%; height: 330px; min-height: 330px;
+        order: 1; width: 100%; height: 340px; min-height: 340px;
         background-color: var(--midnight);
     }
     .hero-flat-portrait {
-        background-image: linear-gradient(180deg, rgba(10, 15, 29, 0.1) 40%, rgba(10, 15, 29, 0.92) 85%, var(--midnight) 100%), url('https://i.postimg.cc/0N1qWhKT/portrait-bw-jpg.png');
+        background-image: linear-gradient(180deg, rgba(10, 15, 29, 0.1) 40%, rgba(10, 15, 29, 0.94) 85%, var(--midnight) 100%), url('https://i.postimg.cc/0N1qWhKT/portrait-bw-jpg.png');
         background-size: cover;
         background-position: 50% 16%;
         background-repeat: no-repeat;
     }
     .hero-flat-left {
-        order: 2; padding: 1.5rem 1.5rem 3.5rem; text-align: left;
+        order: 2; padding: 1.5rem 1.5rem 4rem; text-align: left;
     }
     .hero-flat-tag {
         font-size: 0.65rem; letter-spacing: 0.18em; margin-bottom: 0.85rem;
     }
     .hero-flat-h1 {
-        font-size: 1.85rem; line-height: 1.25; margin-bottom: 0;
+        font-size: 1.9rem; line-height: 1.25; margin-bottom: 0;
     }
     .hero-flat-actions { display: none !important; }
 
-    /* BARRA FLOTANTE FIJA EN MOBILE */
-    body { padding-bottom: 6.5rem; }
-    .flat-floating-bar {
-        display: flex !important;
-        width: calc(100% - 2rem); justify-content: center; padding: 0.35rem 0.45rem;
+    /* MOBILE UNIFIED BOTTOM DOCK (TABS ON TOP, CTAS ON BOTTOM) */
+    body { padding-bottom: 9.5rem; }
+    .mobile-floating-dock {
+        display: flex; flex-direction: column; gap: 0.55rem;
+        position: fixed; bottom: 1.2rem; left: 50%; transform: translateX(-50%);
+        z-index: 2000; width: calc(100% - 1.5rem); max-width: 440px;
+        background-color: var(--midnight);
+        padding: 0.65rem; border-radius: 22px;
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65);
     }
-    .flat-pill-btn { flex: 1; padding: 0.7rem 0.8rem; font-size: 0.68rem; }
+    .dock-tabs-row {
+        display: flex; justify-content: space-between; align-items: center; gap: 0.35rem; width: 100%;
+    }
+    .dock-tab-btn {
+        flex: 1; height: 42px; min-width: 38px; max-width: 52px;
+        border-radius: var(--radius-pill); background-color: var(--midnight-surface);
+        color: var(--text-dim); display: flex; align-items: center; justify-content: center;
+        cursor: pointer; transition: var(--transition-smooth);
+    }
+    .dock-tab-btn svg { width: 17px; height: 17px; stroke-width: 2; stroke: currentColor; fill: none; }
+    .dock-tab-btn:active { transform: scale(0.92); }
+    .dock-tab-btn.active {
+        background-color: var(--accent-blue); color: #ffffff;
+        box-shadow: 0 4px 14px rgba(37, 99, 235, 0.45);
+    }
+    .dock-tab-btn.active svg { stroke: #ffffff; }
+
+    .dock-ctas-row {
+        display: flex; gap: 0.5rem; width: 100%;
+    }
+    .dock-cta-btn {
+        flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 0.45rem;
+        padding: 0.72rem 0.8rem; font-size: 0.7rem; font-weight: 700;
+        letter-spacing: 0.08em; text-transform: uppercase; border-radius: var(--radius-pill);
+        cursor: pointer; transition: var(--transition-smooth);
+    }
+    .dock-cta-btn svg { width: 14px; height: 14px; stroke-width: 2.2; }
+    .dock-cta-btn:active { transform: scale(0.96); }
+
+    .btn-dock-contact {
+        background-color: #ffffff; color: var(--midnight);
+    }
+    .btn-dock-contact:hover {
+        background-color: var(--accent-blue-light); color: var(--accent-blue-hover);
+    }
+    .btn-dock-cv {
+        background-color: var(--accent-blue); color: #ffffff;
+    }
+    .btn-dock-cv:hover {
+        background-color: var(--accent-blue-hover);
+    }
 
     .flat-modal-backdrop { align-items: flex-end; padding: 0; }
     .flat-modal-window { border-radius: 24px 24px 0 0; max-height: 85vh; }
@@ -605,8 +607,8 @@ body {
             <span class="brand-sub">Mobility, Data &amp; Insurance</span>
         </div>
 
-        <!-- CENTER: SECTION TABS -->
-        <div class="tabs-scroll-container">
+        <!-- CENTER: SECTION TABS (DESKTOP) -->
+        <div class="tabs-scroll-container desktop-tabs-only">
             <nav class="tabs-pill-row" role="tablist">
                 <button class="nav-tab-pill active" id="tab-nav-perspective" onclick="selectTab('perspective')" role="tab" title="Perspective">
                     <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/></svg>
@@ -1057,16 +1059,43 @@ body {
     </section>
 </div>
 
-<!-- FLOATING ACTION BAR (MOBILE ONLY) -->
-<div class="flat-floating-bar">
-    <button class="flat-pill-btn btn-flat-contact" onclick="openContactModal()">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        Contact
-    </button>
-    <button class="flat-pill-btn btn-flat-cv" onclick="openDownloadModal()">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-        Download CV
-    </button>
+<!-- ==========================================
+     MOBILE UNIFIED FLOATING DOCK (TABS ROW + CTAS ROW)
+     ========================================== -->
+<div class="mobile-floating-dock">
+    <!-- Row 1: 6 Circular Tabs for effortless thumb navigation -->
+    <div class="dock-tabs-row" role="tablist">
+        <button class="dock-tab-btn active" id="mob-nav-perspective" onclick="selectTab('perspective')" role="tab" title="Perspective">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/></svg>
+        </button>
+        <button class="dock-tab-btn" id="mob-nav-cases" onclick="selectTab('cases')" role="tab" title="Case Studies">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        </button>
+        <button class="dock-tab-btn" id="mob-nav-timeline" onclick="selectTab('timeline')" role="tab" title="Career Track">
+            <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        </button>
+        <button class="dock-tab-btn" id="mob-nav-media" onclick="selectTab('media')" role="tab" title="Media & Press">
+            <svg viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/></svg>
+        </button>
+        <button class="dock-tab-btn" id="mob-nav-leadership" onclick="selectTab('leadership')" role="tab" title="Leadership & Values">
+            <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        </button>
+        <button class="dock-tab-btn" id="mob-nav-education" onclick="selectTab('education')" role="tab" title="Education & Credentials">
+            <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 6 3 6 3s6-1 6-3v-5"/></svg>
+        </button>
+    </div>
+
+    <!-- Row 2: Dual CTAs -->
+    <div class="dock-ctas-row">
+        <button class="dock-cta-btn btn-dock-contact" onclick="openContactModal()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Contact
+        </button>
+        <button class="dock-cta-btn btn-dock-cv" onclick="openDownloadModal()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+            Download CV
+        </button>
+    </div>
 </div>
 
 <!-- CONTACT MODAL -->
@@ -1172,18 +1201,20 @@ function selectTab(id) {
     document.querySelectorAll('.nav-tab-pill').forEach(function(btn) {
         btn.classList.remove('active');
     });
+    document.querySelectorAll('.dock-tab-btn').forEach(function(btn) {
+        btn.classList.remove('active');
+    });
 
     var p = document.getElementById('pane-' + id);
-    var b = document.getElementById('tab-nav-' + id);
+    var bDesk = document.getElementById('tab-nav-' + id);
+    var bMob = document.getElementById('mob-nav-' + id);
 
     if (p) {
         p.classList.add('active');
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-    if (b) {
-        b.classList.add('active');
-        b.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-    }
+    if (bDesk) bDesk.classList.add('active');
+    if (bMob) bMob.classList.add('active');
 }
 
 function openContactModal() {
